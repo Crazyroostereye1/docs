@@ -340,6 +340,172 @@ Im Fehlerfall (Rot) wird die Gleichspannung von der Batterie über eine Wechselr
 
 Alle USV-Typen haben einen Anschluss über den der Computer Zeitgleich über den Fehler Informiert werden kann, um ein Herunterfahren zu Initialisiere. 
 
+## Bussysteme
+
+### PCI-Bus – Der langjährige Standardbus auf dem Mainboard
+
+Der PCI-Bus (Peripheral Component Interconnect Bus) war bis zur Einführung von PCIe der standardmäßig verbaute Slot auf allen gängigen Mainboards (vgl. Abschnitt 2.9, Steckplätze). Er wurde 1991 von Intel vorgestellt und war seit der Markteinführung der Pentium Prozessoren 1993 auf Mainboards zu finden. Heutige Desktop Motherboards bringen diesen Bus-Steckplatz nicht mehr mit.
+
+Durch sogenannte Brücken (Bridges) stehen alle notwendigen PCKomponenten mit allen anderen Bussystemen in Kontakt. Die Anbindung des PCI-Busses an den prozessorinternen Bus wird durch die sogenannte Host Bridge im PCI-Chipsatz gewährleistet. Diese passt unterschiedliche Taktfrequenzen an und koordiniert die Schreib- und Leseanforderungen für den PCI-Bus. Durch die hiermit vorhandene Entkopplung kann der Prozessor weitere Berechnungen ausführen, während gleichzeitig beispielsweise Daten vom Hauptspeicher zur Grafikkarte transportiert werden.
+
+Für die Ankopplung anderer Bussysteme werden interne und externe Brücken (PCI to N.N.) unterschieden. Sowohl Bus-Mastering als auch der Plug-&-Play-Modus wird vom PCI-Bus unterstützt. An den PCI-Bus können maximal 10 Geräte angeschlossen werden, die als Master oder als Slave betrieben werden können. Der Master kann bei Bedarf die Kontrolle über die Kommunikation auf dem Bus übernehmen. Bei mehr als 10 PCI Geräte, kann ein weiterer PCI Bus über eine PCI-PCI-Bridge realisiert werden.
+
+Bus-Mastering beschreibt eine Technologie, bei der der Mikroprozessor zeitweilig die Kontrolle über den Bus an eine Komponente (den Busmaster) abgibt. Mithilfe von Plug-&-Play werden Erweiterungskarten im PCI-Slot automatisch erkannt und konfiguriert.
+
+Der PCI-Bus ist ein gänzlich neues Buskonzept, welches sich stark vom ISA-Bus unterscheidet. Einige Merkmale sind:
+
+- Die Verbindung zwischen Prozessor und Bus erfolgt über eine Bridge.
+- Die Busbreite beträgt 32 Bit oder 64 Bit.
+- Adress- und Datenleitungen sind nicht mehr voneinander getrennt.
+- Möglichkeit für Burst-Transfers (siehe nachfolgenden Abschnitt - Burst-Transfer)
+- Unterstützung für den ISA-Bus über eine PCI-to-ISA-Bridge
+
+Der Bus wird über einen separaten Chip gesteuert, welcher PCI-Bridge genannt wird. Die Datenübermittlung erfolgt zwischen CPU und PCI-Bridge, während die Bridge den Datentransfer auf dem Bus steuert. Eine weitere Aufgabe der PCI-Bridge ist die Umsetzung der I/O-Zugriffe des Prozessors auf die PCI-Buszugriffe.
+
+### Busbreite
+
+Die Busbreite des PCI-Busses war anfangs bei 32 Bit für Adressen und Daten. Mit einem Bustransfer können 4 Datenbyte übertragen und ein Speicherbereich von maximal 4 GB angesprochen werden. Mit der PCI-Version 2.1 1994 war eine Erweiterung auf 64 Bit möglich. 64-Bit-PCI ist abwärtskompatibel zu 32-Bit-PCI, sodass in einem System beide PCI-Arten nebeneinander existieren können.
+
+### PCI-Extended (PCI-X)
+
+Die 64-Bit-Version von PCI diente bei der Entwicklung von PCI-X (Extended) als Basis. PCI-X Version 1.0 erlaubt einen Takt von 66 MHz oder 133 MHz, Version 2.0 macht 266 MHz und sogar 533 MHz möglich. Dies entspricht Transfergeschwindigkeiten von 532 MB/s, 1064 MB/s, 2,15 GB/s und 4,3 GB/s. Obwohl die Geschwindigkeit der jüngsten Versionen PCI-X 266 und PCI-X533 mit dem aufkommenden PCIe konkurrenzfähig war, fanden sie kaum Verwendung und wurden bald durch PCI Express (PCIe) ersetzt. PCIe ist weniger komplex und anfällig, außerdem sind die neuen Slots viel kürzer, benötigen weniger Platz und können aus weniger Material gefertigt werden.
+
+### PCI-Slot-Varianten
+
+Die Slots für PCI, PCI-X und PCI Express verfügen über Kerben, die das
+
+Einstecken ungeeigneter Karten verhindern sollen:
+
+**BILD HIER**
+
+In einen PCI-X-Slot passen auch PCI-Karten mit 32 Bit, wobei dann alle Karten auf dem PCI-X-Bus mit Standard PCI-Geschwindigkeit betrieben werden. Kürzere PCIe-Karten passen auch in die längeren Slots, also z. B. eine x1-Karte in einen x4-Slot.
+
+### Adressen- und Daten-Multiplex
+
+Im PCI-Bus sind die Adress- und Datenleitungen nicht voneinander getrennt, sondern teilen sich die gleichen Leitungen. Dadurch ist zwar die Übertragungszeit für Daten länger, aufgrund der hohen Taktrate und der großen Datenbusbreite konnte allerdings immer noch ein, im Vergleich zum ISA-Bus, sehr hoher Datendurchsatz erreicht werden. Übliche Übertragungsraten im PCI-Bus sind:
+
+ 
+
+- 133 MB/s bei einem 32-Bit-Bus und 33 MHz Bustakt (PCI 2.0).
+- 266 MB/s bei einem 32-Bit-Bus und 66 MHz Bustakt (PCI 32 Bit 2.1).
+- 533 MB/s bei einem 64-Bit-Bus und 66 MHz Bustakt (PCI 64 Bit 2.1, PCI 2.2–3.0).
+   
+
+In älteren Desktop-PCs sind fast ausschließlich Standard PCI-Slots vorzufinden. Die schnelleren PCI-Varianten sind in der Regel auf Workstations- und Server-Boards beschränkt
+
+### Burst-Transfer
+
+Beim PCI-Bus gibt es einen Burst-Modus. Er beschleunigt Lese- und Schreiboperationen. Die Startadresse wird nur ein einziges Mal übertragen und danach von der Bridge und der Einsteckkarte selbstständig erhöht. Anschließend genügt es, die Daten über den Bus zu übertragen. Bei einem 32-Bit-Bus mit 33 MHz Bustakt erhöht sich so die Transferrate beim Burst-Zugriff auf 133 Mbit/s. Der
+Burst-Transfer wird von der PCI-Bridge automatisch umgesetzt. Selbst nicht sequenzielle Zugriffe werden zwischengespeichert und soweit wie möglich sequenziell abgearbeitet.
+
+### Unterstützung für andere Bussysteme
+
+Der PCI-Bus kann durch Bridges zu anderen Bussystemen kompatibel gemacht werden, z. B. durch eine PCI-ISABridge. Somit besteht grundsätzlich kein Problem, in einem Rechner mit PCI-Bus auch noch vorhandene ISAKarten zu betreiben. Allerdings müssen die entsprechenden Steckplätze vorhanden sein, denn eine ISA-Karte kann nicht in einem PCI-Steckplatz betrieben werden.
+
+### Lesevorgang über den PCI-Bus
+
+Die Übertragung von Daten an eine Einsteckkarte läuft über den PCI-Bus folgendermaßen ab:
+
+- Der Schreibtransfer wird über die Konfigurationsleitungen initiiert.
+- Die I/O-Adresse wird über die Adress-/Datenleitungen übertragen.
+- Anschließend werden die Daten über die Adress-/Datenleitungen an die Einsteckkarte übertragen.
+- Die Einsteckkarte übernimmt die Daten und verarbeitet diese weiter.
+
+### Schreibvorgang über den PCI-Bus
+
+Die Übertragung von Daten an eine Einsteckkarte läuft über den PCI-Bus folgendermaßen ab:
+
+- Der Schreibtransfer wird über die Konfigurationsleitungen initiiert.
+- Die I/O-Adresse wird über die Adress-/Datenleitungen übertragen.
+- Anschließend werden die Daten über die Adress-/Datenleitungen an die Einsteckkarte übertragen.
+- Die Einsteckkarte übernimmt die Daten und verarbeitet diese weiter.
+
+### Interrupts im PCI-Bus
+
+Die IRQ-Leitungen (vgl. Abschnitt 6.4) des ISA-Busses entfallen beim PCI-Bus. Als Ersatz gibt es pro Slot vier INTLeitungen, nämlich INTA, INTB, INTC und INTD. Gewöhnlich wird nur die Leitung INTA verwendet. Benötigt eine Einsteckkarte mehr als eine Interrupt-Leitung, so kann sie auf die verbleibenden drei Leitungen zurückgreifen. Jeder Steckplatz besitzt separate INT-Leitungen.
+
+ 
+
+Aus Kompatibilitätsgründen werden diese Interrupt-Leitungen auf die IRQ-Leitungen des ISA-Busses abgebildet. Die Umsetzung findet in der PCI-Bridge statt. Die Vergabe der IRQ-Leitungen ist beim PCI-Bus nicht mehr starr, wie das noch beim ISA-Bus der Fall war. Die Zuordnung wird vom BIOS durchgeführt. Aufgrund dieser Technologie ist es möglich, dass sich zwei Einsteckkarten einen IRQ teilen.
+
+ 
+
+Sollten Sie feststellen, dass ein IRQ doppelt vergeben ist, liegt nicht unbedingt ein Ressourcenkonflikt vor, falls es sich bei den Einsteckkarten um PCI-Geräte handelt. Dieses sogenannte IRQ-Sharing steht allen PCI-, AGP- und USB-Komponenten zur Verfügung.
+
+### Nachfolger vom PCI
+
+Als wichtigste Neuerung wurde die PCIe-Schnittstelle im Vergleich zum parallelen PCI-Bus auf eine serielle Punkt-zu-Punkt-Verbindung umgestellt. Die Daten können die Leitungen in beide Richtungen unabhängig voneinander passieren (vollduplexfähig).
+
+Die Daten gehen zu einem zentralen Switch im Chipsatz, der sie an das Zielgerät weiterleitet. Dennoch können zwei Geräte auf diese Weise direkt miteinander kommunizieren, ohne dabei von anderen Geräten gestört zu werden. Dies ist vor allem für die Koppelung von mehreren Grafikkarten von Bedeutung.
+
+Die Daten werden über sogenannte Lanes (Wege, Pfade) ausgetauscht. Auf jeder Lane werden die Bits seriell übertragen. Der Chipsatz des Mainboards stellt dabei um die 40 Lanes zur Verfügung, die z. B. so aufgeteilt sind:
+
+- zwei 16-Lane-Steckplätze für Grafikkarten (PEG x16) ①
+- ein 4-Lane-Steckplatz PCIe x4 ②
+- vier 1- Lane - Steckplätze PCIe x1③
+- Bereits in der ersten PCIe-Version 1.0/1.1 konnten 250 MB/s übertragen werden, was etwa dem Doppelten einer PCI-Schnittstelle (133 MB/s) entspricht. Bereits in der ersten PCIe-Version 1.0/1.1 konnten 250 MB/s übertragen werden, was etwa dem Doppelten einer PCI-Schnittstelle (133 MB/s) entspricht. 
+
+Dennoch gibt es bereits Eckdaten für die nächste Generation, die im Vergleich zu den bisherigen Versionen nachfolgend aufgeführt ist:
+
+ 
+
+| Version | Nettotransferrate je Lande | Codierung       | Verfügbar seit/ ab |
+|:-------:|:--------------------------:|:---------------:| ------------------:|
+| 1.x     | 250 MB/s                   | 8b10b           | 2004               |
+| 2.x     | 500 MB/s                   | 8b10b           | 2007               |
+| 3.x     | 985 MB/s                   | Scrambling      | 2011               |
+| 4.x     | 1969 MB/s                  | Scrambling      | 2017               |
+| 5.x     | 3938 MB/s                  | Scrambling      | 2019               |
+| 6.x     | 7529 MB/s                  | PAM-4 (geplant) | 2021               |
+
+### Codierung
+
+Bis zur PCIe Version 3.x wurde als Leitungscodierverfahren 8b10b verwendet. Anschließend folgte Scrambling, wird auch als 128b/130b bezeichnet.
+
+Der Leitungscode definiert, wie digitale Daten physisch übertragen werden. Vergleichbar mit physikalischen Größen, die für andere Systeme gelten.
+
+### 8b10b
+
+Beim 8b10b-Verfahren werden 8-Bit-Nutzdaten über einen Algorithmus mit 10 Bit codiert.
+
+Bedeutet, dass nach der Codierung sowohl die Daten, als auch weitere, für die Übertragung wichtige Informationen in einem 10 Bit großen Datenwort enthalten sind.
+
+Auf der Empfangsseite erfolgt die Decodierung. Mit zusätzlichen Informationen ist es möglich, bestimmte Parameter der Übertragung zu ermitteln. Ein Nachteil der 8b10b-Codierung ist das erhöhte Datenvolumen, wodurch der erzeugte Datenstrom 20 % Overhead (Verwaltungsdaten) enthält.
+
+### Scrambling
+
+Beim Scrambling handelt es sich, um ein Codierungsverfahren. Die Daten werden dabei so umgestellt, dass sich der Wechsel von mit 0 bzw. 1 beginnenden Zahlenreihen regelmäßig wiederholt. Das Verfahren ist umkehrbar, sodass die Nutzdaten auf der Empfängerseite wieder in die korrekte Reihenfolge gebracht werden können.Vorteil des Verfahrens ist der sehr geringe Overhead von weniger als 2 %. Dieser entsteht, weil jeweils 128-Bit-Daten 2 Synchronisationsbits vorgestellt werden.
+
+### PAM-4
+
+PAM-4 steht als Abkürzung für „Puls-Amplituden-Modulation mit vier diskreten Amplitudenwerten“. Es eignet sich wegen seiner hohen Störempfindlichkeit eigentlich nur als Übertragungsverfahren für kurze Strecken und stammt ursprünglich aus der analogen Nachrichtentechnik. Trotzdem hat man dieses Verfahren erfolgreich für die Netzwerktechnik adaptiert und überträgt dieses nun voraussichtlich auf PCIe 6.
+
+### PCI-Express-Grafikkarten (PCI Express For Graphics, PEG)
+
+Die Stromversorgung der Grafikkarten über den Steckplatz von 25 Watt auf 75 Watt erhöht, um dem Strombedarf moderner Grafikkarten genügen zu können. Falls dies nicht ausreicht, gibt es am Netzteil einen oder mehrere sechspolige Anschlüsse für die Grafikkarte (PEG Connectors), die jeweils 75 Watt liefern. Seit PCIe 2.0 gibt es auch Zusatzstecker mit acht Kontakten, die 150 W bereitstellen.
+
+Für Grafikkarten werden meist 16 Lanes in einem Steckplatz zusammengeführt, woraus sich bei Slots der PCIe- Version 2.x eine theoretische Übertragungsrate von 8 GB/s und bei PCIe 3.x sogar 15,75 GB/s ergibt. PCIe 4.x würde dies rein rechnerisch nochmals verdoppeln, allerdings zeigen aktuelle Spielbenchmarks nahezu identische Werte zu PCIe 3.x, daher dürfte momentan das Argument für PCIe 4.x der Einsatz von NVME sein.
+
+### Bussteckplätze in Notebooks
+
+Von außen erreichbare Bussteckplätze waren lange Zeit die einzige Möglichkeit, Erweiterungen an einem mobilen Gerät vorzunehmen. Dies hat sich geändert und tatsächlich findet man heute auf Webseiten für den Kauf von Notebooks, keine Filter zum Einschränken der Suche auf Geräte mit Erweiterungssteckplätzen. Dies liegt unter anderem am M2 Steckplatz, der unterschiedliche, verschiedene Karten aufnehmen kann.
+
+ 
+
+Während für SSD ́s nur die Codierung M und B in Frage kommt, sind mit den sogenannten A und E Keys auch andere Typen von Hardware, wie LTE Module oder WLAN Adapter einsetzbar.Die Konstruktion der Notebooks dahingehend hat sich verändert, die Erweiterungssteckplätze verhältnismäßig leicht unter Abdeckungen zu finden sind oder der Geräteboden abgenommen werden kann.
+
+### Chronologische Übersicht aller Bussysteme
+
+**BILD HIER**
+
+Abweichende PCIe-Slot Varianten, wie beispielsweise PCIe 3.0 mit 12 Lanes, wären technisch realisierbar, jedoch entsprechen nur 1x-, 4x-, 8x- und 16x-PCIe Slots gültigem Standard.
+
+Der M.2 Anschluss ist zusätzlich genannt, obwohl es sich um eine PCIe Variante handelt.
+
+PCIe 5.x und 6.x sind auf Desktopsystemen noch nicht umgesetzt.
+
+**BILD HIER**
+
 ## Externe Schnittstelle
 
 Im Allgemeinen ist eine Schnittstelle ein Übergabepunkt, an dem eine Verbindung zwischen zwei eigenständigen Komponenten hergestellt wird. Standardisierte Schnittstellen gibt es sowohl als Software als auch als Hardware, um bestimmte Geräte miteinander zu verbinden. Zu den ausgedienten, etablierten Schnittstellen zählen die seriellen Schnittstellen (RS232), der Parallel-Port (IEEE-1284) und die PS/2 Anschlüsse, welche heutzutage immer noch aus Kompatibilitätsgründen verbaut werden.
@@ -464,6 +630,7 @@ Aktuelle Grafikkarten besitzen oft 6GB oder mehr Grafikspeicher, bei professione
 #### Bustypen und Schnittstellen für Grafikkarten
 
 ##### PCI-Express-Grafikkarten
+
 ![](./_static/Grafik_PCIe.jpeg)
 
 Der RAMDAC (Random Access Memory Digital/Analog Converter) ist ein Chip der auf der Grafikkarte für die Umwandlung von digitalen Videosignalen zu analogen Bildsignalen verantwortlich ist. Er wird nur benötigt wenn ein Monitor beispielsweise über VGA angeschlossen wird.
@@ -473,6 +640,7 @@ Der PCI-Express-Steckplatz, an dem 16 Lanes angeschlossen sind (PCIe x16), wird 
 ### Monitorschnittstelle
 
 #### VGA – Video Graphics Array
+
 ![](./_static/Grafik_VGA.png)
 
 Die VGA-Buchse ist 15-Polig. VGA stellt neben den analogen Bildsignalen für die drei Farbauszüge Rot, Grün und Blau separate horizontale und vertikale Synchronsignale bereit, die den Monitor steuern. Außerdem kann dem PC über ein zusätzliches VGA-Signal mitgeteilt werden, ob ein Monitor angeschlossen ist. Auch der Betriebszustand des Monitors kann geändert werden.
