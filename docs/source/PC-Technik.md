@@ -694,3 +694,301 @@ Sie stellt nicht nur eine Videoverbindung dar, sondern überträgt Daten. Mit de
 ### Multiple Grafikausgabe
 
 Sowohl der Multimonitorbetrieb mit mehreren Grafikkarten als auch Dual Head bzw. Multi Head mit einer einzelnen Karte müssen vom Betriebssystem und dem Grafikkartentreiber unterstützt werden. Dies ist bei Windows sowie Mac OS und Linux der Fall. Multi Head ist bei heutigen Grafikkarten Standard.
+
+## Massenspeicher
+
+### Einteilung von Speichermedien
+
+In der IT unterscheiden wir zwischen drei Speicherarten.
+
+| Name              | Beschreibung                                                                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Online-Speicher   | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.
+Er enthält Daten, die nur selten benötigt werden, wie z.B. ein Backup.
+Beispiele: Externe Festplatten, DVD/CDs |
+| Nearline-Speicher | Hier werden Daten gespeichert, die immer wieder gebraucht werden, aber nicht durchgehen und nicht im Moment.                                                                                |
+| Offline-Speicher  | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.
+Er enthält Daten, die nur selten benötigt werden, wie z.B. ein Backup.Beispiele: Externe Festplatten, DVD/CDs  |
+
+Speichermedien unterscheiden sich bezüglich Ihrer:
+
+- Speicherkapazität
+
+- Lese-/Schreibgeschwindigkeit
+
+- Datenhaltbarkeit
+
+- Datensicherheit
+
+### Flash-Speichermedien
+
+Flash-Speicher sind nicht flüchtige Speicher auf Halbleiterbasis (ohne eigene Stromversorgung) und ohne mechanische Bauelemente. Obwohl keine eigene Stromversorgung benötigt wird, können hohe Speicherkapazitäten erreicht werden.
+Beispiele: USB-Sticks und SD-Karten.
+
+### Festplattenlaufwerke
+
+Definition:
+Ein Speichermedium, welches Daten zuverlässig und mit hoher Verfügbarkeit (Abrufbarkeit) speichert.
+Aufbau und Funktion:
+HDD (Hard Disk Drive)
+Bestandteile:
+
+1. Speichermedium (Disk, Platte) 
+
+2. Spindel
+
+3. Beweglicher Plattenarm
+
+4. Lese-/Schreibköpfe
+
+5. Schnittstelle (z.B. SCSI)
+
+6. Stromversorgung
+
+![](./_static/PC-Technik/Massenspeicher/HDD_Intern.png)
+
+Festplatten bestehen aus mindestens einem scheibenförmigen Speichermedium (Disk, Platte 1), das im Betrieb um eine Achse (Spindel 2) rotiert. An einem beweglich gelagerten Plattenarm (3) sind Schreib-/Leseköpfe (4) angebracht, die auf einem Luftpolster über die Plattenoberfläche gleiten. Die Schreib-/Leseköpfe magnetisieren die Plattenoberfläche und speichern so Daten darauf ab, die später wieder ausgelesen werden können.
+Die Köpfe sind über ein flexibles Kabel mit einer elektronischen Baugruppe verbunden, die aus den Signalen der Köpfe Daten zurückgewinnt und an einer Schnittstelle (5) dem Computer zur Verfügung stellt. Ein zweiter Stecker stellt die Verbindung zur Stromversorgung des Computers her (6).
+
+Aufteilung der Plattenoberfläche und Speicherkapazität
+Um Daten auf einer Festplatte anordnen und lokalisieren zu können wird die Plattenoberfläche auf folgende Weise unterteilt:
+
+![](./_static/PC-Technik/Massenspeicher/HDD_grafik.png)
+
+Jede Platte hat einen eigenen Arm mit Schreib- /Leseköpfen.
+Diese tasten die **Plattenoberfläche** nach
+magnetisierten Daten ab, oder fügen neue hinzu. Dabei fährt jeder Arm auf
+seiner Platte feste kreisförmige **Spuren** ab.
+Jede Spur ist unterteilt in einzelne Sektoren. Ein Sektor kann 512 Byte an
+Daten speichern. Die Spuren der verschiedenen Platten liegen übereinander und
+werden daher in Zylindern zusammengefasst. Alle Spuren eines Zylinders können
+gleichzeitig gelesen oder beschrieben werden.
+
+
+
+Eigenschaften von Festplatten
+Die Leistungsfähigkeit von Festplatten wird unter anderem an folgenden Kriterien festgemacht:
+
+| Name                       | Beschreibung                                                                                                                                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Umdrehungs-Geschwindigkeit | Gibt die Umdrehungen in der min an. Je höher die Umdrehungszahl, desto schneller ist der Datentransferrate und auch die Lautstärke.
+<br/>z.B. 4200,5400,7200, 10000 und 15000 U/min                           |
+| Cache-Kapazität            | Kleiner Zwischenspeicher vor und nach dem Zugriff auf die Festplatte, der den Datentransfer optimiert. Die Kapazitäten liegen zwischen 512 KB und 256 MB. Ein größerer Cache bietet schnellere Transferraten. |
+| Average Seek Time          | Die Average Seek time gibt die Durchschnittszeit in Millisekunden an, die der Arm benötigt um sich in Position zu bewegen. <br/>Beispielsweise brauchen moderne Festplatten zwischen 3 und 12 ms.             |
+| Schnittstellentyp          | SCSI, SAS (Serial Attached SCSI), SATA (Serial-ATA), FireWire (IEEE 1394), USB<style>
+</style>                                                                                                                |
+
+Für die Auswahl einer Festplatte ist der geplante Einsatz
+ausschlaggebend:
+
+Für Büroanwendungen braucht man nicht die schnellste
+Festplatte, sondern eher etwas Leiseres, da sehr viel auf das Medium
+zugegriffen werden muss.
+
+Bildbearbeitung und Videoschnitt, brauchen sehr viel
+Speicher. Daher lohnt es sich hier eher eine Leistungsstärkere Festplatte zu
+kaufen.
+
+Für Serversysteme die im
+Dauerbetrieb laufen wird empfohlen auf
+Enterprise-Modelle zu setzen um die MTBF (Mean Time Between Failures) so lang
+wie möglich zu halten.
+
+Serial Attached SCSI
+
+SAS = Serial Attached SCSI (DE: Seriell angeschlossen
+SCSI)
+
+SAS ist die nächste Generation von SCSI.
+
+SAS wurden hauptsächlich in Servern oder
+Netzwerkspeichersystemen eingesetzt
+
+### Solid State Drive (SSD)
+
+Im Vergleich zu einer HDD-Festplatte, werden die Daten
+auf einem SDD in Speicherblöcken (Flash-Array) abgelegt.
+
+Vorteile:
+
+Schnellere Zugriffszeiten (Transferraten)
+
+Geringerer Stromverbrauch
+
+Keine Geräuschentwicklung
+
+Kaum Anfälligkeit gegenüber Erschütterungen
+
+Nachteile:
+
+Kurze Lebensdauer ist je nach Nutzung
+
+![](./_static/PC-Technik/Massenspeicher/SSD_grafik.png)
+
+Speichervorgang:
+
+Beim Speichern einer neuen Datei in einem Zellenblock,
+wird zuerst der gesamte Zellenblock gelöscht und dann komplett neu beschrieben.
+
+Wear-Leveling:
+
+Der Flash-Controller verteilt die Daten gleichmäßig über
+die freien Speicherblöcke im Flash Array.
+
+Das steigert die Lebenserwartung des SSD.
+
+Bad Block Management:
+
+Das Bad Block / Defect Management überwacht die
+Speicherzellen auf Abnutzung. Wird eine Speicherzelle zu stark abgenutzt und
+droht auszufallen, wird der ganze Zellenblock gesperrt und durch einen
+Zellenblock aus der Reserve ersetzt. Die Reserve-Kapazitäten reichen von 2-7%
+der Gesamtspeicherkapazität.
+
+Durch das Bad Block Management verliert ein SSD auch nach
+Jahren unter großer Beanspruchung keine Speicherkapazität.
+
+Error Correction Code / Error Detection Code:
+
+Bei ECC und EDC geht es um das Erkennen und die Korrektur
+von Bitfehlern. Je häufiger eine Speicherzelle genutzt wird, desto öfter treten
+Bitfehler auf. Bitfehler können zu Datenverlust oder inkonsistenten Daten
+führen.
+
+Garbage Collection:
+
+Hinter Garbage Collection steckt ein Hintergrundprozess,
+der vom Betriebssystem mit dem TRIM-Befehl angestoßen wird. Da beim Löschen
+einer Datei nur der Name im Dateisystem gelöscht wird und die eigentlichen
+Informationen in den Speicherzellen erhalten bleiben, kann das Betriebssystem
+nicht geleerte Speicherzellen prüfen und leeren lassen.
+
+
+
+**Hybride Festplatten:**
+
+Ist eine Mischung einer klassischen HDD (Hard Disk Drive)
+und einer SSD (Solid State Drive). Sie werden auch SSHD genannt. Sie haben
+durch die HDD eine hohe Speicherkapazität und wegen der SSD einen schnellen
+Zwischenspeicher für oft verwendete Dateien.
+
+Steckkarten auf PCIe Basis:
+
+Das sind SSDs, die per PCIe an die CPU angebunden sind,
+was eine deutlich höhere Geschwindigkeit erlaubt, als die durch SATA eingeschränkten
+SSDs.
+
+
+
+**M.2 SSDs:**
+
+M.2 SSDs sind PCIe gebundene SSDs, die mit aktuelleren
+PCIe Versionen (PCIe 3.0 oder höher) laufen und dadurch noch schneller sind.
+Bei PCIe 3.0 können dadurch sogar Übertragungsgeschwindigkeiten von bis zu 32
+GBit/s möglich sein. Intel hat 2012 Next Generation Form Factor (NGFF)
+vorgestellt, was Steckkarten auf PCIe Basis war, die aber kleiner waren und
+auch in Notebooks passten. NGFF wurde dann in M.2 umbenannt. Alle M.2 SSDs sind
+22 mm breit und können eine Länge von 30, 42, 60, 80 oder 110 mm aufweisen.
+Eine M.2 SSD mit der Bezeichnung 2260 ist demnach 22 mm  
+breit und 60 mm lang. Es gibt verschiedene Kodierungen, die bei der Wahl einer
+M.2 SSD eine große Rolle spielen. Die Kodierung des M.2 Moduls, sorgt dafür,
+dass nur passende Module mit dem 75 poligen Anschluss verbunden werden können.
+Gebräuchlich sind die Kodierungen B, M und B+M.
+
+| Anbindung                      | SATA 3    | PCIe 2.0 x2 | PCIe 2.0 x4 | PCIe 3.0 x2 | PCIe 3.0 x4 |
+| ------------------------------ | --------- | ----------- | ----------- | ----------- | ----------- |
+| Theoritische Geschwindigkeit   | 6 GBit/s  | 10 Gbit/s   | 20 GBit/s   | 16 GBit/s   | 32 GBit/s   |
+| Geschwindigkeit inkl. Overhead | ~550 MB/s | ~800 MB/s   | ~1600 MB/s  | ~1600 MB/s  | ~3200 MB/s  |
+
+**Serial ATA:**
+
+SATA ist ein heute nicht mehr ganz neuer Standard, der
+die IDE- Schnittstelle abgelöst hat.
+
+SATA wird verwendet um Festplatten und SSDs an das
+Mainboard anzuschließen.
+
+Es sind mit SATA3 Datentransferraten bis zu 6 GB/s
+möglich. SATA-Festplatten sind verhältnismäßig günstig und werden deshalb oft
+neben einer SSD für das Betriebsystem als Massenspeicher verwendet.
+
+
+
+**Externe Festplatten:**
+
+Externe Festplatten mit USB-Anschluss eignen sich als
+mobile Datenträger und haben eine deutlich höhere Kapazität als
+Flash-Speichermedien. Parallel dazu gab es solche Festplatten auch mit dem
+FireWire-Anschluss, der sich gegen USB jedoch nicht durchsetzen konnte und
+zunehmend vom Markt verschwindet.
+
+
+### Raid Systeme
+
+
+
+
+
+
+Der Aufbau von einem RAID-Systeme
+
+Obwohl einzelne Festplatten mit z.B. 6 TB oder mehr
+ausreichend Speicherplatz für leistungsfähige PC-Systeme bieten, bleiben
+bestehen:
+
+2. Der Defekt von Festplatten kann das ganze System beschädigen.
+
+3. Die Datentransferrate ist auf die Leistung einer einzelnen Platte beschränkt.
+
+Für diese Probleme gibt es RAID-Systeme. RAIDs ist eine
+Einheit die aus mehreren Festplatten besteht.  Die Festplatten sind zu einem gemeinsamen Massenspeicher verbunden.
+
+RAID = Redundant Arras of Independent (Inexpensive) Disks
+
+Ein RAID-System besteht aus mehreren baugleichen
+Festplatten. Außerdem gibt es im RAID auch noch einen Controller der alles
+steuert. Den gibt es einmal als Hardware Komponente auf dem Mainboard oder als
+Erweiterungskarte aber es gibt ihn auch als Software z.B. in  dem Betriebssystem.
+
+Raids können in RAID-Level unterschieden werden die von
+deinem Ziel abhängig sind wenn du z.B. ein RAID haben willst das auf hohe
+Performance optimiert läuft brauchst du ein bestimmtes RAID-Level:
+
+| Name    | Beschreibung                                                                                                                                                                                                                                  |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RAID 0  | Die zu speichernde Daten werden über mehrere Festplatten verteilt. Das ermöglicht eine höhere Datentransverrate da, Daten gleichzeitig geschrieben und gelesen werden können. <br/>Bezeichnung: Disk Striping                                |
+| RAID 1  | Die Daten werden einmal als Original gespeichert und eine Kopie auf einer externen Festplatte gespeichert. Wenn eine Platte defekt ist gibt es immer noch Kopie auf der anderen Festplatte.<br/>Wird auch Spiegelung oder Mirroring genannt. |
+| RAID 5  | Funktioniert wie RAID 0 nur das zusätzlich werden beim Schreiben der Daten zur Fehlerkorrektur berechnet und ebenfalls auf alle Festplatten verteilt. Be einem Ausfall kann man fehlende Daten mit Strip Sets mit Parity rekonstruieren.      |
+| RAID 10 | Dieser RAID-Level spiegelt zwei RAID 0 Strips (auch RAID 0+1). Er bietet so die gleiche Performance wie ein Strip Set und paart sie mit der Ausfallsicherheit vin Spiegelsätzen.                                                              |
+
+Vorteile
+
+- Unterschiedliche RAID Level
+
+- Meistens Bessere Datenübertragung
+
+- Hohe Sicherheit
+
+Nachteile
+
+Kann davon abhängig sein das auch mal die
+Schreibgeschwindigkeit bei RAID 1 langsamer ist da es gleichzeitig gleichgroße
+Dateien geschrieben wird.
+
+### Optische Medien
+
+Optische Speichermedien:
+
+| Bezeichnung | Ausgescrieben          | Max. Layer        | Speicherkapazität |
+| ----------- | ---------------------- | ----------------- | ----------------- |
+| CD          | Compact-Disk           | 1 Layer           | Max. 900MB        |
+| DVD         | Digital Versatile Disk | 2 Layer           | Max. 17GB         |
+| BD (BDXL)   | Blu-ray disk           | 2 Layer (4 Layer) | Max. 50GB (128GB) |
+
+Speichervorgang:
+
+![](./_static/PC-Technik/Massenspeicher/MSP_Spuren.png)
+
+Die gestrichelten Linien (1) entsprechen dem Abtastungsweg, den der Lesekopf des Laufwerks auf der CD nimmt. Die Einbuchtungen auf der Oberfläche stellen die sogenannten Pits (2) dar, während der Rest als Lands (3) bezeichnet wird.
+In der Anordnung und Reihenfolge der Pits und Lands wird die zu speichernde Information codiert.
+Bei allen drei Medien, wird ein Laser-Lesekopf verwendet, um Daten zu lesen oder zu schreiben.
