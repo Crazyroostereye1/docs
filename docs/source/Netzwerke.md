@@ -33,7 +33,7 @@ Die Aufgaben der ISO ist, nationale Standards zu globalisieren und mit andern zu
 
 #### Internet Corporation for Assigned Names and Numbers (ICANN)
 
-Sie ist primär zuständig für die Vergabe von Top-Level Domains wie z.B. de, com, org und IP-Adressen im Internet. Sie deferieren auch die Strukturen für dienst DNS. Die aufgaben von Verteilung von IP-Adressen haben einer Unterorganisierung weiter gegeben Namens IANA.
+Sie ist primär zuständig für die Vergabe von Top-Level Domains, wie z.B. de, com, org und IP-Adressen im Internet. Sie deferieren auch die Strukturen für dienst DNS. Die Aufgaben von Verteilung von IP-Adressen haben einer Unterorganisierung weiter gegeben Namens IANA.
 
 ### OSI-Modell
 
@@ -184,7 +184,7 @@ Zum Schutz des lokalen Netzes ist eine Firewall unabdingbar und kann je nach Fun
 **Deny** Firewall verwirft Daten, keine Fehlermeldung<br>
 **Reject** Daten werden abgelehnt mit Fehlermeldung
 
-Es gibt Verschiedene Implementierungsverfahren je nach Anforderung, man unterscheidet zwischen
+Es gibt Verschiedene Implementierungsverfahren je nach Anforderung. Man unterscheidet zwischen:
 
 <u>**Paketfilter**</u> sind die einfachste Variante einer Firewall dar. Hierbei wird der Header bei Layer 3 und 4 Protokolle überprüft und je nach Filter zugelassen oder gesperrt
 Nachteile sind z.b. der Missbrauch von Protokollfunktionen oder eine Verschleierung durch Verwendung von erlaubter Ports für auf Port x nicht erlaubte ohne dass diese Gefiltert werden
@@ -195,7 +195,7 @@ Nachteile sind z.b. der Missbrauch von Protokollfunktionen oder eine Verschleier
 
 ### Sind die folgenden Geräte „aktiv“ oder „passiv“?
 
-| Gerät                                                 | Aktib/Passiv    |
+| Gerät                                                 | Aktiv/Passiv    |
 | ----------------------------------------------------- | --------------- |
 | Hub (Schicht 1)                                       | Passiv          |
 | Bridge (Schicht 2)                                    | Passiv          |
