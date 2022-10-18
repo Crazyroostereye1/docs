@@ -769,14 +769,14 @@ gleichzeitig gelesen oder beschrieben werden.
 Eigenschaften von Festplatten
 Die Leistungsfähigkeit von Festplatten wird unter anderem an folgenden Kriterien festgemacht:
 
-| Name                       | Beschreibung                                                                                                                                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Umdrehungs-Geschwindigkeit | Gibt die Umdrehungen in der min an. Je höher die Umdrehungszahl, desto schneller ist der Datentransferrate und auch die Lautstärke.
-<br/>z.B. 4200,5400,7200, 10000 und 15000 U/min                           |
-| Cache-Kapazität            | Kleiner Zwischenspeicher vor und nach dem Zugriff auf die Festplatte, der den Datentransfer optimiert. Die Kapazitäten liegen zwischen 512 KB und 256 MB. Ein größerer Cache bietet schnellere Transferraten. |
-| Average Seek Time          | Die Average Seek time gibt die Durchschnittszeit in Millisekunden an, die der Arm benötigt um sich in Position zu bewegen. <br/>Beispielsweise brauchen moderne Festplatten zwischen 3 und 12 ms.             |
-| Schnittstellentyp          | SCSI, SAS (Serial Attached SCSI), SATA (Serial-ATA), FireWire (IEEE 1394), USB<style>
-</style>                                                                                                                |
+| Name                       | Beschreibung                                                                                                                                                                                                          |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Umdrehungs-Geschwindigkeit | Gibt die Umdrehungen in der min an. Je höher die<br\> Umdrehungszahl, desto schneller ist der<br/> Datentransferrate<br/> und auch die Lautstärke.
+<br/>z.B. 4200,5400,7200, 10000 und 15000 U/min<br/>               |
+| Cache-Kapazität            | Kleiner Zwischenspeicher vor und nach dem Zugriff auf die Festplatte, der den Datentransfer optimiert.<br> Die Kapazitäten liegen zwischen 512 KB und 256 MB.<br> Ein größerer Cache bietet schnellere Transferraten. |
+| Average Seek Time          | Die Average Seek time gibt die Durchschnittszeit in Millisekunden an,<br> die der Arm benötigt um sich in Position zu bewegen. <br/>Beispielsweise brauchen moderne Festplatten zwischen 3 und 12 ms.                 |
+| Schnittstellentyp          | SCSI, SAS (Serial Attached SCSI), SATA (Serial-ATA),<br> FireWire (IEEE 1394), USB<style>
+</style>                                                                                                                    |
 
 Für die Auswahl einer Festplatte ist der geplante Einsatz
 ausschlaggebend:
@@ -954,12 +954,14 @@ Raids können in RAID-Level unterschieden werden die von
 deinem Ziel abhängig sind wenn du z.B. ein RAID haben willst das auf hohe
 Performance optimiert läuft brauchst du ein bestimmtes RAID-Level:
 
-| Name    | Beschreibung                                                                                                                                                                                                                                  |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RAID 0  | Die zu speichernde Daten werden über mehrere Festplatten verteilt. Das ermöglicht eine höhere Datentransverrate da, Daten gleichzeitig geschrieben und gelesen werden können. <br/>Bezeichnung: Disk Striping                                |
-| RAID 1  | Die Daten werden einmal als Original gespeichert und eine Kopie auf einer externen Festplatte gespeichert. Wenn eine Platte defekt ist gibt es immer noch Kopie auf der anderen Festplatte.<br/>Wird auch Spiegelung oder Mirroring genannt. |
-| RAID 5  | Funktioniert wie RAID 0 nur das zusätzlich werden beim Schreiben der Daten zur Fehlerkorrektur berechnet und ebenfalls auf alle Festplatten verteilt. Be einem Ausfall kann man fehlende Daten mit Strip Sets mit Parity rekonstruieren.      |
-| RAID 10 | Dieser RAID-Level spiegelt zwei RAID 0 Strips (auch RAID 0+1). Er bietet so die gleiche Performance wie ein Strip Set und paart sie mit der Ausfallsicherheit vin Spiegelsätzen.                                                              |
+| Name    | Beschreibung                                                                                                                                                                                                                                          |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RAID 0  | Die zu speichernde Daten werden über mehrere Festplatten verteilt.<br> Das ermöglicht eine höhere Datentransverrate da,<br> Daten gleichzeitig geschrieben und gelesen werden können. 
+<br/>Bezeichnung: Disk Striping                                |
+| RAID 1  | Die Daten werden einmal als Original gespeichert <br>und eine Kopie auf einer externen Festplatte gespeichert.<br> Wenn eine Platte defekt ist gibt es immer noch Kopie auf der anderen Festplatte.
+<br/>Wird auch Spiegelung oder Mirroring genannt. |
+| RAID 5  | Funktioniert wie RAID 0 nur das zusätzlich werden beim Schreiben<br> der Daten zur Fehlerkorrektur berechnet und ebenfalls auf alle Festplatten verteilt.<br> Be einem Ausfall kann man fehlende Daten mit Strip Sets mit Parity rekonstruieren.      |
+| RAID 10 | Dieser RAID-Level spiegelt zwei RAID 0 Strips (auch RAID 0+1). <br>Er bietet so die gleiche Performance wie ein Strip Set<br> und paart sie mit der Ausfallsicherheit vin Spiegelsätzen.                                                              |
 
 Vorteile
 
