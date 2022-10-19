@@ -701,14 +701,11 @@ Sowohl der Multimonitorbetrieb mit mehreren Grafikkarten als auch Dual Head bzw.
 
 In der IT unterscheiden wir zwischen drei Speicherarten.
 
-| Name              | Beschreibung                                                                                                                                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Online-Speicher   | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.
-Er enthält Daten, die nur selten benötigt werden, wie z.B. ein Backup.
-Beispiele: Externe Festplatten, DVD/CDs |
-| Nearline-Speicher | Hier werden Daten gespeichert, die immer wieder gebraucht werden, aber nicht durchgehen und nicht im Moment.                                                                                |
-| Offline-Speicher  | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.
-Er enthält Daten, die nur selten benötigt werden, wie z.B. ein Backup.Beispiele: Externe Festplatten, DVD/CDs  |
+|Name | Beschreibung |
+|:----|:-------------|
+| Online-Speicher | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.<br>Er enthält Daten, die nur selten benötigt werden,<br> wie z.B. ein Backup.<br>Beispiele: Externe Festplatten, DVD/CDs |
+| Nearline-Speicher | Hier werden Daten gespeichert,<br> die immer wieder gebraucht werden,<br> aber nicht durchgehen und nicht im Moment. |
+| Offline-Speicher  | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.<br>Er enthält Daten, die nur selten benötigt werden,<br> wie z.B. ein Backup.<br>Beispiele: Externe Festplatten, DVD/CDs  |
 
 Speichermedien unterscheiden sich bezüglich Ihrer:
 
@@ -769,17 +766,14 @@ gleichzeitig gelesen oder beschrieben werden.
 Eigenschaften von Festplatten
 Die Leistungsfähigkeit von Festplatten wird unter anderem an folgenden Kriterien festgemacht:
 
-| Name                       | Beschreibung                                                                                                                                                                                                          |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Umdrehungs-Geschwindigkeit | Gibt die Umdrehungen in der min an. Je höher die<br\> Umdrehungszahl, desto schneller ist der<br/> Datentransferrate<br/> und auch die Lautstärke.
-<br/>z.B. 4200,5400,7200, 10000 und 15000 U/min<br/>               |
-| Cache-Kapazität            | Kleiner Zwischenspeicher vor und nach dem Zugriff auf die Festplatte, der den Datentransfer optimiert.<br> Die Kapazitäten liegen zwischen 512 KB und 256 MB.<br> Ein größerer Cache bietet schnellere Transferraten. |
-| Average Seek Time          | Die Average Seek time gibt die Durchschnittszeit in Millisekunden an,<br> die der Arm benötigt um sich in Position zu bewegen. <br/>Beispielsweise brauchen moderne Festplatten zwischen 3 und 12 ms.                 |
-| Schnittstellentyp          | SCSI, SAS (Serial Attached SCSI), SATA (Serial-ATA),<br> FireWire (IEEE 1394), USB<style>
-</style>                                                                                                                    |
+| Name | Beschreibung |
+|:-----|:-------------|
+| Umdrehungs-Geschwindigkeit | Gibt die Umdrehungen in der min an.<br>Je höher die Umdrehungszahl,<br> desto schneller ist der Datentransferrate und auch die Lautstärke.<br/>z.B. 4200,5400,7200, 10000 und 15000 U/min<br/>|
+| Cache-Kapazität | Kleiner Zwischenspeicher vor und nach dem Zugriff auf die Festplatte,<br> der den Datentransfer optimiert.<br> Die Kapazitäten liegen zwischen 512 KB und 256 MB.<br> Ein größerer Cache bietet schnellere Transferraten. |
+| Average Seek Time | Die Average Seek time gibt die Durchschnittszeit in Millisekunden an,<br> die der Arm benötigt um sich in Position zu bewegen. <br/>Beispielsweise brauchen moderne Festplatten zwischen 3 und 12 ms. |
+| Schnittstellentyp | SCSI, SAS (Serial Attached SCSI), SATA (Serial-ATA),<br> FireWire (IEEE 1394), USB |
 
-Für die Auswahl einer Festplatte ist der geplante Einsatz
-ausschlaggebend:
+**Für die Auswahl einer Festplatte ist der geplante Einsatz ausschlaggebend:**
 
 Für Büroanwendungen braucht man nicht die schnellste
 Festplatte, sondern eher etwas Leiseres, da sehr viel auf das Medium
@@ -954,14 +948,12 @@ Raids können in RAID-Level unterschieden werden die von
 deinem Ziel abhängig sind wenn du z.B. ein RAID haben willst das auf hohe
 Performance optimiert läuft brauchst du ein bestimmtes RAID-Level:
 
-| Name    | Beschreibung                                                                                                                                                                                                                                          |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RAID 0  | Die zu speichernde Daten werden über mehrere Festplatten verteilt.<br> Das ermöglicht eine höhere Datentransverrate da,<br> Daten gleichzeitig geschrieben und gelesen werden können. 
-<br/>Bezeichnung: Disk Striping                                |
-| RAID 1  | Die Daten werden einmal als Original gespeichert <br>und eine Kopie auf einer externen Festplatte gespeichert.<br> Wenn eine Platte defekt ist gibt es immer noch Kopie auf der anderen Festplatte.
-<br/>Wird auch Spiegelung oder Mirroring genannt. |
-| RAID 5  | Funktioniert wie RAID 0 nur das zusätzlich werden beim Schreiben<br> der Daten zur Fehlerkorrektur berechnet und ebenfalls auf alle Festplatten verteilt.<br> Be einem Ausfall kann man fehlende Daten mit Strip Sets mit Parity rekonstruieren.      |
-| RAID 10 | Dieser RAID-Level spiegelt zwei RAID 0 Strips (auch RAID 0+1). <br>Er bietet so die gleiche Performance wie ein Strip Set<br> und paart sie mit der Ausfallsicherheit vin Spiegelsätzen.                                                              |
+|Name|Bezeichnung|
+|:--:|:----------|
+| RAID 0 | Die zu speichernde Daten werden über mehrere Festplatten verteilt.<br> Das ermöglicht eine höhere Datentransverrate da,<br> Daten gleichzeitig geschrieben und gelesen werden können. <br/>Bezeichnung: Disk Striping                                |
+| RAID 1 | Die Daten werden einmal als Original gespeichert <br>und eine Kopie auf einer externen Festplatte gespeichert.<br> Wenn eine Platte defekt ist gibt es immer noch Kopie auf der anderen Festplatte.<br/>Wird auch Spiegelung oder Mirroring genannt.|
+| RAID 5 | Funktioniert wie RAID 0 nur das zusätzlich werden beim Schreiben<br> der Daten zur Fehlerkorrektur berechnet und ebenfalls auf alle Festplatten verteilt.<br> Be einem Ausfall kann man fehlende Daten mit Strip Sets mit Parity rekonstruieren.|
+| RAID 10 | Dieser RAID-Level spiegelt zwei RAID 0 Strips (auch RAID 0+1). <br>Er bietet so die gleiche Performance wie ein Strip Set<br> und paart sie mit der Ausfallsicherheit vin Spiegelsätzen. |
 
 Vorteile
 
