@@ -695,6 +695,300 @@ Sie stellt nicht nur eine Videoverbindung dar, sondern überträgt Daten. Mit de
 
 Sowohl der Multimonitorbetrieb mit mehreren Grafikkarten als auch Dual Head bzw. Multi Head mit einer einzelnen Karte müssen vom Betriebssystem und dem Grafikkartentreiber unterstützt werden. Dies ist bei Windows sowie Mac OS und Linux der Fall. Multi Head ist bei heutigen Grafikkarten Standard.
 
+## Erweiterungssteckkarten
+**Def:** Erweiterungskarten sind zusätzliche Komponenten, die dem PC weitere Funktionen zur Verfügung stellen
+
+### Aufgaben von Erweiterungssteckkarten
+Die Karten sind Platinen mit elektronischen Bauelementen, die in einem freien Steckplatz auf dem Mainboard platziert werden. Die Erweiterungsmöglichkeiten werden prinzipiell lediglich durch die Anzahl der verfügbaren Steckplätze -- und im Einzelfall durch die Leistung des verwendeten PC-Netzteils -- beschränkt. Erweiterungskarten bieten dem Anwender die Möglichkeit, sein PC-System genau dem gewünschten Funktionsbedarf anzupassen.
+
+Zu den wichtigsten Aufgaben, die im PC von Erweiterungskarten wahrgenommen werden, gehören:
+- die grafische Aus-/Eingabe über eine Grafikkarte
+- eine Netzwerkanbindung über:
+  - Netzwerkkarte
+  - WLAN-Adapter
+  - Modem oder ISDN-Karte
+    - die Erzeugung und Ein-/Ausgabe von Audiosignalen mittels Soundkarte
+    - die Anbindung weiterer Massenspeicher und Ausgabe-/Eingabegeräte über:
+      - Controller für Laufwerke (SATA, IDE/PATA etc.)
+      - Controller für externe Bussysteme (USB, FireWire etc.)
+
+### Netzwerkkarten (NIC = Network Interface Card) (V;A)
+#### Aufgaben der Netzwerkkarte
+...werden benötigt, um PCs, Notebooks, Netzwerkspeicher oder Drucker an Netzwerke anzuschließen. Unter dem Begriff Netzwerk wird hier eine Gruppe von Computern verstanden, die untereinander verbunden sind und Ressourcen wie Daten, Programme oder Drucker gemeinsam nutzen.
+
+Die Aufgabe einer Netzwerkkarte ist es, Datenpakete aus einem Netzwerk zu empfangen. zu senden und in ein für den PC interpretierbares Format umzuwandeln.
+##### Fast Ethernet
+Fast Ethernet bietet maximal 100 Megabit pro Sekunde Übertragungsgeschwindigkeit.
+
+Der Anschluss erfolgt mittels Kategorie 5 Twisted-Pair-Kabel. Das sind einfache und kostengünstige Kabel, die über mehrere, jeweils miteinander verdrillte Leiterpaare verfügen.
+##### Gigabit Ethernet
+Mit Gigabit Ethernet ist es möglich, auf den gleichen Twisted-Pair-Kabeln wie bei Fast Ethernet Daten mit 1.000 Megabit per Sekunde (etwa 100 MB/s) im Vollduplex-Verfahren zu übertragen.
+
+Erreicht wird dieser Geschwindigkeitszuwachs durch Nutzung aller Adern des Netzwerkkabels, während bei Fast Ethernet nur vier der acht Leitungen genutzt wurden.
+
+Im Hinblick auf spätere Aufrüstungen sollte bei fest verlegten Kabeln CAT-6a oder CAT-7 in Betracht gezogen werden, die Mehrkosten im Vergleich zu den Gesamtkosten relativ gering sind.
+##### 10 Gigabit Ethernet
+Diese schnellen 10GE-Netzwerke benutzen Glasfaserleitungen und beim Standard 10GBASE-T bis 100 Meter auch herkömmliche Kupferkabel der Kategorie CAT-6a oder CAT-7.
+##### WLAN -- drahtloses Netzwerk
+Das WLAN (Wireless LAN) verbindet Computer in einem Netzwerk per Funk. Dabei geht die Verbindung normalerweise über einen zentralen WLAN Access Point (oft ein DSL-Router mit WLAN). Es kann aber auch eine direkte Verbindung zwischen zwei Geräten aufgebaut werden.
+
+WLAN ist über USB, PCI oder PCIe nachrüstbar.
+
+Durch die Übertragung per Funk kann die theoretische Übertragungsbandbreite auf maximal 600 Mbit/s ansteigen, aber in der Praxis bleiben davon häufig nur etwa 240 Mbit/s übrig.
+
+Mit zunehmender Entfernung oder aufgrund von Störungen durch andere WLAN-Netze und Teilnehmer sowie bauliche Hindernisse nimmt die Übertragungsgeschwindigkeit stetig ab, bis sie schließlich ganz zusammenbricht. Wer auf eine stabile und zuverlässige Verbindung Wert legt, sollte Netzwerkkabel verwenden.
+### Den PC mit dem Internet vebinden
+Um sich mit dem Internet zu verbinden, werden externe Adapter (Erweiterungskarten, USB-Geräte etc.) oder PC-interne Komponenten eingesetzt, die analoge und digitale Telefonleitungen verwenden. Mögliche Verfahren dafür sind:
+#### Modem
+Steht nur ein normaler Telefonanschluss zur Verfügung, überträgt das
+Modem Daten, indem es sie in (hörbare) Töne umsetzt (**Mo**dulation) und
+diese zur Gegenstelle sendet. Auf der Empfängerseite werden die
+empfangenen Töne wieder in digitale Informationen umgesetzt
+(**Dem**odulation). Die erreichbaren Übertragungsgeschwindigkeiten sind
+sehr gering. Im besten Fall werden 56 Kbit/s übertragen, also etwa 6
+KB/s, fast immer ist es deutlich weniger.
+
+Man unterscheidet zwischen Internen Modems (für PCI und PCIe) und
+externen Modems (per USB an den PC angeschlossen)
+#### ISDN-Karte (Integrated Services Digital Network
+Mittlerweile benutzt man einen ISDN-Anschluss nur noch zur
+Datenübertragung, wenn kein schnelleres Verfahren erhältlich ist.
+
+Sprachsignale werden vor der Übertragung digitalisiert und auf der
+Empfängerseite wieder in analoge Signale zurückgewandelt. Der besondere
+Vorteil ist die gute Qualität der Sprachverbindung, ohne Rauschen und
+Knacken. ISDN-Anschlüsse verfügen über 2 Kanäle mit jeweils 64 KB/s
+Bandbreite. Beide Kanäle können zur Erhöhung der Bandbreite gebündelt
+werden.
+#### DSL (Digital Subscriber Line)
+...beschreibt eine Technologie, bei der durch Nutzung eines
+Frequenzbereichs oberhalb der analogen oder ISDN-Übertragung auf
+herkömmlichen Telefonleitungen deutlich höhere Bandbreiten erreicht
+werden.
+
+#### ADSL (Asymmetric DSL)
+Hierbei ist die Geschwindigkeit beim Empfang von Daten wesentlich höher
+als beim Senden.
+
+#### VDSL (Very High Speed DSL)
+Verfügt über schnellere Datenübertragungsgeschwindigkeiten als ADSL.
+
+#### SDSL (Symmetric DSL)
+Verfügt über gleich schnelle Datenübertragungsgeschwindigkeiten in beide
+Richtungen.
+
+Heutzutage wurden DSL-Modems durch DSL-Router abgelöst, welche
+DSL-Modem, Switch, Router und WLAN-Access Point in einem Gehäuse
+vereinen
+
+#### Internet über das Fernsehkabel
+Eine Alternative zu DSL mit bis zu 500Mbit/s
+
+#### Internet über Mobilfunk
+##### 1.Generation (1G)
+Verwenden noch eine analoge Sprachübertragung (A-C Netz).
+Datenübertragungen waren noch nicht üblich.
+##### 2. Generation (2G)
+Mobilfunknetze der zweiten Generation verwenden die nachfolgenden
+Standards:
+- Global System for Mobile Communications (GSM)
+  - findet über D- und E-Mobilfunknetze statt
+- General Packet Radio Service (GPRS)
+  - GPRS ist ein paketorientierter Übertragungsdienst mit einer Datenübertragungsrate von bis zu 55,6 kbit/s.
+-  Enhanced Data Rates for GSM Evolution (EDGE)
+   -  erweitert GPRS zu E-GPRS (Enhanced GPRS). Die Datenrate steigt auf bis zu 290,9 kbit/s.
+
+##### 3. Generation (3G)
+Die 3. Generation des mobilen Internets verwendet:
+
+-   Universal Mobile Telecommunications System (UMTS) mit der
+    Erweiterung High Speed Packet Access (HSPA)
+
+-   Long Term Evolution (LTE) bis Cat 4
+
+UMTS stellt die Basis für das mobile Internet dar. Die mobile
+Datenübertragung wird unter dem Begriff HSPA (High Speed Packet Access)
+zusammengefasst. Dieser Standard beinhaltet zwei separate Verfahren für
+Upload (HS**U**PA) und Download (HS**D**PA).
+
+Seit Generation 3.9 stand erstmalig auch Long Term Evolution (LTE) mit
+150 Mbit/s und 50 Mbit/s im Upload zur Verfügung. Obwohl LTE, dem
+Standard nach, höhere Geschwindigkeiten erreichen kann, wird LTE in
+Deutschland gedrosselt betrieben. Im Gegensatz zu UMTS ermöglicht LTE
+unterschiedliche Bandbreiten und eignet sich daher besser für den
+zukünftigen Netzausbau.
+
+##### 4. Generation (4G)
+Hier kommen verbesserten LTE Technologien zum Einsatz:
+- LTE Advanced (LTE-A)
+    -   hebt theoretische Übertragungsgeschwindigkeiten auf 600 Mbit/s im Downstream und 75 Mbit/s im Upstream an.
+- LTE Advanced Pro (LTE-AP)
+  - verbessert den Downstream auf 1Gbit/s. Uploads können mit bis zu 500 Mbit/s durchgeführt werden.
+##### 5. Generation (5G)
+eine Weiterentwicklung des 4G-Netzes, erreichte nach Angaben der Telekom
+eine Geschwindigkeit von 3Gbit/s und kann unter Idealumgebungen sogar
+10Gbit/s erreichen
+
+Trotz dieser enormen Geschwindigkeit geht es aber auch um weitere
+Faktoren wie einer geringen Latenz, die für Echtzeitanwendungen (z. B.
+autonomes Fahren/Kommunikation zwischen Maschinen) notwendig ist. 5G
+benötigt allerdings eine dichtere Netzabdeckung mit mehr Sendestationen.
+###### UMTS- und LTE-Endgeräte
+Für den mobilen Einsatz und für Gebiete, in denen kein DSL verfügbar
+ist, bietet sich die Datenübertragung über den Mobilfunkstandard UMTS
+oder LTE an. Für die Datenübertragung wird ein Modem benötigt. Diese
+sind in verschiedenen Bauformen erhältlich oder bereits im Computer als
+Steckplatz vorhanden.
+
+###### WLAN-Tethering
+Hierbei arbeitet z.B ein Smartphone wie ein WLAN-Accesspoint, womit sich
+der PC verbinden lässt und eine Internetverbindung entsteht
+
+###### Internetzugang über Satellit
+-   2-Wege-Satellitenverbindung hierbei handelt es sich um eine reine
+    Satellitenverbindung mit Rückkanal über Satellit
+
+-   1-Weg-Sattelitenverbindungen benutzen eine herkömmliche Technik wie
+    UMTS, GRPS, ISDN oder analoge Modems für den Rückkanal. (Bis zu 50
+    Mbit/s Download)
+
+### Soundkarten (V;A)
+Bei modernen PCs ist die Klangerzeugung bereits auf dem Mainboard
+integriert, dennoch wird sie weiterhin oft als Soundkarte bezeichnet.
+
+Wenn die digitalen Sounddaten jedoch im Computer decodiert und über die
+analogen Ausgänge ausgegeben werden, entscheidet vor allem die Qualität
+der verwendeten Digital/Analog-Wandler (DAC) über die Klangqualität.
+#### Arbeitsweise von Soundkarten
+Soundkarten der ersten Generationen waren einfache Schnittstellen
+zwischen dem PC und extern angeschlossenen Lautsprechern bzw. einem
+Kopfhörer. Sie dienten der Ausgabe akustischer Signale. In den
+1990er-Jahren entwickelten sich PC-Audiokarten zu professionellen
+Komponenten, die über folgende Funktionen verfügten:
+
+-   Synthesizer zur Klangerzeugung
+-   MIDI-Schnittstelle (über dem Gameport)
+-   Analog/Digital-Konverter
+-   Digital/Analog-Konverter
+
+#### Synthesizer
+| Verfahren | Beschreibung |
+|:---------:|:-------------|
+|FM-Synthese|**Frequenzmodulation**<br> Musikinstrumente werden durch die Überlagerung von mehreren Sinuswellen nachgeahmt.<br> Frequenz und Amplitude der Sinuswellen variieren.|
+|Wavetable-Synthese|**Samples**<br>Aufgezeichnete, im RAM gespeicherte Samples (Musterdateien) dienen als Ausgangsmaterial für die Klangerzeugung.|
+|Physikalisches Modell|Klänge werden in einer Programmiersprache zusammengesetzt.|
+
+Moderne Soundkarten und Onboard-Sound verwenden dafür seit Jahren
+Software-Synthesizer. Damit wird die Klangqualität heutzutage am meisten
+von der Qualität und dem Funktionsumfang der Treibersoftware
+beeinflusst. Auf professionellen Soundkarten kommt weiterhin ein DSP
+(digitaler Signalprozessor) zum Einsatz.
+
+#### MIDI (Musical Instrument Digital Interface)
+Ein in den 80er-Jahren entwickelter Standard für die Kopplung von
+elektronischen Musikinstrumenten. Heutzutage wird es nur noch zu
+Steuerungszwecken im Musikbereich eingesetzt.
+
+#### Digital/Analog- und Analog/Digital-Konverter
+Die Ausgabe von Klängen an einem Analogausgang der Soundkarte ist erst
+möglich, nachdem digital gespeicherte Daten in analoge Audiosignale
+umgewandelt wurden. Diese Aufgabe übernimmt der Digital/Analog-Konverter
+(DA-Wandler, DAC) der Soundkarte. Die maximal erreichbare Qualität wird
+dabei vom Format der digitalen Audiodateien bestimmt, genauer gesagt von
+der Samplingrate (Abtastrate) in kHz und der Abtasttiefe (Auflösung,
+Bittiefe oder Quantisierung) in Bit.
+
+Umgekehrt müssen für eine digitale Aufnahme am PC alle eingehenden
+Audiosignale im AD-Wandler digitalisiert werden. Dazu wird das
+Audiosignal in bestimmten Zeitabständen gemessen. Die gemessenen Werte
+werden in einen Bitwert umgerechnet, quantisiert und gespeichert. Die
+Qualität dieses Samplings hängt von zwei Parametern ab: der
+Sampling-Rate, also der Häufigkeit der Messung, und der Bittiefe, mit
+der ein Sample quantisiert wird.
+
+Durch S/PDIF, entweder über Koaxialkabel mit Cinch-Anschluss oder über
+Lichtwellenleiter (TOSLINK), können digitale Audiosignale z. B. zu einer
+Surroundanlage übertragen werden.
+
+#### Surround-Sound
+Fast alle PCs verfügen heute über mehrere farbige Anschlüsse, um sechs
+oder mehr Lautsprecher anzuschließen. Im Fall eines 5.1-Surround-Sounds
+werden über vier in den Raumecken und einen zentral vor dem Hörer
+postierten Lautsprecher (Center) unterschiedliche Töne übertragen, um
+einen räumlichen Klang zu erzeugen. Ein zusätzlicher Lautsprecher gibt
+nur die tiefen Töne wieder (Subwoofer). Bei 7.1-Systemen werden zwei
+weitere Frontlautsprecher eingefügt, bei 6.1 Systemen gibt es auch
+hinten einen Center-Lautsprecher. Um räumliche Effekte auf
+Surroundanlagen zu hören, müssen die Töne in einem digitalen
+Surroundformat wie Dolby Digital (DD oder AC-3) oder DTS codiert sein.
+
+#### Neue Audioformate DTS-HD, Dolby Digital Plus und Dolby TrueHD
+Diese Audioformate sind auf Blu-ray Discs zu finden. Sie können digital
+in unveränderter Form derzeit nur über HDMI ausgegeben werden. Bei einer
+Ausgabe über S/PDIF muss das Format in Echtzeit in eines der älteren
+Formate, z. B. DTS, konvertiert werden, da sonst die verfügbare
+Bandbreite nicht ausreicht.
+
+#### HDMI
+Bei der Ausgabe über HDMI übernimmt die Grafikkarte auch die Funktion
+einer Soundkarte, indem sie Bild und Ton über ein einziges Kabel zum
+Fernseher oder Verstärker schickt.
+
+### Controller (V)
+Mit Hilfe von Controller Steckkarten, kann man fehlende Funktionen in
+Ihrem PC nachrüsten. Es existiert eine breite Palette von einbaubaren
+Controller für unterschiedliche Bus-Systeme
+
+#### RAID-Controller (**R**edundant **A**rray of **I**ndependent **D**isks)
+Insbesondere in leistungsfähigen PC-Workstations und Servern sind
+oftmals RAID Controller im Einsatz. Dies ist insbesondere der Fall, wenn
+die internen Anschlüsse für Datenspeicher nicht ausreichen oder ein
+OnboardController nicht die benötigte Funktionalität bzw.
+Leistungsfähigkeit bietet.
+
+RAID-Systeme fassen mehrere einzelne Festplatten zu einem größeren
+Verbund zusammen. Dabei sind verschiedene Verfahrensweisen möglich, die
+als RAID-Level bezeichnet werden.
+
+RAID-Controller gibt es für alle erhältlichen Festplattentypen
+
+#### PCI Express SSDs
+PCIe Controller zur Aufnahme von Solid State Disks oder M.2 Disks, die
+direkt in den PCIe-Slot gesteckt werden können. Diese sind selbst unter
+PCIe 2.0 zum Teil deutlich schneller als SATA-SSDs, da z. B ein
+PCIe-x4-Steckplatz wesentlich höhere Transferraten zulässt als ein
+SATA-Anschluss.
+
+#### SATA-Controller
+Falls die SATA-Anschlüsse auf dem Mainboard nicht ausreichen, kann man
+einen SATA-Controller für PCIe-Slots verwenden.
+
+#### IDE-(PATA)-Controller
+Seit einiger Zeit ist auf Mainboards keine IDE-Schnittstelle mehr zu
+finden. Falls man unbedingt solche Geräte anschließen möchte, kann man
+mit IDE-Controllerkarten Abhilfe schaffen
+
+#### SCSI/SAS-Controller (**S**erial **A**ttached **S**CSI)
+Ausschließlicher Einsatz im Professionellen Serverbereich, woran auch
+SATA-Geräte betrieben werden können
+
+#### Controller für Bussysteme
+Sind zur Aufrüstung von zusätzlichen USB- oder FireWire Schnittstellen
+vorgesehen
+
+#### USB-3.x-Controller
+Die dritte USB-Generation ist mit ihren hohen Übertragungsraten viel zu
+schnell für den alten PCI-Bus, daher gibt es keine USB-3.0-Karten für
+den PCI-Slot. Erhältlich sind diese jedoch als PCIe-Karten. Diese sind
+oft als Kombi-Karten mit eSATA oder FireWire ausgelegt.
+
+#### eSATA-Controller
+Bei eSATA handelt es sich um eine Erweiterung der SATA-Schnittstelle für
+externe Datenträger. Die Buchsen sind nicht kompatibel zu den internen
+SATA-Anschlüssen, es sind jedoch Adapter erhältlich. Als Alternative
+kann auch ein Slotblech eingesetzt werden, das normale interne
+SATA-Anschlüsse nach außen führt.
+
 ## Massenspeicher
 
 ### Einteilung von Speichermedien
