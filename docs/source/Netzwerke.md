@@ -37,7 +37,7 @@ Sie ist primär zuständig für die Vergabe von Top-Level Domains, wie z.B. de, 
 
 ### OSI-Modell
 
-#### Wichtige theoretische Grundlage
+#### Eine wichtige theoretische Grundlage
 
 Das Open-System-Interconnection-Modell ermöglicht, den komplexen Ablauf bei der Übermittlung von Daten zwischen zwei Systemen logisch aufzuteilen. Der Blick auf das Netzwerk wird vereinfacht. Zudem bezieht sich jede Definition eines Netzwerkdienstes auf das OSI-Schichten-Modell bzw. auf das TCP/IP-Referenzmodell, welches ein noch weiter vereinfachtes Modell darstellt.
 
@@ -55,8 +55,7 @@ Wie funktioniert das OSI-Modell? Wenn man beispielsweise eine E-Mail versendet, 
 
 ****
 
-**Eine gute Erklärung des OSI-Modells findet ihr unter folgendem Link:** 
-https://www.youtube.com/watch?v=_kDogzR0-4Q
+**Eine gute Erklärung des OSI-Modells findet ihr unter [folgendem Link](https://www.youtube.com/watch?v=_kDogzR0-4Q)**
 
 ****
 
