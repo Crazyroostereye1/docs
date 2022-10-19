@@ -52,15 +52,15 @@ Nicht alle Komponenten werden von dem Motherboard unterstützt so muss man dort 
 
 Zum Beispiel werden Intrigierte Grafiken oder Grafikkarten nicht unterstützt auch PCI und PCIe können nicht unterstützt werden.
 
-Aber auch Laufwerke und externe Schnittstellen(USB, etc) könnten nicht unterstützt werden.
+Aber auch Laufwerke und externe Schnittstellen (USB, etc) könnten nicht unterstützt werden.
 
 #### BIOS-Chip
 
-Dieser Chip ist kein direkter teil des Chipsatz, aber is trotzdem einer der wichtigsten. Ohne ihm könnte der Computer nicht laufen.
+Dieser Chip ist kein direkter Bestandteil des Chipsatzes, aber is trotzdem einer der wichtigsten. Ohne ihn, könnte der Computer nicht starten.
 
-In der ist die Software die deine Betriebssystem einschaltet und die PC Process beginnt, somit ist es immer die erste Software die du startest.
+Der BOIS-Chip enthält die Sequenz und Software um das System zu initialisieren.
 
-Der speicher des BIOS-Chips ist ein ROM speicher was für Read-Only-Memory steht.
+Der Speicher des BIOS-Chips ist ein sogenannter ROM Speicher was für "Read-Only-Memory" steht.
 
 ### Steckplätze
 
