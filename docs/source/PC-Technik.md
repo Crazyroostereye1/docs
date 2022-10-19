@@ -340,6 +340,10 @@ Im Fehlerfall (Rot) wird die Gleichspannung von der Batterie über eine Wechselr
 
 Alle USV-Typen haben einen Anschluss über den der Computer Zeitgleich über den Fehler Informiert werden kann, um ein Herunterfahren zu Initialisiere. 
 
+**Geschrieben von Metin, Nathalie, Julian**
+
+## Prozessor (CPU) **Fehlt**
+
 ## Bussysteme
 
 ### PCI-Bus – Der langjährige Standardbus auf dem Mainboard
@@ -506,97 +510,12 @@ PCIe 5.x und 6.x sind auf Desktopsystemen noch nicht umgesetzt.
 
 **BILD HIER**
 
-## Externe Schnittstelle
 
-Im Allgemeinen ist eine Schnittstelle ein Übergabepunkt, an dem eine Verbindung zwischen zwei eigenständigen Komponenten hergestellt wird. Standardisierte Schnittstellen gibt es sowohl als Software als auch als Hardware, um bestimmte Geräte miteinander zu verbinden. Zu den ausgedienten, etablierten Schnittstellen zählen die seriellen Schnittstellen (RS232), der Parallel-Port (IEEE-1284) und die PS/2 Anschlüsse, welche heutzutage immer noch aus Kompatibilitätsgründen verbaut werden.
+**Geschrieben von: Jan, Emina, Timo**
 
-### PS/2 (Eingabe)
+## Speicher **Fehlt**
 
-Der PS/2 Anschlüsse wurden mit der Einführung von ATX Mainboards zum
-Anschluss von Tastatur und Maus von IBM bei der Personal-System-Reihe/ 2-Reihe
-eingesetzt. Auf dem neuen Mainboard ist, wenn überhaupt, nur noch ein Kombi-
-Anschluss verbaut, aber zum größten Teil komplett weggelassen.
-
-Um die Abwärtskompatibilität zu gewährleisten, lassen sich PS/2 Geräte
-über einen Adapter mit USB betreiben, wenn das Gerät beide Protokolle
-unterstützt.
-
-Lila steht normalerweise für die Tastatur und grün für die Maus
-
-### USB (Ein- und Ausgabe)
-
-Der “Universal Serial Bus” ist der am meisten verwendete Anschluss für externe Geräte. USB ist um ein wesentliches leistungsfähiger als die alte RS232 Schnittstelle und wird von allen aktuellen Betriebssystemen unterstützt. USB-Datenträger eignen sich daher gut für den Datenaustausch zwischen mehreren Geräten, da inzwischen viele Geräte eine USB-Verbindung besitzen. USB unterstützt bis zu 127 Geräte gleichzeitig, die alle eine eigene Geräte ID haben, dies ermöglicht die Verwendung von USB-Hubs, die mehrere Stecker besitzen und alle von einem Host verwaltet werden können.
-
-#### USB 1.X
-
-Das USB 1.0 kam 1996 auf den Markt und wurde 1998 mit USB 1.1 1998 überarbeitet. USB gab es in zwei Varianten, Low und Full- Speed mit jeweils 1,5 MBits und 12MBits desweiteren beherrst USB Plug and Play und Hot Swap
-
-#### USB 2.0
-
-USB 2.0 ist abwärtskompatibel zu USB 1.1 und bietet eine Datentransferrate von maximal 480 MBits. USB 2.0 findet sich auf fast jedem aktuellen Mainboard wieder. Falls dies nicht der Fall ist kann man PCi Erweiterungskarten benutzen
-
-#### USB 3.0 (SuperSpeed)
-
-2010 wurden erstmals Geräte mit USB 3.0 veröffentlicht, auch dieser Standard ist mit vorherigen Versionen kompatibel, weist in der ersten Version aber schon eine deutlich höhere Geschwindigkeit von 5 Gbit/s auf.
-
-Im Laufe der Zeit wurden mehrere Abwandlungen der Spezifikation entwickelt wobei es häufig auch zu Umbenennungen kam, alle USB Versionen sind zur besseren Übersicht in einer Tabelle dargestellt:
-
-![](./_static/USB_standards.png)
-
-#### USB 4
-
-USB 4 basiert auf dem von Intel zur Verfügung gestellten Thunderbolt 3 Protokoll und kann ausschließlich mit Type-C Steckern genutzt werden. Dank Thunderbolt enthält USB 4 nun standardmäßig DisplayPort und PCIe. Vorherige Versionen wurden optional mit Displayport ausgestattet.
-
-Die Geschwindigkeiten reichen von mindestens 20 Gbit/s bis 80 Gbit/s bei Version 2.
-
-#### USB Kabel
-
-In USB 1.x und 2.0 werden 4 sogenannte “Adern” (Kabel) verwendet. Zwei dienen der Datenübertragung und die anderen zwei der Stromleitung. Die Abschirmung des Kabels kann auch für verschiedene erwartete Datenübertragungsraten variieren.
-
-Der Maximalstrom beträgt 2,5W (5V * 500mA) für 1.x und 2.0. Bei 3.0 wurde dieser auf 4,5W (5V*900mA) gesteigert , mit dem sich Festplatten auch nur mit einem Kabel betreiben und lesen lassen.
-
-Mit USB “PowerDelivery” wurde ein neuer Standard vorgestellt, der mehr Energie zur Verfügung stellen kann. Es gibt zwei verschiedene Stufen, welche beide einen Type-C Stecker voraussetzen: Standard Power Range (SPR) stellt bis zu 100W zur Verfügung, während die "Extended Power Range” (EPR) bei 240W liegt.
-
-#### USB Stecker
-
-Die zwei ersten USB Stecker waren die Typen A und B.
-
-Typ A wird heute noch weit verbreitet genutzt und ist als Host Konnektor gedacht. 1.x und 2.0 haben 4 Adern und 3.x hat 9, jedoch mit Abwärtskompatibilität. Der Typ B hingegen dient als “Slave” Stecker und wird an Peripheriegeräte angesteckt (Hauptsächlich Festplatten und bis heute noch Drucker). Diesen gibt es jedoch in der USB 1.x und 2.0 Version sowie in einer abgewandelten 3.0 Version, die jeweils nicht kompatibel miteinander sind.
-
-Hinzu kommen weitere Client-Stecker, wie Mini-USB und Micro USB und später der aktuelle Type-C Stecker, die für kleinere oder mobile Endgeräte gedacht sind.
-
-#### USB Hubs
-
-Es gibt aktive und passive USB-Hubs. Aktive Hubs versorgen oft mobile Endgeräte und dienen zugleich als Schnittstelle für Datentransfer von Daten und Video Signal. Dies ist praktisch, um zum Beispiel einen Laptop zu laden und zugleich die Anschlüsse zu vervielfältigen. Passive Hubs sind hingegen einfacher und dienen nur als Vervielfältigung der USB Anschlüsse.
-
-### Thunderbolt (Ein- und Ausgabe)
-
-Thunderbolt entstand als Kollaboration zwischen Intel und Apple und wurde 2011 vorgestellt. Mittlerweile hat der Standard auch in Windows Notebooks von Intel seinen Platz gefunden. Der Standard überträgt USB, PCI-E, Ethernet sowie Displayport-Signale über ein Kabel.
-
-Thunderbolt 1 überträgt 10 Gbit/s, Thunderbolt 2 schafft 20 Gbit/s und Thunderbolt 3 erreicht 40Gbit/s an Throughput.
-
-Thunderbolt 1 & 2 benutzen einen eigens entwickelten Stecker, jedoch wurde mit der dritten Generation auf einen USB-C Stecker gewechselt.
-
-Ein Thunderbolt Kabel mit Kupferkabeln kann maximal 3 Meter lang sein, jedoch kann dies mit Glasfaser deutlich verlängert werden (jedoch mit entsprechend hohen Preisen.
-
-### eSATA (Ein- und Ausgabe)
-
-Der einzige Unterschied besteht im Geschirmten Kabel, zudem hält eine größere mechanische Belastung aus, die beim An und Aus stecken auftreten können. Je nach SATA Controller können Daten mit Geschwindigkeiten von 150 MB/s bis 600 MB/s übertragen werden.
-
-Die SATA Verbindung ist theoretisch Hot-Plug-fähig, dies hat in der Praxis aber nur halbwegs funktioniert.
-
-eSATA liefert keinen Strom, man benötigt also einen zusätzlichen Anschluss für die Stromversorgung.
-
-Insgesamt konnte sich eSATA nicht durchsetzen
-
-### FireWire (Ein- und Ausgabe)
-
-Die FireWire Schnittstelle wurde 1995 von Apple eingeführt, an das serielle Bussystem können bis zu 63 Geräte angeschlossen werden. Der Vorteil von FireWire ist die OpenHCI-Schnittstelle. Verbundene Geräte können Daten untereinander austauschen. FireWire ist zudem HotPlug-fähig und wird in erster Linie zur Verbindung von digitaler Unterhaltungselektronik verwendet. 
-
-Die Datenübertragungsrate reicht von 400 MBits bei FireWire 400 bis 800 MBits bei FireWire 800. Die letzten Apple Produkte mit FireWire kamen 2011 auf den Markt.
-
-![](./_static/USB_Anschluss.png)
-
+## I/O-Ports, DMA, IRQ, Speicheradressen **Fehlt**
 ## Grafikkarten
 
 Aktuelle Grafikkarten können alle gängigen Videoformate in Hardware decodieren und aufbereiten. Hierdurch wird die CPU beim Abspielen deutlich entlastet. Auch ist dies deutlich stromsparender als Decodieren durch die CPU. Die GPU ist bei der Umwandlung von Videodateien in andere Formate und dem Videoschnitt deutlich effizienter als die CPU.
@@ -989,6 +908,98 @@ SATA-Anschlüssen, es sind jedoch Adapter erhältlich. Als Alternative
 kann auch ein Slotblech eingesetzt werden, das normale interne
 SATA-Anschlüsse nach außen führt.
 
+
+## Externe Schnittstelle
+
+Im Allgemeinen ist eine Schnittstelle ein Übergabepunkt, an dem eine Verbindung zwischen zwei eigenständigen Komponenten hergestellt wird. Standardisierte Schnittstellen gibt es sowohl als Software als auch als Hardware, um bestimmte Geräte miteinander zu verbinden. Zu den ausgedienten, etablierten Schnittstellen zählen die seriellen Schnittstellen (RS232), der Parallel-Port (IEEE-1284) und die PS/2 Anschlüsse, welche heutzutage immer noch aus Kompatibilitätsgründen verbaut werden.
+
+### PS/2 (Eingabe)
+
+Der PS/2 Anschlüsse wurden mit der Einführung von ATX Mainboards zum
+Anschluss von Tastatur und Maus von IBM bei der Personal-System-Reihe/ 2-Reihe
+eingesetzt. Auf dem neuen Mainboard ist, wenn überhaupt, nur noch ein Kombi-
+Anschluss verbaut, aber zum größten Teil komplett weggelassen.
+
+Um die Abwärtskompatibilität zu gewährleisten, lassen sich PS/2 Geräte
+über einen Adapter mit USB betreiben, wenn das Gerät beide Protokolle
+unterstützt.
+
+Lila steht normalerweise für die Tastatur und grün für die Maus
+
+### USB (Ein- und Ausgabe)
+
+Der “Universal Serial Bus” ist der am meisten verwendete Anschluss für externe Geräte. USB ist um ein wesentliches leistungsfähiger als die alte RS232 Schnittstelle und wird von allen aktuellen Betriebssystemen unterstützt. USB-Datenträger eignen sich daher gut für den Datenaustausch zwischen mehreren Geräten, da inzwischen viele Geräte eine USB-Verbindung besitzen. USB unterstützt bis zu 127 Geräte gleichzeitig, die alle eine eigene Geräte ID haben, dies ermöglicht die Verwendung von USB-Hubs, die mehrere Stecker besitzen und alle von einem Host verwaltet werden können.
+
+#### USB 1.X
+
+Das USB 1.0 kam 1996 auf den Markt und wurde 1998 mit USB 1.1 1998 überarbeitet. USB gab es in zwei Varianten, Low und Full- Speed mit jeweils 1,5 MBits und 12MBits desweiteren beherrst USB Plug and Play und Hot Swap
+
+#### USB 2.0
+
+USB 2.0 ist abwärtskompatibel zu USB 1.1 und bietet eine Datentransferrate von maximal 480 MBits. USB 2.0 findet sich auf fast jedem aktuellen Mainboard wieder. Falls dies nicht der Fall ist kann man PCi Erweiterungskarten benutzen
+
+#### USB 3.0 (SuperSpeed)
+
+2010 wurden erstmals Geräte mit USB 3.0 veröffentlicht, auch dieser Standard ist mit vorherigen Versionen kompatibel, weist in der ersten Version aber schon eine deutlich höhere Geschwindigkeit von 5 Gbit/s auf.
+
+Im Laufe der Zeit wurden mehrere Abwandlungen der Spezifikation entwickelt wobei es häufig auch zu Umbenennungen kam, alle USB Versionen sind zur besseren Übersicht in einer Tabelle dargestellt:
+
+![](./_static/USB_standards.png)
+
+#### USB 4
+
+USB 4 basiert auf dem von Intel zur Verfügung gestellten Thunderbolt 3 Protokoll und kann ausschließlich mit Type-C Steckern genutzt werden. Dank Thunderbolt enthält USB 4 nun standardmäßig DisplayPort und PCIe. Vorherige Versionen wurden optional mit Displayport ausgestattet.
+
+Die Geschwindigkeiten reichen von mindestens 20 Gbit/s bis 80 Gbit/s bei Version 2.
+
+#### USB Kabel
+
+In USB 1.x und 2.0 werden 4 sogenannte “Adern” (Kabel) verwendet. Zwei dienen der Datenübertragung und die anderen zwei der Stromleitung. Die Abschirmung des Kabels kann auch für verschiedene erwartete Datenübertragungsraten variieren.
+
+Der Maximalstrom beträgt 2,5W (5V * 500mA) für 1.x und 2.0. Bei 3.0 wurde dieser auf 4,5W (5V*900mA) gesteigert , mit dem sich Festplatten auch nur mit einem Kabel betreiben und lesen lassen.
+
+Mit USB “PowerDelivery” wurde ein neuer Standard vorgestellt, der mehr Energie zur Verfügung stellen kann. Es gibt zwei verschiedene Stufen, welche beide einen Type-C Stecker voraussetzen: Standard Power Range (SPR) stellt bis zu 100W zur Verfügung, während die "Extended Power Range” (EPR) bei 240W liegt.
+
+#### USB Stecker
+
+Die zwei ersten USB Stecker waren die Typen A und B.
+
+Typ A wird heute noch weit verbreitet genutzt und ist als Host Konnektor gedacht. 1.x und 2.0 haben 4 Adern und 3.x hat 9, jedoch mit Abwärtskompatibilität. Der Typ B hingegen dient als “Slave” Stecker und wird an Peripheriegeräte angesteckt (Hauptsächlich Festplatten und bis heute noch Drucker). Diesen gibt es jedoch in der USB 1.x und 2.0 Version sowie in einer abgewandelten 3.0 Version, die jeweils nicht kompatibel miteinander sind.
+
+Hinzu kommen weitere Client-Stecker, wie Mini-USB und Micro USB und später der aktuelle Type-C Stecker, die für kleinere oder mobile Endgeräte gedacht sind.
+
+#### USB Hubs
+
+Es gibt aktive und passive USB-Hubs. Aktive Hubs versorgen oft mobile Endgeräte und dienen zugleich als Schnittstelle für Datentransfer von Daten und Video Signal. Dies ist praktisch, um zum Beispiel einen Laptop zu laden und zugleich die Anschlüsse zu vervielfältigen. Passive Hubs sind hingegen einfacher und dienen nur als Vervielfältigung der USB Anschlüsse.
+
+### Thunderbolt (Ein- und Ausgabe)
+
+Thunderbolt entstand als Kollaboration zwischen Intel und Apple und wurde 2011 vorgestellt. Mittlerweile hat der Standard auch in Windows Notebooks von Intel seinen Platz gefunden. Der Standard überträgt USB, PCI-E, Ethernet sowie Displayport-Signale über ein Kabel.
+
+Thunderbolt 1 überträgt 10 Gbit/s, Thunderbolt 2 schafft 20 Gbit/s und Thunderbolt 3 erreicht 40Gbit/s an Throughput.
+
+Thunderbolt 1 & 2 benutzen einen eigens entwickelten Stecker, jedoch wurde mit der dritten Generation auf einen USB-C Stecker gewechselt.
+
+Ein Thunderbolt Kabel mit Kupferkabeln kann maximal 3 Meter lang sein, jedoch kann dies mit Glasfaser deutlich verlängert werden (jedoch mit entsprechend hohen Preisen.
+
+### eSATA (Ein- und Ausgabe)
+
+Der einzige Unterschied besteht im Geschirmten Kabel, zudem hält eine größere mechanische Belastung aus, die beim An und Aus stecken auftreten können. Je nach SATA Controller können Daten mit Geschwindigkeiten von 150 MB/s bis 600 MB/s übertragen werden.
+
+Die SATA Verbindung ist theoretisch Hot-Plug-fähig, dies hat in der Praxis aber nur halbwegs funktioniert.
+
+eSATA liefert keinen Strom, man benötigt also einen zusätzlichen Anschluss für die Stromversorgung.
+
+Insgesamt konnte sich eSATA nicht durchsetzen
+
+### FireWire (Ein- und Ausgabe)
+
+Die FireWire Schnittstelle wurde 1995 von Apple eingeführt, an das serielle Bussystem können bis zu 63 Geräte angeschlossen werden. Der Vorteil von FireWire ist die OpenHCI-Schnittstelle. Verbundene Geräte können Daten untereinander austauschen. FireWire ist zudem HotPlug-fähig und wird in erster Linie zur Verbindung von digitaler Unterhaltungselektronik verwendet. 
+
+Die Datenübertragungsrate reicht von 400 MBits bei FireWire 400 bis 800 MBits bei FireWire 800. Die letzten Apple Produkte mit FireWire kamen 2011 auf den Markt.
+
+![](./_static/USB_Anschluss.png)
+
 ## Massenspeicher
 
 ### Einteilung von Speichermedien
@@ -1280,3 +1291,5 @@ Speichervorgang:
 Die gestrichelten Linien (1) entsprechen dem Abtastungsweg, den der Lesekopf des Laufwerks auf der CD nimmt. Die Einbuchtungen auf der Oberfläche stellen die sogenannten Pits (2) dar, während der Rest als Lands (3) bezeichnet wird.
 In der Anordnung und Reihenfolge der Pits und Lands wird die zu speichernde Information codiert.
 Bei allen drei Medien, wird ein Laser-Lesekopf verwendet, um Daten zu lesen oder zu schreiben.
+
+## Ein- und Ausgabegeräte **Fehlt**
