@@ -11,12 +11,11 @@ Im besten case Markdown verwenden. Dafür gibt es Editoren die es ganz einfach m
 - [MarkText](https://github.com/marktext/marktext/releases/tag/v0.17.1)
 - [Typora](https://typora.io/)
 
+Überschriften passend formatieren mit deinem Editors<br>
+z.B. in Word Überschrift 1 Für das Kapitel Überschrift 2 Für das Unterkapitel etc.
 
-### Word
-In Word soll deine Hautpüberschrift als Überschrift 2 formatiert sein und alle daraufolgenden als Überschrift 3-5<br>
 **Nicht tun:**
 - Text Fablich einstellen
-- Überschriften Fett oder Italic oder Unterstreichen
 
 **Zu tun:**
 - Bilder extra senden wenn möglich
