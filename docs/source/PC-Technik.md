@@ -6,7 +6,7 @@
 
 #### Entwicklung
 
-Das Wort Chipsatz beschreibt man eine unbestimmte Anzahl von Bausteinen, die zusammengefasst wurden. Diese führen zahlreiche Steueraufgaben und für das Zusammenarbeiten dies Komponenten.
+Das Wort Chipsatz beschreibt man eine unbestimmte Anzahl von Bausteinen, die zusammengefasst wurden. Diese führen zahlreiche Steueraufgaben und für das Zusammenarbeiten der PC Komponenten.
 
 Ursprünglich bestanden dies Chipsatze aus einzelnen Schaltkreisen die überall auf dem Motherboard verteilt waren. Bis sie immer mehr Zusammengeführt wurden. Aber wegen den unterschiedlichen Geschwindigkeiten der Komponenten wurden zwei Integrierte Schaltkreise die oberhalb und unterhalb der CPU auf dem Motherboard Platziert wurden. Diese nennen wir Northbridge und Southbridge. Dies Weiterentwicklung sorgte für die Entwicklung für viele verschiedene neue Architekturen.
 
@@ -1008,7 +1008,7 @@ In der IT unterscheiden wir zwischen drei Speicherarten.
 
 |Name | Beschreibung |
 |:----|:-------------|
-| Online-Speicher | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.<br>Er enthält Daten, die nur selten benötigt werden,<br> wie z.B. ein Backup.<br>Beispiele: Externe Festplatten, DVD/CDs |
+| Online-Speicher | Online-Speicher sind einerseits RAM-, Kern- oder Arbeitsspeicher eines Rechners,<br> andererseits Festplatten oder auch externe Medien, die fest verbunden sind (z. B. ein initialisierter USB-Stick).<br> Diese Speicher sind während der Datenverarbeitung ständig aktiv (online) und speichern sofort wieder benötigte Daten.<br> Sie bieten deshalb die kürzeste Zugriffszeit.<br> Beispiel: Festplatten, USB-Sticks, Disketten. |
 | Nearline-Speicher | Hier werden Daten gespeichert,<br> die immer wieder gebraucht werden,<br> aber nicht durchgehen und nicht im Moment. |
 | Offline-Speicher  | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.<br>Er enthält Daten, die nur selten benötigt werden,<br> wie z.B. ein Backup.<br>Beispiele: Externe Festplatten, DVD/CDs  |
 

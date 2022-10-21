@@ -1,5 +1,253 @@
 # Netzwerke
 
+## Grundbegriffe und Konzepte zu Netzwerken
+### Was ist ein Netzwerk
+Das kleinstmögliche Netzwerk besteht aus zwei Endgeräten, die direkt per Kabel oder Funk
+verbunden sind und Daten untereinander austauschen können. Das größtmögliche
+Netzwerk ist die weltweite Variante und damit das Internet.
+#### Was macht ein optimales Netzwerk aus
+- jeder Benutzer kann einfach und schnell auf zentral gelagerte Arbeitswerkzeuge zugreifen
+- Datenverkehr in zufriedenstellender Geschwindigkeit
+- finanziell akzeptabler Rahmen für Natzwerkplanung, Umsetzung und Wartung
+- ermöglicht übergreifende Kommunikation zwischen Systemen
+- hohe Netzwerksicherheit
+- möglichst durchgehende Verfügbarkeit und backup Möglichkeit für etwaige Serverausfälle
+
+#### Was sind Herausforderungen bei der Planung
+- Planung kosteneffektiver Erweiterbarkeit
+- beste und gleichzeitig kostengünstigste Verkabelung (spätere Änderung bedeutet erheblichen Mehraufwand)
+
+#### Was hat sich über die Jahre geändert
+- Proprietäre (Hersteller eigene) Lösungen wichen Branchen weiten Standards, das bedeutet weniger individuelle und mehr genormte Hardware
+- Anforderungen an Netzwerke sind deutlich gestiegen
+  - müssen höhere Geschwindigkeiten aufbringen
+  - müssen für intensivere Nutzung ausgelegt werden
+  - benötigen erhöhte Sicherheitsstandards
+
+### Netzwerkkonzepte
+#### Peer to Peer
+Das englische Wort “Peer” bedeutet “Gleichgestellte” oder “Ebenbürtige” und beschreibt das
+Prinzip dieser Vernetzung. Prinzipiell sind alle Computersysteme in diesem Netz
+gleichberechtigt und die Benutzer sind für die Sicherheit sowie Freigabe ihrer lokalen Daten
+selbst verantwortlich.
+- Lokal: Drucker- oder Netzwerksfreigaben
+- Internet: Fielesharing Netze z.B. BitTorrent
+
+*Wird genutzt für*
+- Dateiverteilung und dezentrales Suchen von Daten - Verteilung von Daten führt zu
+effizienterer Verbindungsauslastung
+- Grid-Comupting - mehrere Computer werden lose zu einem Cluster gekoppelt, um
+gemeinsam eine höhere Rechenleistung für eine bestimmte Aufgabe zu erzielen
+- Cloud-Computing - bei Bedarf werden geräteunabhängig und schnell, meist über das
+Internet, geteilte Dienstleistungen (Server, Datenspeicher, Applikationen)
+bereitgestellt
+
+*Vorteile*
+- keine Extrakosten für Server
+- Peer to Peer Vernetzung ist mit jedem gängigen Betriebssystem möglich und
+vorintegriert
+
+*Nachteile*
+- keine zentrale Verwaltung von Benutzern und Ressourcen
+- Sicherheitsrichtlinien nur eingeschränkt umsetzbar
+
+#### Client Server
+Wenn die Größe eines Netzwerkes die Sinnhaftigkeit des Peer to Peer Konzeptes übersteigt
+und dieses unübersichtlich und schwer zu administrieren würde, kommt eine Client Server
+Lösung zum Einsatz. Hierbei wird serverseitig eine Server-Anwendung oder Applikation
+bereitgestellt, die passiv auf Anfragen wartet. Dem gegenüber steht die Client-Anwendung
+auf dem PC des Benutzers, welche diese Anwendung aktiv anfragt. Server und Client
+Anwendungen kommunizieren über das Protokoll, welches sämtliche Anweisungen und
+zugehörigen Antworten definiert. Wenn mindestens ein zentraler Fileserver im Netzwerk
+bereitsteht, spricht man von einem serverbasierten Netzwerk. Dieses verfügt meistens noch
+über einen Domänecontroller.
+
+*Vorteile*
+- Höhere Netzwerksicherheit, da sowohl Server als auch Workstation von technischem
+Personal verwaltet wird
+- Client Server Vernetzung ist mit jedem gängigen Betriebssystem möglich und
+vorintegriert
+- Peer to Peer kann für ausgewählte Aufgaben (bspw. Filesharing) weiterhin genutzt
+werden
+- Einzelne Aufgaben können an speziell darauf ausgelegte Server verteilt werden -
+erhöht die Sicherheit, da Server weniger Angriffsfläche bieten, je weniger Aufgaben
+sie übernehmen
+- Aufgaben können auf zwei Server gespiegelt werden, um den Betrieb bei einem
+Ausfall weiterhin zu gewährleisten
+- ermöglicht zentrale Benutzerverwaltung und Zugriffs- sowie Berechtigungskontrolle
+durch Gruppenrichtlinien
+
+*Nachteil*
+- Höhere Kosten für Erstanschaffung der Server
+- Notwendigkeit von Ersatz-Servern für den Fall eines Ausfalls
+- Schulungskosten für Mitarbeitende in der der Administration
+
+#### Serverarten
+|Name|Beschreibung|
+|:--:|:-----------|
+|File Server|Eine oder mehrere schnelle und große Festplatten,<br> wird zur Speicherung großer Datenmengen genutzt,<br> verfügt im Normalfall über <br>ein eigenständiges Konzept zur regelmäßigen Datensicherung <br>z.B. auf Bändern|
+|Print Server|Stellt zentrale Druckerdienste bereit,<br> Drucker-Steuerung über entsprechend ausgerüstete<br> Computer oder in Druckergerätenintegrierte PrintServer,<br> verminderte Druckkosten und effektivere Geräteauslastung|
+|Application Server|Stellt zentral Anwendungen für das gesamte Netzwerk<br> bzw zugriffsberechtigte Benutzer zu Verfügung,<br> Programm Updates werden einmalig auf<br> dem Server statt jedem Client einzeln durchgeführt,<br> Anwendungen können entweder auf den Clients installiert oder<br> über webbasierte Dienste zu Verfügung gestellt und <br>bspw. via Remote-Desktop Lösungen genutzt werden (Terminal Server)|
+|DNS Server|Auflösung von Namen zu IP-Adressen (**D**omain **N**ame **S**ystem)|
+|DHCP Server|Zuweisung von IP-Adressen und Konfigurationen an Netzwerkkomponenten<br> (z.B. Rechner, Smartphones) <br>(**D**ynamic **H**ost **C**onfiguration **P**rotocol)|
+|Mail Server|Netzwerke eigenes E-Mail System|
+|Webserver|Hostet Websites entweder online (extern zugänglich) oder<br>wahlweise im Firmeneigenen Intranet (nur intern zugänglich)|
+|Datenbank Server|Via DBMS (**D**aten**b**ank**m**anagement**s**ystem)<br> können große Datenbestände gleichzeitig<br> für mehrere Benutzer zentral zur Verfügung gestellt werden|
+|Proxy Server|Zieht Inhalte nach festgelegten Regeln aus dem Internet und <br>speichert diese für spätere Verwendung durch andere Clients zwischen|
+
+### Aufwandsberechnung
+#### TCO - **T**otal **C**ost of **O**wnership
+Nach dem TCO Prinzip werden die Gesamtkosten eines Computer-Netzes erfasst, wozu
+unter anderem die Anschaffungskosten für Hard- und Software, laufende Betriebskosten
+(Energiekosten, Personalkosten, etc) sowie Ausfall- und Instandhaltungskosten gehören.
+
+#### ROI - **R**eturn **o**n **I**nvestment
+Nach dem ROI Prinzip wird eine Nutzen-Kosten-Relation aufgestellt. Das bedeutet, etwaig
+zu hoch wirkende Kosten werden mit ihrem direkten praktischen Nutzen gegenübergestellt,
+z.B. bedeuten Mitarbeiterschulungen zwar höhere Kosten, gleichzeitig aber auch
+Zeitersparnis und verbesserte Verwaltbarkeit des Netzes.
+
+### Netzwerkkürzel
+#### LAN - **L**ocal **A**rea **Network**
+- Kabelgebundenes Netzwerk mit begrenzter Reichweite von maximal ca 10km
+- Netz unterliegt der Aufsicht der nutzenden Firma, in der Regel werden öffentlichen Leitungen genutzt
+
+Definition der ISO (International Standards Organisation): “Ein lokales Netzerk dient der
+bitseriellen Informationsübertragung zwischen miteinander verbundenen unabhängigenGeräten. Es befindet sich vollständig im rechtlichen Entscheidungsbereich des Benutzers
+und ist auf sein Gelände begrenzt.”
+
+#### MAN - **M**etropolitan **A**rea **N**etwork
+- Kabelgebundenes Netzwerk mit regionaler Ausdehnung auf eine Stadt oder<br> ein Ballungszentrum, Reichweite von maximal ca 100km
+- Auch Citynetz genannt
+
+#### WAN - **W**ide **A**rea **N**etwork / GAB - **G**lobal **A**rea **N**etwork
+- Kabelgebundenes Netzwerk mit unbegrenzter Reichweite
+- Der Begriff GAB bezeichnet die Ausdehnung des Netzes auf globaler Ebene, sprich weltweit
+- Auch Weitverkehrsnetz genannt
+- Klassischer Weise ein Verbindungsnetzwerk für räumlich getrennte Rechenanlagen, 
+als Verbindung mehrerer LANs
+- Oftmals werden Leitungen externer Firmen hierfür angemietet
+
+#### WLAN - **W**ireless **L**ocal **A**rea **N**etwork
+- Kabellose Variante des LAN das stattdessen Funktechnologie nutzt
+- Auch WaveLAN oder Wi-Fi genannt
+
+#### PowerLAN / Powerline
+- Ein PLC (Powerline Communication / PowerLAN Communication) nutzt statt eigener
+Verkabelung das Stromnetz als Übertragungsweg
+- Wird in der Regel im Privatbereich genutzt
+
+#### VLAN - **V**irtual **L**ocal **A**rea **N**etwork
+- unterteilt das lokale Netzwerk in logisch voneinander getrennte Netzwerke, die
+weiterhin das selbe gemeinsame physikalische Netzwerk nutzen
+- Nützlich für Arbeitsgruppen, die unabhängig ihres physikalischen Standort arbeiten
+
+#### NAS - **N**etwork **A**ttached **S**torage
+- Festplattenspeicher der in das lokale Netzwerk eingebunden wird
+- Zugriff mit dateibasierten Protokollen wie NFS (Network File System) oder SMB
+(Server Message Block) / CIFS (Common Internet File System)
+- Wird im privaten und Gewerblichen Rahmen genutzt
+
+#### SAN - **S**torage **A**rea **N**etwork
+- Dient der Auslagerung der Datenspeicherung in ein eigenständiges Netzwerk
+- arbeitet blockorientiert und wird wie ein normales Laufwerk dargestellt
+- RAID (Redundant Array of Independent Disk) Systeme werden mit Servern
+verbunden, dies geschieht über Fibre Channel oder ISCSI (Internet Small Computer
+System Interface)
+- ISCSI verwendet Kommandos des SCSI (Small Computer System Interface)
+Standards und überträgt diese via IP (Internet Protocol)
+
+#### VPN - Virtual Private Network
+- ermöglicht eine verschlüsselte Verbindung zwischen PCs und Netzwerken
+
+### Ziele der Vernetzung
+#### Was wird von einem Computer-Netz erwartet
+- Bietet Vorteile gegenüber Einzelplatzumgebung
+- Ist jedoch mit eigenem Aufwand verbunden
+- Der zu erwartende Nutzen muss vor der Entscheidung eines Netzwerks analysiert
+werden
+- Der Hauptgrund für die nicht unerheblichen Investitionen liegt letztendlich immer bei
+den zu erwartenden ökonomischen und unternehmerischen Vorteilen
+
+#### Verbesserte Kommunikation
+- Dienen dem verstärkten Informationsaustausch (Kommunikation)
+- Eine Anbindung an das öffentliche Internet kann zentral erfolgen und stellt damit
+- eine Plattform zum weltweiten Austausch von Informationen aller Art dar.
+
+#### Steigerung der Effektivität im Datenverbund
+- Durch das Arbeiten von mehreren Personen am gleichen Thema, war der Transport
+über Disketten eine gängige Lösung. Heutzutage können Daten über das Netzwerk
+von einem auf den anderen Rechner kopiert werden
+- Besteht ein Zugriff auf zentrale Datenbestände von jeder angeschlossenen Station
+spricht man von einem Datenverbund.
+- Datenverbände die räumlich getrennt auf versch. Rechnern gespeichert sind können
+durch logisches Koppeln dem Benutzer als großer Datenpool erscheinen
+- Effizienz des Netzes hängt stark von der Konzeption der Datenablage ab, wobei das
+Suchen und Abspeichern von Daten einer vom Nutzer nachvollziehbaren und
+sinnvollen Logik folgen muss
+- Versionierung: Dient dazu eine ältere Version einer Datei bei Bedarf wiederherstellen
+zu können (versehentliches löschen usw)
+
+#### Einfache und effizient Datensicherung
+- Da daten nur auf wenigen Rechnern abgelegt werden, ist die Datensicherung
+einfacher durchzuführen
+- Die Datensicherung ist Teil des Datenverbundes. Im Zusammenhang hiermit spielen
+NAS und SAN eine zentrale Rolle
+
+#### Kostensenkung im Funktionsverbund
+- Über das Netzwerk kann beispielsweise ein Drucker von allen Stationen verwendet
+werden
+- Wird ein neues Programm installiert, kann dies zentral auf einem Rechner
+geschehen und das Programm für die Nutzung durch angeschlossene Rechner
+freigegeben werden, wodurch der Wartungsaufwand sinkt
+- Der Betrieb eines Netzwerks bedeutet jedoch auch zusätzlichen personalaufwand,
+aber auch viel Gewinn an Funktionalität für die Teilnehmer
+- Funktionsverbund: verfügbare Ressourcen können mit Hilfe eines Netzwerkes allen
+Beteiligten zur Verfügung gestellt werden
+
+#### Absicherung der Verfügbarkeit
+- Durch den verfügbarkeitsverbund soll das Netzwerk im Falle eines Ausfalls einzelner
+Komponenten noch immer arbeitsfähig sein
+- Redundanz: Andere Komponenten sollen die Funktionen der einzelnen nicht
+arbeitsfähigen Geräte übernehmen wie z.B durch die Bereitstellung eines zweiten
+Datenbank-Servers
+- Teile des Netzwerks selbst sowie bestimmte Netzwerkkomponenten an kritischen
+Stellen oft redundant ausgelegt
+- Bei Ausfall eines Arbeitsplatzrechners ist es wichtig, dass ein Ersatzrechner mit
+gleichen Funktionen und Software zur Verfügung steht
+
+#### Optimierung der Rechner und Netzwerkauslastung
+- Prozesse die mehr Rechenleistung übernehmen, sollen besser ausgestattete
+Rechner übernehmen (Lastverbund)
+- Indem mehrere Server identische Dienste bereitstellen, kann ein Client an jeweils
+den Server vermittelt werden, der die geringste Netzwerklast hat
+
+#### Optimierte Wartung
+- Je großflächiger und komplexer die Komponenten des Netzwerks verteilt sind, umso
+wichtiger wird es, Werkzeuge zu haben, die eine leichte Administration und Wartung
+aller dezentralen Komponenten ermöglichen
+- Ferndiagnos und Fernwartung unterstützen einen schnellen Service in dieser
+Richtung (Hinzu kommt die zentralisierte Verwaltung von Hard- und Software)
+
+### Ausblick
+- Kein ende bei Entwicklung von Netzwerken
+- Zusammenwachsen von Daten und Sprachnetzen ist in der heutigen Zeit immer
+mehr gefragt (Konvergenz)
+- Auch der Ruf nach einer all umfassenden Mobilität von Mitarbeitern und der damit
+verbundenen ständigen Verfügbarkeit von Informationen überall auf der Welt stellt für
+Netzwerke eine große Herausforderung in der Zukunft dar.
+- Zugang zu Informationen sollte sehr gut geschützt werden (Sicherheitsaspekt)
+
+### Räumliche Aufteilung und Fallbeispiel
+Folgende fragen müssen bei der Planung des Netzwerks und bei der Ausstattung gestellt
+werden:
+- Welche Kabelwege existieren und wie können die benötigten Kabel verlegt werden?
+- Welche Kabeltypen sollen verwendet werden?
+- Wie werden die Daten über diese Kabel transportiert und welche Zusammenhänge
+ergeben sich aus den verwendeten Bestandteilen des Netzwerkes?
+- Mit welchen Betriebssystemen wird derzeit gearbeitet und wie soll der Betrieb
+zukünftig aussehen?
+- Wie zukunftsträchtig und wirtschaftlich ist die Planung?
 ## Normung und Modelle
 
 ### Gremien
