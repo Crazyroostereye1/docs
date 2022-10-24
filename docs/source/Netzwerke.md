@@ -1,5 +1,175 @@
 # Netzwerke
 
+## Grundbegriffe und Konzepte zu Netzwerken **fehlt**
+
+## Topologien
+
+### Begriff Topologien
+
+**Physikalische Topologie:** der Weg, auf dem Daten durch Kabel transportiert werden.
+
+-Verkehrswege
+
+-Netzaufbau Beschreibung
+
+-Struktur der verbundenen Netzwerkkomponenten
+
+**Logische Topologie:** hingegen beschreibt, nach welchen Regeln diese Daten transportiert werden
+
+-beschreibt die grundlegenden Verkehrsregeln
+
+-Regeln der Netzwerkzugriffsverfahren auf das Übertragungsmedium
+
+Die Wahl der physikalischen Topologie bestimmt welche Kabel verwendet werden können oder wie flexibel das Netzwerk für weitere Benutzer ausbaufähig ist.
+
+**Weitere Aspekte:**
+
+- Ausfallsicherheit
+
+- Geschwindigkeit
+
+- Verfügbare Bandbreite  
+
+- Anfallende Kosten
+
+### Bus
+
+**Die Bus-Topologie:**
+
+Ein einzelnes zentrales Kabel -> Bus.
+
+Alle Geräte daran angeschlossen und teilen sich dieses Medium (Shared Medium, auch Shared Media genannt)
+
+Die Bus-Topologie ist eine passive Topologie
+
+-> Die angeschlossenen Stationen führen keine Wiederaufbereitung des Signals durch. Sie greifen die Signale vom
+
+Die Bus-Topologie:
+
+Ein einzelnes zentrales Kabel -> Bus.
+
+Alle Geräte daran angeschlossen und teilen sich dieses Medium (Shared Medium, auch Shared Media genannt)
+
+Die Bus-Topologie ist eine passive Topologie
+
+-> Die angeschlossenen Stationen führen keine Wiederaufbereitung des Signals durch. Sie greifen die Signale vom
+
+Kabel ab oder senden auf das Kabel, wo sich das Signal in beide Richtungen ausbreitet. ---> Diffusionsnetz
+
+Die Bus-Enden müssen mit speziellen Abschlusswiderständen (Terminatoren) versehen werden, um ein rücklaufendes Signal, welches das Nutzsignal überlagert, auszuschließen.
+
+**Nachteil:**  
+Eine Störung des Übertragungsmediums an einer einzigen Stelle im Bus (defektes Kabel, lockere Steckverbindung etc.) blockiert den gesamten Netzstrang.
+
+![top_bus.PNG](./_static/top_bus.png)
+
+### Stern
+
+**Stern-Topologie:** 
+
+Bei Netzen in Stern-Topologie sind an einen zentralen Teilnehmer alle anderen Teilnehmer mit einer Punkt-zu-Punkt-Verbindung angeschlossen.
+
+**Merkmal**:
+
+- Jedes Gerät nutzt ein eigenes Kabel
+
+![top_bus.PNG](./_static/top_stern.png)
+
+ **Vorteile**
+
+- Der Ausfall eines Endgerätes hat keine Auswirkung auf den Rest des Netzes.
+
+- Hohe und verschiedene Übertragungsraten möglich
+
+- Leicht erweiterbar
+
+- Leicht verständlich
+
+- Leichte Fehlersuche
+
+- Sehr gute Eignung für Multicast-/Broadcastanwendungen
+
+- Einfaches Routing im Sternverteiler
+  
+  **Nachteile**
+
+- Durch Ausfall des Verteilers wird Netzverkehr unmöglich
+
+### Ring
+
+**Ring-Topologie:**
+
+Bei der Vernetzung in Ring-Topologie werden jeweils zwei Teilnehmer über Zweipunktverbindungen miteinander verbunden, so dass ein geschlossener Ring entsteht.
+
+**Merkmal**:
+
+- Jedes Gerät ist mit zwei Nachbarn verbunden.
+
+- Es gibt keinen Kabelanfang und kein Kabelende.
+
+- Jede Station hat einen eindeutigen Vorgänger und einen eindeutigen Nachfolger.
+
+- Datenverkehr findet immer nur in eine Richtung statt.
+
+![top_ring.png](./_static/top_ring.png)
+
+**Vorteile**
+
+- Deterministische Rechnernetzkommunikation ohne Paketkollisionen-Vorgänger und Nachfolger sind definiert
+- Alle Stationen arbeiten als Verstärker
+- Alle Rechner haben gleiche Zugriffsmöglichkeiten
+- Garantierte Übertragungsbandbreite
+- Skaliert relativ gut, Grad bleibt bei Erweiterung konstant
+- Reguläre Topologie, daher leicht programmierbar
+- Kostengünstig
+- wenig Verkabelung und Installationsaufwand
+
+**Nachteile**
+
+- Niedrige Bisektionsweite und Konnektivität
+- Bei Verwenden eines Ringverteilers lange Signalwege mit häufigem Empfangen und Weitersenden, d. h. hohe Latenzen zu entfernten Knoten
+- Datenübertragungen können leicht abgehört werden.
+- Langsamere Datenübertragung bei vielen angeschlossenen Endgeräten.
+- Relativ hoher Energieaufwand
+- Ohne Ringverteiler hoher Verkabelungsaufwand, da das Bilden eines echten Rings häufig der (Büro-)Raumaufteilung entgegensteht.
+
+### Mischformen
+
+**Topologie-Kombinationen**
+
+- Bei größeren Netzwerke können Kombinationen der aufgeführten Topologien entstehen
+
+**Backbone**
+
+- physikalische Verbindung mehrerer Teilnetze
+- Hintergrundnetz, z. B. die Verbindung verschiedener Gebäude oder Etagen und deren jeweiliger Einzelnetze
+
+**Stern-Stern-Netz**
+
+- Switche bilden jeweils das Zentrum eines Sterns und diese sind wiederum über Kabel mit einem zentralen Switch oder Multilayerswitch verbunden
+
+![top_sternstern.png](./_static/top_sternstern.png)
+
+**Baum**
+
+- eine Menge von Verzweigungen zu weiteren Verteilungsstellen
+- Erweiterung eines Stern-Stern-Netzes auf mehrere Ebenen
+- eignet sich gut für die Vernetzung eines Firmengeländes auf mehreren etagen
+
+![top_sternstern.png](./_static/top_baum.png)
+
+**Maschennetz**
+
+- zwischen den einzelnen Netzknoten jeweils mehrere Verbindungen
+- bei Ausfall einer Verbindung auf redundante Verbindung zurückgreifen
+- benötigen viel mehr Verkabelung
+
+![top_sternstern.png](./_static/top_maschen.png)
+
+
+## Übertragungsmedien **fehlt**
+
+## Schnittstellen **fehlt**
 ## Normung und Modelle
 
 ### Gremien
@@ -230,169 +400,6 @@ Thema NAT spielt wichtige Rolle im Bezug darauf, wie Firewalls anderen Netzwerkt
 
 <u><strong>Multifunktionsgeräte</strong>:</u> enthalten mehrere Komponenten, bspw. DSL-Router, wie Fritz-Box bestehen nicht nur aus DSL-Modem und einem Router, sondern bieten daneben noch weitere Funktionalitäten, wie ein Switch, ein Access Point für WLAN-Verbindung. Daneben sind oft auch Features, wie eine Telefonanlage mit DECT-Basis, Druckserver, USB-Anschluss, sowie Funktionen als Media-Server (NAS), DNS- und DHCP-Server mit einem solchen Multifunktionsgerät möglich.
 
-## Topologien
-
-### Begriff Topologien
-
-**Physikalische Topologie:** der Weg, auf dem Daten durch Kabel transportiert werden.
-
--Verkehrswege
-
--Netzaufbau Beschreibung
-
--Struktur der verbundenen Netzwerkkomponenten
-
-**Logische Topologie:** hingegen beschreibt, nach welchen Regeln diese Daten transportiert werden
-
--beschreibt die grundlegenden Verkehrsregeln
-
--Regeln der Netzwerkzugriffsverfahren auf das Übertragungsmedium
-
-Die Wahl der physikalischen Topologie bestimmt welche Kabel verwendet werden können oder wie flexibel das Netzwerk für weitere Benutzer ausbaufähig ist.
-
-**Weitere Aspekte:**
-
-- Ausfallsicherheit
-
-- Geschwindigkeit
-
-- Verfügbare Bandbreite  
-
-- Anfallende Kosten
-
-### Bus
-
-**Die Bus-Topologie:**
-
-Ein einzelnes zentrales Kabel -> Bus.
-
-Alle Geräte daran angeschlossen und teilen sich dieses Medium (Shared Medium, auch Shared Media genannt)
-
-Die Bus-Topologie ist eine passive Topologie
-
--> Die angeschlossenen Stationen führen keine Wiederaufbereitung des Signals durch. Sie greifen die Signale vom
-
-Die Bus-Topologie:
-
-Ein einzelnes zentrales Kabel -> Bus.
-
-Alle Geräte daran angeschlossen und teilen sich dieses Medium (Shared Medium, auch Shared Media genannt)
-
-Die Bus-Topologie ist eine passive Topologie
-
--> Die angeschlossenen Stationen führen keine Wiederaufbereitung des Signals durch. Sie greifen die Signale vom
-
-Kabel ab oder senden auf das Kabel, wo sich das Signal in beide Richtungen ausbreitet. ---> Diffusionsnetz
-
-Die Bus-Enden müssen mit speziellen Abschlusswiderständen (Terminatoren) versehen werden, um ein rücklaufendes Signal, welches das Nutzsignal überlagert, auszuschließen.
-
-**Nachteil:**  
-Eine Störung des Übertragungsmediums an einer einzigen Stelle im Bus (defektes Kabel, lockere Steckverbindung etc.) blockiert den gesamten Netzstrang.
-
-![top_bus.PNG](./_static/top_bus.png)
-
-### Stern
-
-**Stern-Topologie:** 
-
-Bei Netzen in Stern-Topologie sind an einen zentralen Teilnehmer alle anderen Teilnehmer mit einer Punkt-zu-Punkt-Verbindung angeschlossen.
-
-**Merkmal**:
-
-- Jedes Gerät nutzt ein eigenes Kabel
-
-![top_bus.PNG](./_static/top_stern.png)
-
- **Vorteile**
-
-- Der Ausfall eines Endgerätes hat keine Auswirkung auf den Rest des Netzes.
-
-- Hohe und verschiedene Übertragungsraten möglich
-
-- Leicht erweiterbar
-
-- Leicht verständlich
-
-- Leichte Fehlersuche
-
-- Sehr gute Eignung für Multicast-/Broadcastanwendungen
-
-- Einfaches Routing im Sternverteiler
-  
-  **Nachteile**
-
-- Durch Ausfall des Verteilers wird Netzverkehr unmöglich
-
-### Ring
-
-**Ring-Topologie:**
-
-Bei der Vernetzung in Ring-Topologie werden jeweils zwei Teilnehmer über Zweipunktverbindungen miteinander verbunden, so dass ein geschlossener Ring entsteht.
-
-**Merkmal**:
-
-- Jedes Gerät ist mit zwei Nachbarn verbunden.
-
-- Es gibt keinen Kabelanfang und kein Kabelende.
-
-- Jede Station hat einen eindeutigen Vorgänger und einen eindeutigen Nachfolger.
-
-- Datenverkehr findet immer nur in eine Richtung statt.
-
-![top_ring.png](./_static/top_ring.png)
-
-**Vorteile**
-
-- Deterministische Rechnernetzkommunikation ohne Paketkollisionen-Vorgänger und Nachfolger sind definiert
-- Alle Stationen arbeiten als Verstärker
-- Alle Rechner haben gleiche Zugriffsmöglichkeiten
-- Garantierte Übertragungsbandbreite
-- Skaliert relativ gut, Grad bleibt bei Erweiterung konstant
-- Reguläre Topologie, daher leicht programmierbar
-- Kostengünstig
-- wenig Verkabelung und Installationsaufwand
-
-**Nachteile**
-
-- Niedrige Bisektionsweite und Konnektivität
-- Bei Verwenden eines Ringverteilers lange Signalwege mit häufigem Empfangen und Weitersenden, d. h. hohe Latenzen zu entfernten Knoten
-- Datenübertragungen können leicht abgehört werden.
-- Langsamere Datenübertragung bei vielen angeschlossenen Endgeräten.
-- Relativ hoher Energieaufwand
-- Ohne Ringverteiler hoher Verkabelungsaufwand, da das Bilden eines echten Rings häufig der (Büro-)Raumaufteilung entgegensteht.
-
-### Mischformen
-
-**Topologie-Kombinationen**
-
-- Bei größeren Netzwerke können Kombinationen der aufgeführten Topologien entstehen
-
-**Backbone**
-
-- physikalische Verbindung mehrerer Teilnetze
-- Hintergrundnetz, z. B. die Verbindung verschiedener Gebäude oder Etagen und deren jeweiliger Einzelnetze
-
-**Stern-Stern-Netz**
-
-- Switche bilden jeweils das Zentrum eines Sterns und diese sind wiederum über Kabel mit einem zentralen Switch oder Multilayerswitch verbunden
-
-![top_sternstern.png](./_static/top_sternstern.png)
-
-**Baum**
-
-- eine Menge von Verzweigungen zu weiteren Verteilungsstellen
-- Erweiterung eines Stern-Stern-Netzes auf mehrere Ebenen
-- eignet sich gut für die Vernetzung eines Firmengeländes auf mehreren etagen
-
-![top_sternstern.png](./_static/top_baum.png)
-
-**Maschennetz**
-
-- zwischen den einzelnen Netzknoten jeweils mehrere Verbindungen
-- bei Ausfall einer Verbindung auf redundante Verbindung zurückgreifen
-- benötigen viel mehr Verkabelung
-
-![top_sternstern.png](./_static/top_maschen.png)
 
 ## Wolke (Cloud)
 
