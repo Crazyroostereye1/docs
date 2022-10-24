@@ -6,7 +6,7 @@
 
 #### Entwicklung
 
-Das Wort Chipsatz beschreibt man eine unbestimmte Anzahl von Bausteinen, die zusammengefasst wurden. Diese führen zahlreiche Steueraufgaben und für das Zusammenarbeiten dies Komponenten.
+Das Wort Chipsatz beschreibt man eine unbestimmte Anzahl von Bausteinen, die zusammengefasst wurden. Diese führen zahlreiche Steueraufgaben und für das Zusammenarbeiten der PC Komponenten.
 
 Ursprünglich bestanden dies Chipsatze aus einzelnen Schaltkreisen die überall auf dem Motherboard verteilt waren. Bis sie immer mehr Zusammengeführt wurden. Aber wegen den unterschiedlichen Geschwindigkeiten der Komponenten wurden zwei Integrierte Schaltkreise die oberhalb und unterhalb der CPU auf dem Motherboard Platziert wurden. Diese nennen wir Northbridge und Southbridge. Dies Weiterentwicklung sorgte für die Entwicklung für viele verschiedene neue Architekturen.
 
@@ -342,7 +342,378 @@ Alle USV-Typen haben einen Anschluss über den der Computer Zeitgleich über den
 
 **Geschrieben von Metin, Nathalie, Julian**
 
-## Prozessor (CPU) **Fehlt**
+## CPU
+
+Derzeit bis zu 8,43 Milliarden Transistoren als elektronische Schalter
+auf einem nur wenige Quadratzentimeter großen Träger aus
+Halbleitermaterial.
+
+Zum Schutz vor mechanischen Belastungen werden die Mikrochips in einem
+Gehäuse aus Kunststoff oder Keramik ummantelt. Moderne Prozessoren
+besitzen meist eine Abdeckung aus Metall welche die entstehende Wärme
+auf eine größere Fläche abführt und das empfindliche Prozessor-Die
+schützt. Eine Verkleinerung erlaubt eine Reduzierung der Spannung sowie
+eine Erhöhung des Taktes und der Transistorzahl.
+
+### Eigenschaften
+
+- Anzahl der CPU-Kerne im Prozessorgehäuse (Single- und
+  Multi-Core-Prozessoren)
+- Taktfrequenz und Möglichkeiten zur parallelen Abarbeitung von
+  Befehlen (Multi-Threading)
+- Funktionen zur Takterhöhung und Energiemanagement Größe der Caches,
+  Vorhandensein von Level-3-Cache
+- Virtualisierungsfunktionen (VT-x/AMD-V, VT-d)
+- Prozessorarchitektur, Breite von Busverbindungen, Anbindung an den
+  Chipsatz und Arbeitsspeicher
+- Vorhandensein von Befehlssatzerweiterungen zur Beschleunigung
+  bestimmter Berechnungen (SSE, AVX2, früher MMX und 3DNow!)
+- Eingebaute Sicherheitsmechanismen
+
+### CISC, RISC
+
+CISC ist die Abkürzung für **Complex Instruction Set Computing** und
+bezieht sich auf die Anzahl verschiedener Befehle, die ein Prozessor
+versteht.
+
+RISC steht für **Reduced Instruction Set Computing**, sie verfügen über
+einen eingeschränkten Befehlssatz, können diese meißt mit wenig
+Taktzyklen ausführen. Umfangreichere Befehle werden vor der Bearbeitung
+in einfachere Teile mit fester Länge zerlegt und nacheinander
+verarbeitet. Die Befehle sind sehr einfach und es gib keinen Microcode
+wie bei CISC-Prozessoren. Entsprechende Programmierung vorausgesetzt,
+können RISC-Prozessoren eine Leistung erreichen, die deutlich über der
+von vergleichbaren CISC-Prozessoren liegt.Alle Prozessoren enthalten
+Elemente aus beiden Welten. Die Anzahl der Register ist kontinuierlich
+gestiegen, wie bei RISC, außerdem werden komplexe Befehle während der
+Laufzeit in RISC-Befehle übersetzt. Mikrocode wird kaum noch verwendet.
+
+### Auswahl der Prozessorkerne
+
+Singlecore Prozessoren haben gleich mehrer Probleme. Die Erhöhung des
+Systemtakts führt zu einer höheren Leistungsaufnahme und in dessen Folge
+zu einer stärkeren Wärmeentwicklung. Zusätzlich eingebaute Kühlmaßnahmen
+in Form von Lüftern machen das System lauter. Um Platz für neue
+technische Merkmale zu haben, muss die bisherige Prozessorkonstruktion
+verkleinert werden. Zusätzliche in den Kern eingebrachte Schaltkreise
+verstärkten wiederum die Wärmentwicklung. Multicore Prozessoren
+begrenzten diese Probleme, da sie deutlich niedriger getaktet werden als
+Singlecore Prozessoren, dafür aber über mehrere Recheneinheiten
+verfügen. Dennoch lösen sie das Problem nicht vollständig, da die
+Rechenleistung nicht addiert werden kann. Die effiziente Ausnutzung der
+Rechenleistung macht es erforderlich, dass vonseiten der Software das zu
+lösende Problem gleichzeitig in mehreren Kernen verarbeitet wird.
+Softwareentwickler den Programmablauf in mehrere kleinere Teilaufgaben
+zerlegen, was nicht immer möglich ist. Stärke der Multicore Prozessoren
+liegt daher in der gleichzeitigen Abarbeitung mehrerer Programme oder
+Teilstränge (Threads).
+
+#### Taktfrequenz/CPU-Geschwindigkeit
+
+Jede Anweisung eines Programms, die von der CPU ausgeführt wird,
+erfordert eine bestimmte Anzahl von Taktimpulsen (Taktzyklen). Je höher
+die Taktfrequenz (auch Taktrate genannt) ist, desto schneller können
+einzelne Programmanweisungen bearbeitet werden. Eine Aufgabe, die von
+einer CPU mit 1 GHz in 30 Sekunden ausgeführt wird, kann theoretisch auf
+einer baugleichen 2-GHz-CPU in 15 Sekunden ablaufen. Die tatsächliche
+Leistung einer CPU hängt aber auch davon ab, wie viele Befehle je
+Taktzyklus gleichzeitig verarbeitet werden können.
+
+Die Prozessoren tauschen ihre Daten zwar mit der Taktgeschwindigkeit der
+Hauptplatine aus, können intern jedoch mit einem Vielfachen dessen
+rechnen. Der variable Taktgeber wird auf die benötigte
+Taktgeschwindigkeit der Hauptplatine eingestellt. Bei älteren
+Prozessoren ist dies der Front-Side-Bus-Takt (FSB), bei neueren
+Prozessoren mit integriertem Speichercontroller übernimmt diese Rolle
+ein Referenz- oder Systemtakt. Die interne Trotz der unterschiedlichen
+Bezeichnungen erlauben beide Techniken dem Prozessor das automatische
+Absenken des Multiplikators, um Energie einzusparen. Die Einstellung
+(aktiv/inaktiv) wird in den BIOS Einstellungen vorgenommen.
+
+#### AMD Turbo Core/Intel Turbo Boost
+
+Da sich die Anwendungssoftware nur sehr langsam Richtung multithreading
+entwickelt, spielt die Rechenleistung eines einzelnen Kerns noch immer
+eine große Rolle. Daher haben sowohl Intel als auch AMD in ihren
+Prozessoren eine automatische Takterhöhung eingebaut. Sind mehre Kerne
+nicht in Verwendung, werden diese abgeschaltet und die arbeitenden Kerne
+bis an die Belastungsgrenze übertaktet, um die Verarbeitung zu.
+
+#### Hyper-Threading
+
+Intel führte 2002 die Hyper-Threading-Technologie ein (HTT). Dabei wird
+dem Betriebssystem vorgegaukelt, dass es sich bei einem Prozessorkern um
+zwei Kerne handelt. Mit dieser Prozessorerweiterung ist es dem Prozessor
+möglich, mehrere Arbeitsschritte (Threads) gleichzeitig abzuarbeiten,
+sofern die Software dies unterstützt.
+
+#### Multi-Threading
+
+Früher verfügte jeder Prozessor nur über einen Kern und konnte jeweils
+nur einen Prozess (Thread) zum Zeitpunkt X bearbeiten. Wenn jedoch im
+System mehrere Prozessoren/Prozessorkerne vorhanden sind oder ein
+Prozessor mehrere Threads (Prozesse) gleichzeitig verarbeiten kann, wird
+dies als Multi-Threading bezeichnet.Verarbeitungsgeschwindigkeit erhöht
+
+#### Cache
+
+Die CPU ist mit schnellen Zwischenspeichern versehen, in denen häufig
+verwendete Daten (Data Cache) und Befehle (Code Cache) abgelegt werden.
+Der Cache kann mit höheren Taktraten angesprochen werden als der externe
+Arbeitsspeicher. In diesem Fall wird der langsame Hauptspeicher vor dem
+Prozessor versteckt. So lassen sich die Zugriffszeiten auf benötigte
+Daten deutlich reduzieren und die CPU wird für bestimmte Anwendungen
+leistungsfähiger. Ein kleiner Level-1-Cache ist auf dem CPU-Chip selbst
+untergebracht (on-die) und erlaubt maximale Zugriffsgeschwindigkeiten.
+Ein deutlich größerer Level-2-Cache kann entweder on-die oder im
+Prozessorgehäuse angeordnet sein. Bei modernen Multi-Core-Prozessoren
+gibt es für jeden Kern eigene L1- und L2-Caches. Smart Cache
+repräsentiert einen gemeinsamen Speicher, der allen Prozessorkernen zur
+Verfügung steht (Shared) und als höchster Level benutzt wird. Verfügt
+die CPU über L1- und L2-Cache, wird Smart Cache als L3-Cache betrieben.
+
+
+
+**Beispiele für kommerzielle Typ1 Hypervisatoren (Bare-Metal
+Hypervisor):**
+
+- Microsoft Hyper-V Server
+- VMware VCenter Server
+- Citrix Xen Server
+
+
+
+**Beispiele für Typ 2 Hypervisatoren:**
+
+- Microsoft Hyper-V (in Windows 10 Pro enthalten)
+- VMware Workstation/Workstation Player (für privaten, nicht
+  kommerziellen Gebrauch frei)
+- Oracle Virtualbox (für privaten Gebrauch frei)
+
+Virtualisierungsfunktion wird im BIOS aktiviert, kann sich je nach
+System in den Erweiterten Einstellungen, der Einstellungen der CPU, als
+auch in den Sicherheitseinstellungen befinden. (Intel: VT-d, AMD:
+AMD-V). VT-d (Intel Virtualization Technology for Directed I/O neues
+Feature für Intel-CPUs, um physikalische PCI-Geräte (z.B. Netzwerkkarte)
+in virtuelle Umgebung einzubinden. -\> Gerät steht direkt in virtueller
+Maschine zur Verfügung.
+
+#### Pipelining
+
+Befehlsausführung einer CPU kann in mehrere Abschnitte unterteilt
+werden:
+
+- Ein Befehl wird geladen.
+- Der Befehl wird decodiert.
+- Erforderliche Daten (Operatoren) werden geladen.
+- Im Befehl beschriebene Operation wird ausgeführt.
+
+Abschnitte werden in Von-Neumann-Architektur in einem einzelnen
+Taktzyklus nacheinander von CPU ausgeführt. Für Ausführung eines
+kompletten Befehls sind im einfachsten Fall fünf Taktzyklen
+erforderlich.
+
+Pipelining stellt somit in CPU, Funktionseinheiten bereit, die jeden der
+einzelnen Schritte, unabhängig voneinander, bearbeiten. Wird Befehl im
+ersten Zyklus von einer Funktionseinheit geladen, wird im nächsten
+Zyklus von zweiter Funktionseinheit decodiert. Erste Funktionseinheit
+kann parallel bereits nächsten Befehl laden. Es entsteht nach dem
+Prinzip der Eimerkette ein System, bei dem jede Funktionseinheit in
+jedem Taktzyklus ihre Aufgabe erledigt und nicht auf andere Abschnitte
+warten muss. Befehlsverarbeitung dadurch erheblich effektiver.
+Allerdings nach wie vor wird je Taktzyklus nur ein Befehl von der CPU
+geladen.
+
+### 64-Bit-Prozessoren
+
+- 2003 Einführung 64-Bit-Technologie (AMD64) im Desktop-Bereich mit
+  Athlon-64-Prozessoren durch AMD
+- Aufgrund des Markterfolges zog Intel 2004 mit Befehlssatz Intel64
+  nach
+- Mit Einführung der 64-Bit-Technologie konnte
+  4-GB-Arbeitsspeichergrenze überwunden werden
+- Heutige CPUs auch 64-Bit Prozessoren
+
+**Gebräuchliche 64-bit-Server- und Desktop-Betriebssysteme sind**
+
+**Desktop:** UNIX, Linux, Windows-Generationen seit XP Professional 64 Bit
+
+**Server:** nahezu alle Linux-Distributionen, Windows-Server seit Server
+2003
+
+Beim Einsatz von 64-Bit-Betriebssystemen werden entsprechende
+64-Bit-Treiber benötigt. Ist besonders bei älterer Hardware und
+Peripherie problematisch.
+
+### Superskalare Architektur
+
+CPU mit superskalarer Architektur kann je Taktzyklus mehrere Befehle
+entgegennehmen. Dazu wird Anzahl der Funktionseinheiten erhöht.
+Superskalare Prozessoren besitzen Hardware für jeden Abschnitt der
+Verarbeitung mehrmals. Wird beispielsweise Anzahl der Funktionseinheiten
+vervierfacht, können vier Befehle gleichzeitig ausgeführt werden.
+Moderne CPUs verwenden eine Kombination aus Pipelining und superskalarer
+Architektur.
+
+### Benchmarks
+
+Benchmarking (Benchmark = engl. Maßtab) von Hardware bezeichnet die
+Messung der Leistungsfähigkeit der einzelnen Komponenten. Die zu
+vergleichenden Komponenten werden dabei nacheinander in denselben
+Computer eingebaut und mit verschiedenen Benchmark-Programmen getestet.
+Im Testcomputer ist hochwertige, schnelle Hardware verbaut, um
+Leistungsfähigkeit der der zu testenden Hardware nicht einzuschränken
+(Bottleneck). Viele Programme sind besonders auf das CPU-Sortiment eines
+bestimmten Herstellers optimiert. Prozessor kann für bestimmte
+Aufgabenbereiche geeignet sein, der unter den üblichen Benchmarks nicht
+Spitzenreiter ist. Neben der Gesamtleistung des Systems sind auch
+Anschaffungskosten, Energieverbrauch, sowie Garantieleistung und
+Herstellersupport wichtige Faktoren. Bekannte Benchmark-Programme sind
+z.B. PassMark, SiSoftware Sandra. Besonders für die Messung der
+Spiele-Performance eignet sich der 3dMark, oder für die Gesamtleistung
+PCMark.
+
+### Intel-Prozessoren
+
+Die Reihe der Intel-Core Prozessoren besteht aus den bekannten Modellen
+i3, i5, i7. Seit der 7. Generation hinzugekommen ist der i9, der
+mittlerweile schon in der 10. Generation produziert wird. Weiterhin ist
+auch der bereits bekannte Celeron in der 10. Generation zu finden.
+Heutiges Segment an verschiedenen Modellen bietet eine große Vielfalt,
+was nicht zuletzt auf deutlich gewachsene Konkurrenz von AMD
+zurückzuführen ist. Alle Modelle der 10. Highend-Desktop Generation von
+Intel, verfügen über keinen Grafikchip, unterstützen bis zu 4
+Speicherkanäle und 256 GB DDR4 mit einer Standard-Taktrate von 2933 MHz.
+Weiterhin verwenden sie den PCIe 3.0 Standard und können außerdem bis zu
+48 PCIe Lanes verwenden. Aktuelle Celeron-Prozessoren werden ebenfalls
+in 14nm Technologie gefertigt. Sie besitzen kein Hyper-Threading. Zum
+Einsatz kommt, wie in den vorherigen Modellen eine Intel UHD Graphics
+610 Grafikeinheit, der einen maximalen Grafikspeicher von 64 GB
+unterstützt. Die Standardmäßige Taktfrequenz liegt hier bei 350 MHz,
+welcher jedoch auf 1,0 bzw. 1,05 GHz gesteigert werden kann.
+
+### TDP (Thermal Design Power)
+
+- beschreibt die maximale thermische Verlustleistung des jeweiligen
+  Prozessors. Dies bedeutet, dass im Volllastbetrieb auch diese
+  Leistung aufgenommen und in Wärme umgesetzt wird.
+
+#### Intel Optane Speicher
+
+*Was ist Intel Optane?*
+
+- Beim Intel Optane Speicher handelt es sich um ein Hardwaremodul, das
+  einen M2-Steckplatz verwendet und sich so mit dem PCI Express Bus
+  des Motherboards verbindet.
+- Sie ist eine intelligente Technik, die PCs mit Intel Core
+  Prozessoren entsprechend beschleunigt.
+- Sie merkt sich, welche Dokumente, Bilder, Videos und Anwendungen die
+  Benutzer am häufigsten aufrufen und hält sie für den schnellen
+  Zugriff bereit -- sogar nach dem Abschalten des PCs.
+- Technisch basiert Optane auf dem sogenannten
+  3D-XPoint-Speicherverfahren, das besonders schnellen Datenzugriff
+  verspricht.
+- Vorteile der Intel Opatane: das schnelle Laden der Benutzterdaten
+  von der SSD und die großen Speicher
+- kapazitäten mechanischer Festplatten.
+
+#### Vpro
+
+- Intel vPro:  Sie bieten die reaktionsschnelle Leistung und
+  zuverlässige Konnektivität, die Geschäftsanwender benötigen, um
+  länger mobil zu bleiben -- und den ganzen Tag produktiv zu sein.
+- Der Prozessor, der mit vPro integriert, erlaubet es per Fernzugriff
+  , Statusinformationen abzurufen, Konfigurationsänderungen
+  vorzunehmen und das System ein-/auszuschalten
+- Kritik: mit dieser Technologie eine nur schwer zu kontrollierende
+  Hintertür geschaffen zu haben.
+
+### AMD-Prozessoren (Advanced Micro Devices):
+
+- AMD Highend-Desktop-Prozessoren (Threadripper 3970X )
+
+- AMD bietet momentan seine Threadripper- und Threadripper
+  Pro-Prozessoren für den High-End-Desktop- und Workstation-Bereich
+  an. 
+
+- AMD-Standard-Prozessoren
+  
+  - Ryzen 5, 7 und Ryzen 9
+  
+  - Ryzen 4000er G-Serie.
+
+- Auch gibt es den Ryzen und Athlon als PRO Version für die Zielgruppe
+  der gewerblichen Anwender.
+
+- Das PRO Programm stellt einen einheitlichen Funktionsumfang aller
+  Modelle bereit, gibt eine Verfügbarkeits garantie für Ersatzteile
+  und stellt eine verschlüsselte Speicherung der Daten im
+  Arbeitsspeicher (Echtzeit) bereit.
+
+### CPU-Kühler
+
+- Sie absorbieren Wärme von der CPU und leiten sie von der Hardware
+  ab.
+
+- Die vom Prozessor selbst erzeugte Wärme wird auf den Metalldeckel
+  der CPU verteilt, das sogenannte Wärmeverteilblech (Integrated Heat
+  Spreader, IHS).
+
+- Die Wärme wird auf die Grundplatte des CPU-Kühlers übertragen. Diese
+  Wärme wird, entweder durch Flüssigkeit oder per Wärmerohr, an einen
+  Lüfter abgegeben, wo sie vom Kühler weggeblasen und schließlich vom
+  PC abgeleitet wird.
+
+- Luftkühlung des Prozessors
+  
+  - Bei einem Luftkühler wird die Wärme vom IHS der CPU über
+    die aufgebrachte Wärmeleitpaste auf eine leitfähige Grundplatte
+    übertragen, die in der Regel aus Kupfer oder Aluminium besteht.
+  
+  - Von der Grundplatte gelangt diese thermische Energie in die
+    angeschlossenen Wärmerohre.
+
+- Die Effektivität eines Luftkühlers kann in Abhängigkeit von
+  verschiedenen Faktoren variieren, etwa
+  
+  - nach den für die Konstruktion verwendeten Materialien (Kupfer
+    ist z. B. leitfähiger als Aluminium, auch wenn Aluminium
+    günstiger ist) sowie
+  
+  - nach der Größe und Menge der Lüfter, die am CPU-Kühlkörper
+    befestigt sind.
+
+- Wasserkühlung des Prozessors
+  
+  - Bei der Wasserkühlung führt der Wasserkreislauf die Abwärme aus
+    Prozessor, Chipsatz und Grafikprozessor ab.
+  
+  - Das erwärmte Wasser durchläuft einen Radiator und wird dort
+    mithilfe eines Lüfters wieder abgekühlt.
+  
+  - effektiver abwärmen leistungsfähiger und leiser als eine
+    Luftkühlung.
+  
+  - aufwendiger zu warten und ist teurer als eine Luftkühlung
+
+### Betriebsmodi des Prozessors
+
+- Mit der Einführung des ersten 386er Prozessors konnte erstmalig der
+  maximal 4 GB große Arbeitsspeicher linear adressiert werden (Flat
+  Memory).
+
+- Mit Einführung der 64 Bit-Prozessoren wurde dieses Modell in
+  modifizierter Form beibehalten, jedoch versucht man, mögliche
+  Sicherheitslücken durch neue Hardwareerweiterungen wie NX-Bit
+  (NoExecute) oder SMEP (Supervisor Mode Execution Protection) zu
+  beseitigen.
+
+- Es gibt 3 Prozessormodi
+  - Real Mode
+  - Protected Mode
+  - Virtual Protected Mode (Real Mode und Protected Mode vereint)
+
+
 
 ## Bussysteme
 
@@ -1008,7 +1379,7 @@ In der IT unterscheiden wir zwischen drei Speicherarten.
 
 |Name | Beschreibung |
 |:----|:-------------|
-| Online-Speicher | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.<br>Er enthält Daten, die nur selten benötigt werden,<br> wie z.B. ein Backup.<br>Beispiele: Externe Festplatten, DVD/CDs |
+| Online-Speicher | Online-Speicher sind einerseits RAM-, Kern- oder Arbeitsspeicher eines Rechners,<br> andererseits Festplatten oder auch externe Medien, die fest verbunden sind (z. B. ein initialisierter USB-Stick).<br> Diese Speicher sind während der Datenverarbeitung ständig aktiv (online) und speichern sofort wieder benötigte Daten.<br> Sie bieten deshalb die kürzeste Zugriffszeit.<br> Beispiel: Festplatten, USB-Sticks, Disketten. |
 | Nearline-Speicher | Hier werden Daten gespeichert,<br> die immer wieder gebraucht werden,<br> aber nicht durchgehen und nicht im Moment. |
 | Offline-Speicher  | Ein Offline-Speicher ist meist nicht fest im eigentlichen System integriert.<br>Er enthält Daten, die nur selten benötigt werden,<br> wie z.B. ein Backup.<br>Beispiele: Externe Festplatten, DVD/CDs  |
 
