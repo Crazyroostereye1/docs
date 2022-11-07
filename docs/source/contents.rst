@@ -5,5 +5,6 @@ Inhaltsverzeichnes
     :maxdepth: 3
 
     index
-    Netzwerke
     PC-Technik
+    Netzwerke
+    NetzwerkePuD
