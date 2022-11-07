@@ -163,6 +163,7 @@ Binär dargestellt 1111 1111.1111 1111.1111 1111.0000 0000
 
                                                  Netzwerkteil                     Hostteil
 
+### Fragen
 192.168.20.8 /24  Netzklasse? A
 
 1100 0000. 1010 1000.0001 0100.0000 1000
