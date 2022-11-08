@@ -14,8 +14,6 @@
 
 das wichtigste Protokoll der TCP/IP Protokolle. Es existiert in den Versionen 4 und 6. Ist für die Übermittlung von TCP und UDP Datagrammen zuständig und kümmert sich auch um die Vermittlung im Netzwerk.
 
-
-
 #### ARP/ReverseARP (Adress Resolution Protocol) (OSI Layer 2)
 
 Das ARP Protokoll wird zur Ermittlung von Hardware-Adressen (MAC-Adressen) benutzt. Mit Reverse ARP wird einer Bekannten MAC-Adresse eine IP Adresse Zugeordnet. Hierfür wird ein MAC Broadcast versendet in dem das System mit Zugehöriger IP-Adresse aufgefordert wird dem anfragenden System seine MAC-Adresse mitzuteilen.
@@ -26,19 +24,13 @@ Das ARP Protokoll wird zur Ermittlung von Hardware-Adressen (MAC-Adressen) benut
 
 Das ICMP wird bei der Ermittlung von Fehlern bei der Übertagung von IP-Paketen benutzt. Die bekannteste Anwendung findet es hierbei an dem PING Befehl.
 
-
-
 #### TCP (Transmission Control Protocol) (OSI Layer 4)
 
 Das TCP Protokoll wir bei dem Verbindungsorientieren Datentransport verwendet. Das Protokoll führt bei einem Dateitransport eine Sequenzielle Empfangsbestätigung durch. Sollte bei einer Datei diese nicht erfolgreich sein, werden diese nochmals versendet.
 
-
-
 #### UDP (User Datagram Protocol) (OSI Layer 4)
 
 Auch UDP ist für den Datentransport zuständig, jedoch führt dieses Protokoll keine Empfangskontrolle der Dateien durch.
-
-
 
 ### Interaktion zwischen Protokollen und Diensten
 
@@ -46,13 +38,9 @@ Auch UDP ist für den Datentransport zuständig, jedoch führt dieses Protokoll 
 
 Bei der Netzwerkkommunikation benötigen wir mehrere Protokolle die den Transport von Daten sicherstellen. Damit die Daten von der jeweiligen Schicht an den richtigen Dienst weitergeleitet werden müssen die dafür zuständigen Ports angesprochen werden. Diese werden als SAP (Service Access Point) betitelt.
 
-
-
 #### Standardisierte Ports
 
 Bei der Portfreigabe gibt es drei Gruppierungen: Well known Ports (0-1023), registrierte Ports (1024-49151) und Private Ports (alle ab 49152).
-
-
 
 #### Well known Ports
 
@@ -75,8 +63,6 @@ Bei der Portfreigabe gibt es drei Gruppierungen: Well known Ports (0-1023), regi
 
 Die MAC-Adresse (Media Access Control) ist im Gegensatz zu der IP-Adresse nicht vorgesehen verändert zu werden. Sie ist eine Physikalische Adresse welche der Netzwerkschnittstelle seitens des Herstellers zugewiesen wird. Sie besteht aus 48 Bit und wird als ein 12-stelliger Hexadezimal-Wert dargestellt bspw. 00:3C:DE:12:34:56. Die MAC-Adresse sollte weltweit eindeutig und einmalig sein. Falls es z.B. in einem Netzwerk eine MAC-Adresse doppelt geben sollte kann es bei einem DHCP-Server zu einem Datenbankkonflikt führen.
 
-
-
 ## Das Internet-Protokoll IP
 
 *Jan, Timo*
@@ -98,8 +84,6 @@ Netzklassen waren eine von 1981 bis 1993 verwendete Unterteilung des IPv4-Adress
 ### Subnetzmaske
 
 Die Netzmaske, Netzwerkmaske oder Subnetzmaske legt in Rechnernetzen in Verbindung mit der IP-Adresse fest, welche IP-Adressen ein Gerät im eigenen Netz ohne die Zuhilfenahme eines Routers erreichen
-
-
 
 Eine Subnetzmaske besteht aus einer Reihe von binären Einsen gefolgt von einer Reihe von binären Nullen. Sie ist – wie jede IP-Adresse – 32 Bit lang und wird in vier Oktette aufgeteilt, die wiederum mittels Punkten voneinander getrennt sind, z. B.
 
@@ -155,8 +139,6 @@ Unter dem Punkt Diensttyp lassen sich die Prioritäten von 0 bis 7 definieren. M
 
 Ein Beispiel für den Einsatz von Prioritäten ist etwa die Datenübertragung während einer Telnetsitzung. Normalerweise würden zur effizienten Bandbreitennutzung Daten gesammelt, bis sich ein Paket von ausreichender Größe ergäbe. Somit wäre die Telnetsitzung nicht mehr durchführbar, da eine übermäßige Anzahl von Zeicheneingaben erfolgen müsste. Stattdessen ist es hier nötig, die Übertragung von einzelnen Eingaben sofort durchzuführen, auch wenn dadurch mehr Headerdaten als Nutzdaten transportiert werden. Um dabei die Mindestübertragungsgröße nicht zu unterscheiden, werden die Pakete aufgefüllt.
 
-
-
 Subnetzmaske: 255.255.255.0
 
 Binär dargestellt 1111 1111.1111 1111.1111 1111.0000 0000
@@ -203,19 +185,264 @@ Hostadresse: 172.16.0.1 – 172.16.15.254
 
 Broadcastadresse: 172.16.15.255
 
-
-
-## 5 TCP und UDP
+## TCP und UDP
 
 *Luis, Mike, Jonas*
+
+### Aufgaben von TCP und UDP
+
+Das Transport Control Protocol (TCP) und das User Datagram Protocol (UDP) sollen innerhalb der TCP/IP Protokoll-Familie den Transport von Daten gewährleisten
+
+#### TCP Liegt auf dem layer 4 Transport-Layer
+
+TCP hat im Gegensatz zu UDP viele komplexe Eigenschaften welche den Datentransport absichern sollen
+
+Jedoch kann auch ein Deutlicher Protokoll Overhead bewirkt werden
+
+- Protokoll Overhead:  TCP Header müssen Zum Beispiel IP-Pakete Quell-IP, Ziel-IP und weitere Daten mitführen. Dadurch wird mehr daten Traffic generiert als die Rohdaten eigentlich hätten
+
+**Eigenschaften sind Beispielsweise:**
+
+- Verbindungsorientiertheit
+
+- Zuverlässigkeit
+
+- Flexibilität in der Bandbreitnutzung
+
+Überprüft immer ob alle Datenpakete ankommen oder nicht und wiederholt den Vorgang, bis alle Pakete angekommen sind. Bei langsamen Verbindungen kann es zu einem Timeout kommen.
+Immer vollständige Sendung oder gar keine Sendung
+
+Verwendung des Three Way Handshake 
+
+
+
+### Weiter Aufgaben von TCP
+
+ Verwaltung des Datenstroms zwischen den Protokollen der Anwendungs und Netzwerkschicht Segmentierung des Datenstroms (Sammlung der Datenpakete in der Anwendungschicht um für die Übertragung geeignete Pakete zu „schnüren“ und anschließend noch mit einem Header zu versehen
+Pufferung der Daten
+Parallelisierung der Daten
+
+
+
+TCP verwendet für den Verbindungsaufbau zwischen zwei kommunizierenden Systemen den Three- Way Handshake
+
+![Bild1.png](./_static/NWPD/5/Bild1.png)
+
+Im ersten Paket übermittelt der Sender eine Synchronisationsanforderung (SYN) mit einer Sequenznummer "Seq = m" 
+
+Im zweiten Schritt schickt der Empfänger eine Synchronisationsbestätigung (acknowledgment, ACK). Dazu wird die empfangene Synchronisationsnummer um 1 erhöht und als "Ack = m + 1" mitgesendet. Gleichzeitig fordert der Empfänger seinerseits eine Synchronisation (SYN) an, die ebenfalls eine Synchronisationsnummer enthält ("Seq = n").
+
+Im dritten und letzten Schritt übermittelt der Sender eine Bestätigung (ACK). Dieses Paket enthält die eigene Synchronisationsnummer ("Seq = X+1") und eine Bestätigungsnummer ("Ack = Y+1")
+
+### Weitere facts zu TCP
+
+1. Mithilfe der Sequenz-Nummern können Datagramme in die korrekte Reihenfolge gebracht werden. Außerdem kann ein Sender erkennen, wenn innerhalb einer bestimmten Zeit kein Acknowledgment für ein gesendetes Datagramm eintrifft. Dieses Datagramm wird dann erneut gesendet, um so Datenverlusten bei der Übermittlung vorzubeugen.
+
+2. Als verbindungsorientiertes Protokoll muss TCP am Ende eines Kommunikationsstranges auch die Verbindung wieder beenden. Dazu wird mit der letzten Empfangsbestätigung eines Paketes auch eine Anforderung zum Verbindungsabbau übermittelt, die von der Gegenseite bestätigt wird
+
+3. TCP wird immer dann verwendet wenn es wichtig ist das alle Pakete vollständig ankommen zb Emails, Datenbankzugriff, Remote Computing
+
+4. Flusskontrolle: Bei der Informationsübermittlung kann es vorkommen, dass ein Sender einem Empfänger mehr Daten übermittelt, als dieser zu einem gegebenen Zeitpunkt verarbeiten kann. Die Daten werden in einem Puffer zwischengespeichert.  Da dieser Puffer nur eine begrenzte Größe hat, kann es zu einem Pufferüberlauf kommen. Um dies zu verhindern, schickt ein System, dessen Verarbeitungspuffer voll ist, ein ECN-Echo (explicit congestion notification echo, auf Deutsch etwa: ausdrückliche Datenstau-Information). Daraufhin halbiert das sendende System seine Sendegeschwindigkeit, bis das empfangende System durch das CWR-Flag (congestion window reduced, auf Deutsch etwa: reduziertes Übertragungsfenster wegen Datenstau) signalisiert, dass die Übertragung wieder in normaler Geschwindigkeit erfolgen kann.
+
+### Erklärung zu Begriffen
+
+**Segmentierung**
+
+Sammlung der Datenpakete in der Anwendungschicht um für die Übertragung geeignete Pakete zu „schnüren“ und anschließend noch mit einem Header zu versehen
+
+
+
+**Pufferung**
+
+Damit daten zu Segmenten zusammengefasst werden und die Segmente an die 7. Schicht des OSI-Modells (Anwendungsschicht) in der richtigen Reihenfolge weitergeleitet werden können, muss die Transportschicht auf einen eigenen Speicher (Puffer) zurückgreifen
+
+
+
+**Parallelisierung**
+
+Wenn für eine Anwendung eine schnellere Datenübertragung benötigt wird, als ein einzelner Kanal aufbringen kann, ist es TCP möglich mehrere Verbindungen gleichzeitig zu nutzen
+Die Parallelisierung ist kein fester Bestandteil von TCP, sondern ein zusätzliches Feature, welches von modernen Betriebssystemen bereitgestellt wird
+
+
+
+### Erklärung des TCP-Header
+
+Der Header (Protokoll-Kopf) enthält alle Informationen sowie weitere Felder, die bei der Kommunikation gebraucht werden können. Die Informationen des Headers sind dabei in Blöcken zu 32 Bit (vier Byte) zusammengefasst. Auch wenn ein Header länger wird, beträgt die Länge immer ein Vielfaches von vier Byte.
+
+![Bild2.png](./_static/NWPD/5/Bild2.png)
+
+**Source Port (16bit)**
+
+Der Source Port (Quellport) gibt an, von welchem Port auf Schicht 5 die Daten stammen, die (in Datagramme zerlegt) übermittelt werden.
+
+
+
+**Destination Port (16 Bit)**
+Der Destination Port (Zielport) gibt an, an welchen Port auf Schicht 5 die zusammengesetzten Daten der Datagramme weitergereicht werden sollen. 
+
+
+**Sequence Number (32 Bit)**
+Die Sequenz-Nummer dient dazu, die empfangenen Datagramme in die richtige Reihenfolge zu bringen, den Kommunikationsfluss zu kontrollieren und etwaige Fehler zu erkennen. 
+
+
+**Acknowledgment Number (32 Bit)**
+Die Acknowledgment Number (Bestätigungsnummer) gibt an, welche Sequenznummer das empfangende System zur Bestätigung des einwandfreien Erhalts des oder der Datagramme verwenden soll. 
+
+
+
+**Header Length (4 Bit)**
+Die Längeninformation des Headers gibt an, wie viele 32-Bit-Wörter dieser umfasst. Dies ist notwendig, weil sich die Länge des Headers verändern kann, z. B. wenn zusätzliche Optionen für die Flusskontrolle vereinbart werden müssen. 
+
+
+**Flags (12 Bit)**
+Auch wenn im Moment erst acht Bit = acht Flags definiert sind, ist das System an dieser Stelle bereits für Erweiterungen vorbereitet. So können etwa Sonderformen von TCP für den Satellitentransfer spezielle Informationen enthalten. 
+
+
+**Fenstergröße**
+Hier ist festgelegt, wie viele Bits ein Gerät maximal auf einmal empfangen kann. 
+
+
+**Prüfsumme** 
+Anhand der Prüfsumme kann ein Empfänger bestimmen, ob Daten während des Transportes verändert worden sind. 
+
+
+**Dringlichkeitszeiger**
+Wenn bei den Flags eine Kennzeichnung des URGENT-Flags (Dringend-Kennzeichen) vorliegt, werden die Daten nicht in den Puffer gelegt, sondern es wird sofort mit der Verarbeitung begonnen. Der Dringlichkeitszeiger verweist auf das Ende der dringend zu verarbeitenden Daten. 
+
+
+**Optionen**
+Hier ist derzeit in der Standardversion von TCP nur die maximale Größe für TCP-Segmente definiert. Der Rest des 32-Bit-Wortes muss mit Nullen aufgefüllt werden, um so der Längeninformation zu entsprechen.
+
+
+
+### UDP (Schicht 4 Transport Layer)
+
+**Name:** User Datagram Protocol
+
+#### Eigenschaften
+
+Geschwindigkeit
+Geringer Overhead
+Vermeiden redundanter Transportkontrolle
+
+#### UDP
+
+Das User Datagram Protocol (UDP) stellt ebenfalls Dienste der Transportschicht bereit, ohne allerdings die Fehlertoleranz und die Verbindungsorientiertheit von TCP aufzuweisen. Daher kommt UDP vor allem dann zum Einsatz, wenn Dienste anderer Schichten die Verbindungskontrolle und die Fehlerkorrektur übernehmen.
+Der Vorteil von UDP liegt in dem gegenüber TCP deutlich verringerten Overhead. So kommt der Protokoll-Header von UDP mit der festen Größe von acht Byte aus und durch den Wegfall der Acknowledgment-Sendungen wird zusätzliche Bandbreite gespart.
+Ein weiterer Vorteil besteht dabei im Wegfall von Verbindungsaufbau und -abbau. Im Vergleich zu TCP werden so drei Pakete für den Three-Way-Handshake und eines für das Sitzungsende eingespart.
+Damit ist UDP vor allem für die Übertragungen geeignet, bei denen es zu wenig oder keinen Datenverlusten kommt. Dies gilt insbesondere für Netzwerk-Dienste.
+
+![Bild3.png](./_static/NWPD/5/Bild3.png)
+
+
+
+
 
 ## 6 Network Address Translation
 
 *Alex*
 
-## 7 Routing
+## Routing
 
 *David, Metin, Lukasz*
+
+### Statisches Routing
+
+#### Routing
+
+Routing ist das Vermitteln von Paketen eines Rechners in ein anderes Netzwerk. Dabei wird das routende System (egal, ob es sich um einen Rechner mit aktiviertem Routing-Dienst oder einen Hardware-Router handelt) von dem sendenden System adressiert, indem dieses mittels seiner Hardware-Adresse angesprochen wird. 
+
+Um zu ermitteln, ob ein Router eingesetzt werden muss, um ein Remotesystem anzusprechen, kommt ein logischer UND-Vergleich zum Einsatz. Der gesamte Vorgang soll anhand des folgenden Beispiels erläutert werden:
+
+Ein Rechner hat die IPv4-Adresse 192.168.0.1 und die Subnetzmaske 255.255.255.0. Er soll ein ICMP-Paket an das System mit der Adresse 172.16.0.1 schicken.
+
+Anhand der Subnetzmaske findet das System heraus, ob sich die Zieladresse im eigenen Netzwerksegment befindet. Ist dies der Fall, kann das Paket direkt übermittelt werden. Andernfalls muss das Paket an einen Router übermittelt werden, der den Weg bzw. einen Teil des Weges zum Ziel kennt. Der angesprochene Router ist im einfachsten Fall das in der Routing-Tabelle aufgeführte Gateway.
+
+#### Routing Tabelle
+
+In der Routing-Tabelle sind die logischen Verknüpfungen für die Adresszuordnung gespeichert. Hier werden den Adaptern die passenden Adressen, Netzwerke, Broadcasts und Routen zugeordnet. In der folgenden Darstellung ist ein Ausdruck der Routing-Tabelle eines Microsoft Windows 2019-Servers mit zwei Netzwerkadaptern dargestellt:
+
+![Bild1.png](./_static/NWPD/7/Bild1.png)
+
+#### Aktive Routen
+
+Aktive Routen Die aktiven Routen sind nach folgendem Schema dargestellt:
+
+In der ersten Spalte stehen die Zieladressen. Dabei kann es sich um eine Host-, eine Netz- oder um eine Broadcast-Adresse handeln. In der zweiten Spalte ist die anzulegende Netzwerkmaske dargestellt. Dabei markieren binäre Einsen den Bereich, der nicht geändert werden darf. So steht 192.168.0.255 255.255.255.255 etwa für die NetBIOS-BroadcastAdresse im Netz mit der Adresse 192.168.0.0.
+
+Die dritte Spalte gibt Auskunft darüber, ob dieses Ziel über eine eigene Adresse oder ein Fremdsystem angesprochen werden soll. Handelt es sich bei diesem Eintrag um ein Fremdsystem, wird vor dem Senden des Frames die MAC-Adresse des entsprechenden Rechners ermittelt und als MAC-Ziel in den Header des Frames eingetragen.
+
+An der vierten Stelle steht, über welche Adresse der Gateway-Partner angesprochen werden soll. Steht hier ein Remote-Gateway, wird dieses über einen der Netzwerkadapter adressiert, handelt es sich dabei um eine eigene Adresse, wird diese über Loopback angesprochen. Und in der letzten Spalte steht die Metrik einer Verbindung. Unter Metrik versteht man einen Wert, der einer Route zugeordnet ist. Ein niedriger Wert führt dazu, dass die Route vom System bevorzugt wird, falls zwei Routen zu demselben Ziel existieren. Metriken können etwa Kosten darstellen oder sie weisen auf Faktoren wie Bandbreite, Geschwindigkeit, Zuverlässigkeit, Pfadlänge oder Verzögerung von Routen hin.
+
+
+
+### Dynamisches Routing
+
+#### Einsatzgebiet
+
+In kleinen Netzwerken mag es sinnvoll sein, die Routing-Tabellen von Hand zu editieren, denn dies hat den Vorteil, dass das Netzwerk nicht durch das Versenden von Paketen zur Routenermittlung und Überwachung belastet wird.
+
+Eine veränderte Situation tritt jedoch auf, wenn die Netzwerkumgebung auf häufig wechselnde Gegebenheiten reagieren muss. In Netzwerken, die über mehrere Teilnetze verfügen, welche über redundante Routen angesprochen können werden sollen, benötigt man entsprechende Mechanismen, um das Erstellen und Verwalten der Routen zu automatisieren. Dafür verwendet man Routing-Protokolle.
+
+Routing-Protokolle sind für das Ermitteln der Routen in Netzwerken und ihre Überwachung zuständig. Geroutete Protokolle sind für die eigentliche Übermittlung von Paketen zwischen den Netzwerken (Paket-Switching) zuständig.
+
+![Bild2.png](./_static/NWPD/7/Bild2.png)
+
+
+
+### Distance-Vector-Protokolle
+
+Distance-Vector-Protokolle übermitteln benachbarten Routern ihre gesamte Routing-Tabelle. Diese setzen im Anschluss die Hop Counts (Sprungzähler) um den Wert 1 hoch und vergleichen die Ergebnisse mit der eigenen Routing-Tabelle. Ergibt sich nun ein kürzerer Weg zu einem Netzwerkziel als zuvor in der Tabelle vorhanden, wird der neue Weg als besser erkannt und in die Routing Tabelle übertragen.
+
+Maximum Hop Count
+
+Der sogenannte Maximum Hop Count (Maximaler Sprungzähler) soll verhindern, dass ein Paket endlos lange im Netz kreist (Counting-to-Infinity). Bei jeder Verarbeitung eines Paketes durch einen Router wird der Sprungzähler um eins hochgesetzt. Dieser Wert lässt sich verwenden, um die Dauer, die ein Paket bereits durch das Netzwerk transportiert wurde, zu messen. Indem man die maximale Distanz im Netzwerk ermittelt, lässt sich verhindern, dass ein Paket über Schleifen weitertransportiert wird. Dabei wird der Sprungzähler allerdings schon beim Konfigurieren der Routing-Tabelle ausgewertet, sodass der eigentliche Transport der Pakete über Schleifen im Vorfeld verhindert werden kann.
+
+Dies bewirkt jedoch, dass Routingprotokolle wie RIP nur in kleinen Netzwerken verwendet werden können. Der Maximum Hop Count bei RIP ist auf 15 Sprünge limitiert, was den Einsatz in größeren Netzwerken unmöglich macht.
+
+Route Poisoning und Hold Down Timer
+
+Wenn ein Router bemerkt, dass ein Netzwerk nicht mehr erreichbar ist, kann er es als unerreichbar markieren und diese Information im Netzwerk verteilen. Gleichzeitig akzeptiert er für dieses Netzwerkziel keine Aktualisierungen, bis die Router im Netz konvergiert sind. Man spricht bei diesem Verfahren von Route Poisoning (Pfade vergiften). Route Poisoning kommt in der Regel gemeinsam mit einem Hold Down Timer zum Einsatz. Ein Router, der eine Network-Unreachable-Nachricht (Netzwerk nicht erreichbar) von einem anderen Router erhält, akzeptiert für einen gewissen Zeitraum keine weiteren Aktualisierungen für diese Route, es sei denn, sie kämen vom Gerät, das ursprünglich das Ziel als nicht erreichbar markiert hat
+
+
+
+### Linkstate-Protokolle
+
+Funktionsweise
+
+Linkstate-Protokolle verwenden ein grundsätzlich anderes Verfahren, um Routing-Informationen zu übermitteln. Sie übermitteln nicht die komplette Routing-Tabelle, sondern nur die direkt angeschlossenen Netzwerke. Dafür werden diese Informationen aber nicht nur an die benachbarten Geräte übermittelt, sondern an alle Router des Netzwerkes oder der autonomen Verwaltungseinheit. Auf diese Weise lernen alle Router das gesamte Netzwerk kennen und können so die idealen Routen zu jedem Netzwerkziel ermitteln.
+
+Bei diesem Verfahren können Routing-Schleifen nicht auftreten, da die Systeme diese selbstständig erkennen würden. Andererseits werden die Geräte-Ressourcen (Speicher und CPU-Leistung) erheblich belastet. Dies lässt sich am besten durch eine sinnvolle hierarchische Strukturierung des Netzwerkes in autonome Verwaltungseinheiten begrenzen.
+
+So wäre es etwa sinnvoll, dass zwischen Standorten nicht jedes Mal die kompletten Routing-Informationen übermittelt werden, sondern die Standorte als autonome Einheiten definiert werden. So kann die Verarbeitungslast deutlich gesenkt werden.
+
+
+
+### Fragen
+
+**Was ist Routing?**
+
+Routing ist das Vermitteln von Paketen eines Rechners in ein anderes Netzwerk.
+
+
+
+**An was findet das System heraus ob sich die Zieladresse im eigenen Netzwerksegment befindet?**
+
+durch die Subnetzmaske.
+
+
+
+**Welche Aktiven routen gibt es in der Routing Tabelle?**
+
+Netzwerkziel Subnetzmaske Gateway Schnittstelle
+
+
+
+**Was soll der Maximum Hop Count verhindern?**
+
+dass ein Paket endlos lange im Netz kreist
+
+
 
 ## 8 Namensdienst DNS
 
@@ -285,9 +512,111 @@ Permanent, dynamisch, statisch
 
 Sie verwenden ein Broadcast, um sicherzustellen, dass die IP frei ist.
 
-## 15 Virtual Private Network
+## Virtual Private Network
 
 *Ziyu, Emina*
+
+### Was ist VPN?
+
+VPN ist ein privater Tunnel, der Daten von einem Standort zum anderen  verschlüsselt übermittelt. Die IP-Adressen werden dadurch geschützt.
+
+### Nutzen eines VPN
+
+- Es erhöht Ihren Online-Datenschutz.
+
+- Es bietet Ihnen mehr Online-Sicherheit.
+
+- Es erlaubt Ihnen mit mehr Freiheit im Internet zu surfen
+
+- Es macht öffentliche WLAN Netze sicherer.
+
+### Die Arten von VPN
+
+- Site to Site
+
+- Site to End
+
+- End to End
+
+### VPN Protokolle
+
+#### OpenVPN
+
+- OpenVPN ist eine freie Software zum Aufbau eines Virtuellen Privaten Netzwerkes
+
+- OpenVPN ist eines der am häufigsten verwendeten VPN-Protokolle. Die meisten VPN-Dienste unterstützen OpenVPN und es ist für viele verschiedene Plattformen verfügbar  z.B. Windows, Android, Linux, Router.
+
+- Der einzige Nachteil ist, dass es unter Mac OS und iOS nicht funktioniert
+
+#### IPsec/L2TP
+
+- IPsec (Internet Protocol Security) ist ein Protokollen, der gemeinsam zum Aufbau von verschlüsselten Verbindungen zwischen Geräten verwendet wird. Es macht die über öffentliche Netzwerke gesendeten Daten sicherer.
+
+- L2TP Layer 2 Tunneling Protocol ist ein von Cisco Systems entwickeltes Protokoll zur Tunnelung von Daten im LAN  (OSI-Schicht 2)
+
+- Dieses Protokoll kombiniert IPsec für die Verschlüsselung von Daten mit L2TP für die sichere Verbindung.
+
+
+
+Die Idee eines Virtual Private Network (VPN) : besteht darin, den meist günstigen lokalen Internetzugang zu verwenden, um den Kontakt zur Firmenzentrale herzustellen
+
+![Tunnel.png](./_static/NWPD/15/Tunnel.png)
+
+**Die Abbildung zeigt:**
+
+Ein Außendienstmitarbeiter  erhält über die Einwahl bei einem Internetprovider über das Internet Zugang zu Ressourcen in der Firmenzentrale, auch ein Teleworker  kann per Internet-Flatrate angebunden sein.
+
+![Bild2.png](./_static/NWPD/15/Bild2.png)
+
+Eine Kopplung von zwei LANs (z. B. Firmenzentrale und Zweigstelle) ist mit einem VPN realisierbar. In diesem Fall müssen Pakete, je nach Bedarf, von der einen auf die andere Seite geschickt werden. Als Transportmedium kommt hier wieder eine Internetverbindung zum Einsatz.
+
+### Vorteile von VPN
+
+- Sicheres, verschlüsseltes und privates Surfen im Internet
+
+- Anonymes Herunterladen und Hochladen
+
+- Umgehen von Geoblocking
+
+### Fragen
+
+**Welche 3 Arten von VPN gibt es?**
+
+- End to End
+
+- Site to Site
+
+- End to Site
+
+
+
+**Wofür steht das Kürzel VPN?**
+
+- Visual Personal Network
+
+- Visual Private Network
+
+- *Virtual Private Network*
+
+- Virtual Public Network
+
+
+
+**Was ist VPN?**
+
+Ein VPN ist ein sicherer Tunnel für das Surfen im Internet. Die Technologie ermöglicht sichere, verschlüsselte Verbindungen zwischen Geräten und Servern über das Internet. Sie maskiert die Identität der Geräte und verschlüsselt die Daten, die PCs oder Mobiltelefone ins Internet übertragen.
+
+
+
+**Nennen Sie die 3 Vorteile von VPN.**
+
+- Sicheres, verschlüsseltes und privates Surfen im Internet
+
+- Anonymes Herunterladen und Hochladen
+
+- Umgehen von Geoblocking
+
+
 
 ## Firewall und DMZ
 
