@@ -1,8 +1,20 @@
 # Protokolle und Dienste
 
-## 2 Netzwerkmodelle
+## Netzwerkmodelle
 
 *Lukas*
+
+### OSI TCP/IP-Modell
+
+![Bild1.png](./_static/NWPD/2/Bild1.png)
+
+![Bild2.png](./_static/NWPD/2/Bild2.png)
+
+### DoD-Modell
+
+![Bild3.png](./_static/NWPD/2/Bild3.png)
+
+
 
 ## Die TCP/IP-Protokollsammlung
 
