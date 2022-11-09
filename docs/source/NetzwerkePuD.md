@@ -146,6 +146,7 @@ Binär dargestellt 1111 1111.1111 1111.1111 1111.0000 0000
                                                  Netzwerkteil                     Hostteil
 
 ### Fragen
+
 192.168.20.8 /24  Netzklasse? A
 
 1100 0000. 1010 1000.0001 0100.0000 1000
@@ -215,15 +216,11 @@ Immer vollständige Sendung oder gar keine Sendung
 
 Verwendung des Three Way Handshake 
 
-
-
 ### Weiter Aufgaben von TCP
 
  Verwaltung des Datenstroms zwischen den Protokollen der Anwendungs und Netzwerkschicht Segmentierung des Datenstroms (Sammlung der Datenpakete in der Anwendungschicht um für die Übertragung geeignete Pakete zu „schnüren“ und anschließend noch mit einem Header zu versehen
 Pufferung der Daten
 Parallelisierung der Daten
-
-
 
 TCP verwendet für den Verbindungsaufbau zwischen zwei kommunizierenden Systemen den Three- Way Handshake
 
@@ -251,20 +248,14 @@ Im dritten und letzten Schritt übermittelt der Sender eine Bestätigung (ACK). 
 
 Sammlung der Datenpakete in der Anwendungschicht um für die Übertragung geeignete Pakete zu „schnüren“ und anschließend noch mit einem Header zu versehen
 
-
-
 **Pufferung**
 
 Damit daten zu Segmenten zusammengefasst werden und die Segmente an die 7. Schicht des OSI-Modells (Anwendungsschicht) in der richtigen Reihenfolge weitergeleitet werden können, muss die Transportschicht auf einen eigenen Speicher (Puffer) zurückgreifen
-
-
 
 **Parallelisierung**
 
 Wenn für eine Anwendung eine schnellere Datenübertragung benötigt wird, als ein einzelner Kanal aufbringen kann, ist es TCP möglich mehrere Verbindungen gleichzeitig zu nutzen
 Die Parallelisierung ist kein fester Bestandteil von TCP, sondern ein zusätzliches Feature, welches von modernen Betriebssystemen bereitgestellt wird
-
-
 
 ### Erklärung des TCP-Header
 
@@ -276,45 +267,32 @@ Der Header (Protokoll-Kopf) enthält alle Informationen sowie weitere Felder, di
 
 Der Source Port (Quellport) gibt an, von welchem Port auf Schicht 5 die Daten stammen, die (in Datagramme zerlegt) übermittelt werden.
 
-
-
 **Destination Port (16 Bit)**
 Der Destination Port (Zielport) gibt an, an welchen Port auf Schicht 5 die zusammengesetzten Daten der Datagramme weitergereicht werden sollen. 
-
 
 **Sequence Number (32 Bit)**
 Die Sequenz-Nummer dient dazu, die empfangenen Datagramme in die richtige Reihenfolge zu bringen, den Kommunikationsfluss zu kontrollieren und etwaige Fehler zu erkennen. 
 
-
 **Acknowledgment Number (32 Bit)**
 Die Acknowledgment Number (Bestätigungsnummer) gibt an, welche Sequenznummer das empfangende System zur Bestätigung des einwandfreien Erhalts des oder der Datagramme verwenden soll. 
-
-
 
 **Header Length (4 Bit)**
 Die Längeninformation des Headers gibt an, wie viele 32-Bit-Wörter dieser umfasst. Dies ist notwendig, weil sich die Länge des Headers verändern kann, z. B. wenn zusätzliche Optionen für die Flusskontrolle vereinbart werden müssen. 
 
-
 **Flags (12 Bit)**
 Auch wenn im Moment erst acht Bit = acht Flags definiert sind, ist das System an dieser Stelle bereits für Erweiterungen vorbereitet. So können etwa Sonderformen von TCP für den Satellitentransfer spezielle Informationen enthalten. 
-
 
 **Fenstergröße**
 Hier ist festgelegt, wie viele Bits ein Gerät maximal auf einmal empfangen kann. 
 
-
 **Prüfsumme** 
 Anhand der Prüfsumme kann ein Empfänger bestimmen, ob Daten während des Transportes verändert worden sind. 
-
 
 **Dringlichkeitszeiger**
 Wenn bei den Flags eine Kennzeichnung des URGENT-Flags (Dringend-Kennzeichen) vorliegt, werden die Daten nicht in den Puffer gelegt, sondern es wird sofort mit der Verarbeitung begonnen. Der Dringlichkeitszeiger verweist auf das Ende der dringend zu verarbeitenden Daten. 
 
-
 **Optionen**
 Hier ist derzeit in der Standardversion von TCP nur die maximale Größe für TCP-Segmente definiert. Der Rest des 32-Bit-Wortes muss mit Nullen aufgefüllt werden, um so der Längeninformation zu entsprechen.
-
-
 
 ### UDP (Schicht 4 Transport Layer)
 
@@ -335,13 +313,39 @@ Damit ist UDP vor allem für die Übertragungen geeignet, bei denen es zu wenig 
 
 ![Bild3.png](./_static/NWPD/5/Bild3.png)
 
-
-
-
-
-## 6 Network Address Translation
+## NAT (Network Address Translation)
 
 *Alex*
+
+### NAT Definition
+
+NAT übersetzt private IP-Adressen in öffentliche IP-Adressen und weist temporär Ports für die Kommunikation im Internet zu.
+
+### NAT-Funktionsweise (anhand eines Beispiels)
+
+![Bild1.png](./_static/NWPD/6/Bild1.png)
+
+1. Der Client schickt seine Datenpakete mit der IP-Adresse 192.168.0.2 und dem TCP-Port 10101 an sein Standard-Gateway, bei dem es sich um einen NAT-Router handelt.
+
+2. Der NAT-Router tauscht IP-Adresse (LAN-Adresse) und TCP-Port (LAN-Port) aus und speichert beides mit der getauschten Port-Nummer (WAN-Port) in der NAT-Tabelle.
+
+3. Der Router leitet das Datenpaket mit der WAN-Adresse 220.0.0.1 und dem neuen TCP-Port 20202 ins Internet weiter.
+
+4. Der Empfänger (Server) verarbeitet das Datenpaket und schickt seine Antwort zurück.
+
+5. Der NAT-Router stellt nun anhand der Port-Nummer 20202 (WAN-Port) fest, für welche IP-Adresse (LAN-Adresse) das Paket im lokalen Netz gedacht ist.
+
+6. Er tauscht die IP-Adresse und die Port-Nummer wieder aus und leitet das Datenpaket ins lokale Netz weiter, wo es der Client entgegen nimmt.
+
+### Vorteile eines NAT
+
+Durch eine öffentliche IP-Adresse (public-IP) werden weniger öffentlich IP-Adressen zur Kommunikation im Internet benötigt.  
+
+Sicherheitsgewinn durch keinen direkten Zugang über private IP-Adressen sondern „Umweg“ über public-IP. Die temporären Ports werden nach der Kommunikation wieder geschlossen.
+
+### Nachteile eines NAT
+
+Kommunikation über Header-Integritätsabhängige Protokolle z.B. IPSec nicht möglich. Erschwerte Verbindungsmöglichkeiten von außen z.B. auf Netzwerkspeicher.
 
 ## Routing
 
@@ -375,8 +379,6 @@ Die dritte Spalte gibt Auskunft darüber, ob dieses Ziel über eine eigene Adres
 
 An der vierten Stelle steht, über welche Adresse der Gateway-Partner angesprochen werden soll. Steht hier ein Remote-Gateway, wird dieses über einen der Netzwerkadapter adressiert, handelt es sich dabei um eine eigene Adresse, wird diese über Loopback angesprochen. Und in der letzten Spalte steht die Metrik einer Verbindung. Unter Metrik versteht man einen Wert, der einer Route zugeordnet ist. Ein niedriger Wert führt dazu, dass die Route vom System bevorzugt wird, falls zwei Routen zu demselben Ziel existieren. Metriken können etwa Kosten darstellen oder sie weisen auf Faktoren wie Bandbreite, Geschwindigkeit, Zuverlässigkeit, Pfadlänge oder Verzögerung von Routen hin.
 
-
-
 ### Dynamisches Routing
 
 #### Einsatzgebiet
@@ -388,8 +390,6 @@ Eine veränderte Situation tritt jedoch auf, wenn die Netzwerkumgebung auf häuf
 Routing-Protokolle sind für das Ermitteln der Routen in Netzwerken und ihre Überwachung zuständig. Geroutete Protokolle sind für die eigentliche Übermittlung von Paketen zwischen den Netzwerken (Paket-Switching) zuständig.
 
 ![Bild2.png](./_static/NWPD/7/Bild2.png)
-
-
 
 ### Distance-Vector-Protokolle
 
@@ -405,8 +405,6 @@ Route Poisoning und Hold Down Timer
 
 Wenn ein Router bemerkt, dass ein Netzwerk nicht mehr erreichbar ist, kann er es als unerreichbar markieren und diese Information im Netzwerk verteilen. Gleichzeitig akzeptiert er für dieses Netzwerkziel keine Aktualisierungen, bis die Router im Netz konvergiert sind. Man spricht bei diesem Verfahren von Route Poisoning (Pfade vergiften). Route Poisoning kommt in der Regel gemeinsam mit einem Hold Down Timer zum Einsatz. Ein Router, der eine Network-Unreachable-Nachricht (Netzwerk nicht erreichbar) von einem anderen Router erhält, akzeptiert für einen gewissen Zeitraum keine weiteren Aktualisierungen für diese Route, es sei denn, sie kämen vom Gerät, das ursprünglich das Ziel als nicht erreichbar markiert hat
 
-
-
 ### Linkstate-Protokolle
 
 Funktionsweise
@@ -417,33 +415,23 @@ Bei diesem Verfahren können Routing-Schleifen nicht auftreten, da die Systeme d
 
 So wäre es etwa sinnvoll, dass zwischen Standorten nicht jedes Mal die kompletten Routing-Informationen übermittelt werden, sondern die Standorte als autonome Einheiten definiert werden. So kann die Verarbeitungslast deutlich gesenkt werden.
 
-
-
 ### Fragen
 
 **Was ist Routing?**
 
 Routing ist das Vermitteln von Paketen eines Rechners in ein anderes Netzwerk.
 
-
-
 **An was findet das System heraus ob sich die Zieladresse im eigenen Netzwerksegment befindet?**
 
 durch die Subnetzmaske.
-
-
 
 **Welche Aktiven routen gibt es in der Routing Tabelle?**
 
 Netzwerkziel Subnetzmaske Gateway Schnittstelle
 
-
-
 **Was soll der Maximum Hop Count verhindern?**
 
 dass ein Paket endlos lange im Netz kreist
-
-
 
 ## 8 Namensdienst DNS
 
@@ -557,8 +545,6 @@ VPN ist ein privater Tunnel, der Daten von einem Standort zum anderen  verschl�
 
 - Dieses Protokoll kombiniert IPsec für die Verschlüsselung von Daten mit L2TP für die sichere Verbindung.
 
-
-
 Die Idee eines Virtual Private Network (VPN) : besteht darin, den meist günstigen lokalen Internetzugang zu verwenden, um den Kontakt zur Firmenzentrale herzustellen
 
 ![Tunnel.png](./_static/NWPD/15/Tunnel.png)
@@ -589,8 +575,6 @@ Eine Kopplung von zwei LANs (z. B. Firmenzentrale und Zweigstelle) ist mit einem
 
 - End to Site
 
-
-
 **Wofür steht das Kürzel VPN?**
 
 - Visual Personal Network
@@ -601,13 +585,9 @@ Eine Kopplung von zwei LANs (z. B. Firmenzentrale und Zweigstelle) ist mit einem
 
 - Virtual Public Network
 
-
-
 **Was ist VPN?**
 
 Ein VPN ist ein sicherer Tunnel für das Surfen im Internet. Die Technologie ermöglicht sichere, verschlüsselte Verbindungen zwischen Geräten und Servern über das Internet. Sie maskiert die Identität der Geräte und verschlüsselt die Daten, die PCs oder Mobiltelefone ins Internet übertragen.
-
-
 
 **Nennen Sie die 3 Vorteile von VPN.**
 
@@ -616,8 +596,6 @@ Ein VPN ist ein sicherer Tunnel für das Surfen im Internet. Die Technologie erm
 - Anonymes Herunterladen und Hochladen
 
 - Umgehen von Geoblocking
-
-
 
 ## Firewall und DMZ
 
