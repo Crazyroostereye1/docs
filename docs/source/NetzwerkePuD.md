@@ -14,8 +14,6 @@
 
 ![Bild3.png](./_static/NWPD/2/Bild3.png)
 
-
-
 ## Die TCP/IP-Protokollsammlung
 
 *Erin, Peter, Aron*
@@ -445,9 +443,133 @@ Netzwerkziel Subnetzmaske Gateway Schnittstelle
 
 dass ein Paket endlos lange im Netz kreist
 
-## 8 Namensdienst DNS
+## Namensdienst DNS
 
 *Natalie*
+
+### Konzept
+
+Der Domain Name Service (DNS) ist ein Dienst zur Namens- und Adressauflösung in großen Netzwerken. Muss die Person in einem größeren Kontext angesprochen werden, wird dem Vornamen ein Familienname hinzugefügt. Der Rechner in einem größeren Netzwerk einer Domäne (= seiner Familie) zugeordnet.
+
+Beispiel FTPServer01.Institut-für-Festkoerperphysik.Fraunhofer.de. Dies entspricht einer Organisation der Informationen nachfolgendem Prinzip:
+
+*HOSTNAME.SUBDOMAIN.SECONDLEVELDOMAIN.TOPLEVELDOMAIN.ROOT*
+
+#### Hostname am Beispiel des FTP-Servers
+
+Der Hostname ist ein innerhalb der Subdomain eindeutiger Name. Auch wenn es weltweit unzählige FTP-Server gibt, kann durch die hierarchische Struktur der DNS-Namen eine eindeutige Zuordnung eines Gerätes zu einer weltweit eindeutigen IP-Adresse vorgenommen werden.
+
+#### Subdomain
+
+Die Subdomain (Unterdomäne) kann dazu verwendet werden um innerhalb eines komplexen Unternehmens Untergruppierungen zu organisieren. Sie ist ein optionaler Namensbestandteil und ihre Verwaltung obliegt ebenfalls der Domain.
+
+#### Second-Level-Domain/Sublevel Domain
+
+Die Second-Level-Domain (Domäne) entspricht der Basis des Namensraumes. Sie ist die Schnittstelle zwischen dem weltweiten Netz und der Verantwortlichkeit eines Unternehmens. Die Domänennamen dagegen werden von zentralen Institutionen verwaltet, die als nationale Unterabteilungen von InterNIC (Internet Network Information Center) fungieren.
+ Der Begriff Subdomain bezeichnet eine Domain, die in der Hierarchie unterhalb einer anderen Domain liegt. Damit werden Domains der dritten Ebene bezeichnet. Subdomains werden zur besseren logischen Gliederung eines Verwaltungsraums verwendet.
+
+![Bild1.jpeg](./_static/NWPD/8/Bild1.jpeg)
+
+#### Top-Level-Domain
+
+Die Top-Level-Domain (hier „de“) beschreibt entweder eine nationale Organisationseinheit, zwei Buchstaben, oder stellt die Art eines Unternehmens dar, die drei oder mehr Buchstaben hat. Die Verwaltungsstelle der Top-Level-Domain ist für alle Domänennamen innerhalb ihres Namensraumes zuständig. Die folgende Übersicht erläutert die generischen Top-Level-Domains:
+
+**com:**     international 
+
+**edu:**     Forschungseinrichtungen und Hochschulen
+
+**gov:**     US-Regierungseinrichtungen
+
+**ing:**     international
+
+**mil:**     militärische Einrichtung
+**net:**     Netzwerk und Netzwerkmanagement-Organisationen
+**org:**     nicht Kommerzielle Einrichtungen, Vereine etc.
+**biz:**     geschäftliche Domains
+**name:** Privatnamen
+**eu:**      europäische Domains
+
+Die nationalen Top-Level-Domains entsprechen den ISO-3166-Codes
+
+#### Root
+
+Root (die Wurzel) kann als Punkt am Ende eines jeden DNS-Namens dargestellt werden. Die meisten Anwendungen, die DNS auswerten, ergänzen diesen Punkt jedoch selbstständig. Root ist die Verwaltungsdatenbank der Top-Level-Domains. Die Root-Namensserver halten entsprechend die Adressen der Top-Level-Domain-Namensserver bereit, die wiederum die Adressen für die Domain-Namensserver auflösen können.
+
+#### FQDN
+
+Der Fully Qualified Domain Name (FQDN) wird der vollständige und eindeutige Hostname einer Webpräsenz im Internet bezeichnet.
+
+#### DNS-Server
+
+DNS Server bzw. Nameserver sind Server, die einer URL die richtige IP zuweisen können oder einer IP die richtige URL.
+
+### Forward Lookup
+
+#### Auflösung von DNS-Namen
+
+Möchte ein Client mittels eines DNS-Namens auf ein Remotesystem zugreifen, kann eine von drei Möglichkeiten eintreten:
+
+- Der DNS-Name wurde schon zur einer IP-Adresse zugeordnet und die Informationen befindet sich im Cache für den DNS-Auflösungsdienst
+
+- Der Name kann in der DNS-Host-Datei des Systems aufgelöst werden
+
+- Der Client schickt eine Forward-Lookup-Anfrage an einen DNS-Server, der in seiner IP-Konfiguration aufgeführt ist
+
+#### DNS-Cache
+
+Der DNS-Cache hält das Ergebnis einer rekursiven DNS-Namensauflösung eine Zeit lang im lokalen Cache vor, um weitere identische DNS-Anfragen sofort beantworten zu können, ohne erneut bei den zuständigen Nameservern Anfragen zu müssen.
+
+#### Host Datei
+
+Die Host-Datei ist eine lokale Konfigurationsdatei, um Hostnamen(FQDN) zu IP-Adressen zuzuordnen. Sie allgemein lediglich zur festen Zuordnung in lokalen Rechnernetzen verwendet. Die Datei lässt sich leicht im Texteditor erstellen und kann bearbeitet werden.
+
+Das Format eines Eintrags in der Host-Datei ist: [IP-Adresse] [Mindestens ein Leerzeichen] [FQDN], optional #[Kommentar] Beispiel: 192.168.0.1 server01.testnetz.int
+
+#### DNS-Server
+
+Die Auflösung von DNS-Namen wird nicht durch eine Host-Datei gewährleistet, sondern erfolgt mittels eines DNS-Servers.
+
+#### Forward-Lookupzone
+
+![Bild2.jpeg](./_static/NWPD/8/Bild2.jpeg)
+
+Im Beispiel sehen Sie eine Forward-Lookupzone auf einem Windows 2016 DNS-Server. Hier wurde die Zone Schulungsnetz.intern eingerichtet. Sie finden in dieser Zone Einträge für z. B. einen Router und diverse Clientrechner mit ihren zugeordneten IPv4-Host-Einträgen (A) und IPv6-Host-Einträgen (AAAA).
+
+#### Zonendatei
+
+Eine Zone ist eine als Datenbank gespeicherte Verwaltungseinheit, die in der Verantwortung eines Servers liegt. In der Regel handelt es sich hierbei um eine Domäne, es kann aber auch die Verwaltung einer Subdomäne an einen anderen Server delegiert werden. Wenn Sie Ihre Zonen nicht ins Active Directory integrieren, sondern primäre Standardzonen oder sekundäre Zonen verwenden, lassen sich die Informationen auch als Textdateien mit einem Editor bearbeiten und zwischen Systemen migrieren. 
+
+![Bild3.jpeg](./_static/NWPD/8/Bild3.jpeg)
+
+DNS-Datei von „Schulungsnetz.intern“ Unter a finden Sie die Zoneninformation inklusive der aktuellen Versionsnummer der Zone. Diese dient nur der Übersichtlichkeit bei der Bearbeitung, wird vom System jedoch nicht ausgewertet. Das Semikolon dient in einer DNS-Datei als Kommentarzeichen für den Rest der Zeile.-
+
+
+
+Unter b steht die Source of Authority (SOA, autorisierte Quelle) der Name des DNS Servers, auf dem der Eintrag vorgenommen wurde und der autorisiert für die Zone ist Der Eintrag für die verantwortliche Person der Zone stellt eine E-Mail-Adresse in DNS-Schreibweise dar, bei der das @ durch einen Punkt ersetzt wird. hostmaster.testnetz.intern wird also als hostmaster@testnetz.intern interpretiert. Die Seriennummer (serial number) bezeichnet die Revisionsnummer der Datei, die sich bei jeder Änderung um den Wert eins erhöht. Auf diese Weise ist sichergestellt, dass bei der Replikation andere Server die aktuellen Informationen erhalten. Das Aktualisierungsintervall (refresh) bezeichnet die Anzahl an Sekunden, die vergehen sollen, bevor ein sekundärer (untergeordneter) DNS-Server versucht, die Zonendaten des Quell-Servers zu replizieren. Das Wiederholungsintervall (retry) bezeichnet die Anzahl an Sekunden, die vergehen sollen, bevor ein sekundärer Server eine fehlgeschlagene Replikation erneut versucht. Das Verfallsdatum (expire) gibt an, wann ein sekundärer Server die Daten als veraltet verwerfen soll, falls keine Replikation stattfinden konnte. Wenn ein Eintrag keine eigene Time To Live (TTL) hat, wird davon ausgegangen, dass der Eintrag mindestens solange gültig ist,  bis die Minimum-TTL abgelaufen ist.
+
+Unter c Zone NS Records (Namensserver-Einträge der Zone) steht eine Liste aller Namensserver, die Kopien dieser Zone erhalten dürfen. 
+
+Unter d schließlich finden Sie eine Liste sämtlicher Einträge, die auf dem System vorgenommen wurden.
+
+#### Eintragstypen
+
+In der DNS-Datenbank finden sich diverse Typen von Einträgen. Diese können nicht nur Rechner identifizieren, sondern daneben auch Dienste im Netz auffindbar machen. So ist beispielsweise der Betrieb von Windows Domänen ohne DNS nicht mehr durchführbar, da sämtliche Domänendienste über SRV-Einträge (Service, Dienst-einträge) in der DNS bereitgehalten werden müssen. Im Folgenden finden Sie eine Tabelle mit einigen wichtigen Eintragstypen, die in DNS-Zonen verwendet werden:
+
+![Bild4.jpeg](./_static/NWPD/8/Bild4.jpeg)
+
+#### Abfragevorgang
+
+Möchte ein Client auf eine unbekannte Adresse über einen DNS-Namen zugreifen, muss er als Erstes diesen Namen zu einer IP-Adresse auflösen. Dazu wird dem DNS-Server des Clients ein DNS-Query-Request geschickt. Der DNS-Server hat drei Möglichkeiten, die Information für die Antwort zu erlangen: 
+
+- Cache; wenn der DNS-Server diese Anfrage bereits einmal bearbeitet hat, kann sich die Antwort noch in seinem Cache befinden. 
+
+- Zonendatei; wenn der DNS-Server selbst die Zone verwaltet, kann er den Namen in der Zonendatei suchen und die zugehörige Adresse an den Client übermitteln. 
+
+- Weiterleitung; wenn der DNS-Server als weiterleitender Server konfiguriert ist, fragt er einen anderen DNS-Server. Dies wird vor allem dann gemacht, wenn nur einzelne DNS-Server in der Lage sind, auf das Internet zuzugreifen. Er verhält sich diesem gegenüber wie ein ganz normaler Client. 
+
+- Iterative Abfrage; um einen Namen in einer fremden Zone zu ermitteln, löst der Server Schritt für Schritt jeden Namensanteil auf.
+
+
 
 ## Netzwerkkonfigurationsdienste
 
