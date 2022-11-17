@@ -15,11 +15,12 @@ Im besten case Markdown verwenden. Dafür gibt es Editoren die es ganz einfach m
 z.B. in Word Überschrift 1 Für das Kapitel Überschrift 2 Für das Unterkapitel etc.
 
 **Nicht tun:**
-- Text Fablich einstellen
+- Text Fablich formatieren
 
 **Zu tun:**
 - Bilder extra senden wenn möglich
 - Oben hinschreiben ob Tabelen drinnen sind oder anderweiting sagen
+- Rohe Dateien senden wie odt, docx, etc.
 
 <br><br>
 ![](./_static/title.gif)
