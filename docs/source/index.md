@@ -4,7 +4,7 @@ Dieses Wiki dient als einfach-zugängliche Sammlung an Zusammenfassungen mit jed
 
 Bei Änderungsvorschlägen, bitte an Julian oder Marcel wenden, oder ein Pull-Request machen (Link oben Rechts).
 
-## Formatirungs Regeln
+## Formatierungsregeln
 ### Allgemein
 Hauptüberschift soll Kapitel Name ohne Kapitel Nummer sein.<br>
 Im besten case Markdown verwenden. Dafür gibt es Editoren die es ganz einfach machen
