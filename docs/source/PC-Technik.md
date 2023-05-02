@@ -6,61 +6,58 @@
 
 #### Entwicklung
 
-Das Wort Chipsatz beschreibt man eine unbestimmte Anzahl von Bausteinen, die zusammengefasst wurden. Diese führen zahlreiche Steueraufgaben und für das Zusammenarbeiten der PC Komponenten.
+Der Chipsatz bezeichnet eine Gruppe von Bauteilen, welche gemeinsam zahlreiche Steueraufgaben zur Zusammenarbeit der PC-Komponenten übernehmen.
 
-Ursprünglich bestanden dies Chipsatze aus einzelnen Schaltkreisen die überall auf dem Motherboard verteilt waren. Bis sie immer mehr Zusammengeführt wurden. Aber wegen den unterschiedlichen Geschwindigkeiten der Komponenten wurden zwei Integrierte Schaltkreise die oberhalb und unterhalb der CPU auf dem Motherboard Platziert wurden. Diese nennen wir Northbridge und Southbridge. Dies Weiterentwicklung sorgte für die Entwicklung für viele verschiedene neue Architekturen.
+Ursprünglich bestanden diese Chipsätze aus einzelnen Schaltkreisen, die über das Motherboard verteilt waren. Mit der Zeit wurden sie jedoch aufgrund der unterschiedlichen Geschwindigkeiten der Komponenten immer mehr zusammengeführt. Als Resultat entstanden zwei integrierte Schaltkreise, welche ober- und unterhalb der CPU auf dem Motherboard platziert wurden. Diese wurden als Northbridge und Southbridge bekannt. Durch diese Weiterentwicklung entstanden viele verschiedene neue Architekturen.
 
 #### Bridge-Architektur
 
 ![Screenshot from 2022-09-23 09-31-16.png](./_static/Chipsatz_Bridge.png)
 
-Die älteste Form, die Bridge-Architektur, hat alle Komponenten die höhere Arbeitsgeschwindigkeit (Grafik, Arbeitsspeicher) brauchten an der Northbridge. Die CPU wurde an die Northbridge via der **FSB** (**F**ront **S**ide **B**us) angeschlossen. Alle anderen Komponenten wurden an der Southbridge angeschlossen.
+
+Die älteste Form der Architektur für Computer-Hauptplatinen, die sogenannte Bridge-Architektur, sah vor, dass alle Komponenten, die eine höhere Arbeitsgeschwindigkeit benötigten, wie zum Beispiel die Grafikkarte oder der Arbeitsspeicher, an der Northbridge angeschlossen wurden. Die CPU hingegen wurde über den **F**ront **S**ide **B**us (**FSB**) an die Northbridge angebunden. Alle anderen Komponenten waren an der Southbridge angeschlossen.
 
 #### Hub-Architektur
 
 ![Screenshot from 2022-09-23 09-31-44 (2).png](./_static/Chipsatz_Hub.png)
 
-Mit der Technischen weiterentwickeln kamen auch neue Architekturen. Eine davon war die Hub-Architektur welche die Northbridge mit der MCH (Memory Controller Hub) ersetzte. Es gab auch die GMCH (Graphics Memory Controller Hub) die manchmal noch dazu für die Grafikkarte entwickelt wurde
+Mit der technischen Weiterentwicklung kamen neue Architekturen auf. Eine davon war die Hub-Architektur, die die Northbridge durch den MCH (Memory Controller Hub) ersetzte. Zusätzlich gab es auch die GMCH (Graphics Memory Controller Hub), die manchmal speziell für Grafikkarten entwickelt wurde.
 
-Dazu noch gab es den ICH (I/O Controller Hub) welcher sich um alle anderen Anbindungen sich kümmerte (USB, Laufwerke, Bios, etc.).
+Darüber hinaus gab es den ICH (I/O Controller Hub), der sich um alle anderen Anbindungen kümmerte, wie z.B. USB, Laufwerke, BIOS und mehr.
 
-Um aber die Möglichkeit klassische Erweiterungen einzubauen. Gab es auch den I/O Chip. Welche funktionale Erweiterungen erlaubte.
+Um jedoch die Möglichkeit für klassische Erweiterungen zu bieten, gab es auch den I/O Chip, welcher funktionale Erweiterungen ermöglichte.
 
 #### Erweiterte Hub-Architektur
 
 ![Screenshot from 2022-09-23 09-32-29 (2).png](./_static/Chipsatz_erw.png)
 
-Nachdem die Leistungsansprüche immer mehr steigen wurde eine neue Architektur entwickelt welche die Grafik und Arbeitsspeicher direkt an die CPU anschließt. Des weiteren werden nun MCH und ICH in ein Gehäuse gepackt welches man ein "Einchip"-Chipsatz nennt. Auch der Steckkarten Anschluss wurde von ICH zur MCH bewegt, da es immer populärer wird eine externe Grafikkarte ein zu bauen.
-
-Modernere Beschreibungen und Darstellungen zeigen auch eine PCH. Die PCH wurde entwickelt unterschiedliche Funktionen auszuführen die benötigt wurden zum Beispiel: Overclocking, extra PCI_Lanes, USB 2.0, M.2, etc..
+Aufgrund der stetig steigenden Leistungsanforderungen wurde eine neue Architektur entwickelt, bei der Grafik- und Arbeitsspeicher direkt an die CPU angebunden sind. Außerdem wurden MCH und ICH in einem Gehäuse namens "Einchip"-Chipsatz vereint. Da der Einbau externer Grafikkarten immer beliebter wird, wurde der Steckkartenanschluss von ICH zur MCH verlegt. Moderne Beschreibungen und Darstellungen zeigen auch die PCH, die speziell entwickelt wurde, um unterschiedliche Funktionen auszuführen, die für Overclocking, zusätzliche PCI-Lanes, USB 2.0, M.2 usw. benötigt werden.
 
 ### CPU
 
-Bei einem Motherboard kann es an sein Architektur nur eine bestimmte reihe an CPUs verwenden. Deshalb immer im voraus überprüfen ob das Motherboard mit deiner CPU kompatible ist. Es kann sein das bei nicht kompatiblen Geräten Schäden an den Komponenten entstehen können. Diese Inkompatiblen Eigenschaften können komplett andere Sockel, anderes BIOS bis zu einer anderen Pin Verlegung sein.
+Das Motherboard eines Computers kann aufgrund seiner Architektur nur eine bestimmte Reihe an CPUs nutzen. Aus diesem Grund ist es immer ratsam, im Vorfeld zu überprüfen, ob das Motherboard mit der ausgewählten CPU kompatibel ist. Wenn man nicht-kompatible Geräte zusammenführt, kann es zu Schäden an den Komponenten kommen. Inkompatibilitäten können sich durch verschiedene Faktoren ergeben, wie beispielsweise unterschiedliche Sockel, verschiedene BIOS-Versionen oder sogar durch eine andere Pin-Verlegung. Es ist daher wichtig, sorgfältig zu überprüfen, ob alle Komponenten miteinander harmonieren, um die optimale Leistung des Computers zu gewährleisten und Beschädigungen zu vermeiden.
 
-#### Prozessorreihen
+#### Prozessor-Produktlinien
 
-Es gibt CPUs in unterschiedlichen Formen und Funktionen, wie zum Beispiel verwendet man CPUs auch in Smart Home Systemen diese Geräte nennt man IoTs oder Internet der Dinge. Daher muss man auch genau schauen für was die CPU gemacht worden ist. Zum Beispiel hat AMD ganz viel unterschiedliche CPUs die verwendet werden können, wie der Ryzen und Ryzen Threadripper/Pro reihe welche für Desktops und Workstations gedacht sind.
+CPUs gibt es in verschiedenen Formen und mit unterschiedlichen Funktionen. Eine besondere Verwendung finden CPUs in Smart Home Systemen, welche auch als IoTs oder Internet der Dinge bezeichnet werden. Es ist daher wichtig, genau darauf zu achten, wofür die CPU gedacht ist. Ein Beispiel dafür sind die vielen verschiedenen CPUs von AMD, wie die Reihen Ryzen und Ryzen Threadripper/Pro, die speziell für Desktops und Workstations konzipiert sind.
 
 ### CPU Prozessorsockel
 
-Das Ausschlaggebendste an der Auswahl einer CPU ist ihrer Sockel denn nicht jedes Motherboard unterstützt jede CPU. Deshalb immer im Motherboard Handbuch schauen was es Unterstützt, da manche Sockel Identisch aussehen aber doch anders sind. Beim versuch von solchen Sockeln kann es zu Schäden kommen z.B. ein tödlicher Kurzschluss an der CPU womit das gesamt gerät nutzlos gemacht wird.
+Ein entscheidender Faktor bei der Auswahl einer CPU ist der Sockel, da nicht jedes Motherboard jede CPU unterstützt. Es ist daher ratsam, immer einen Blick in das Handbuch des Motherboards zu werfen, um sicherzustellen, welche CPUs unterstützt werden. Denn obwohl manche Sockel ähnlich aussehen, können sie dennoch unterschiedlich sein. Wenn man versucht, eine nicht unterstützte CPU in einen solchen Sockel einzusetzen, kann es zu Schäden kommen, wie beispielsweise einem tödlichen Kurzschluss an der CPU, der das gesamte Gerät unbrauchbar machen würde.
 
 ### Weitere Komponenten
 
-Nicht alle Komponenten werden von dem Motherboard unterstützt so muss man dort auch immer drauf achten das die Features die man Will auch unterstützt werden.
+Nicht alle Komponenten werden vom Motherboard unterstützt, weshalb es wichtig ist, darauf zu achten, dass die gewünschten Features verfügbar sind. Beispielsweise werden integrierte Grafiken oder Grafikkarten möglicherweise nicht unterstützt, ebenso können auch PCI- und PCIe-Schnittstellen nicht verfügbar sein. 
 
-Zum Beispiel werden Intrigierte Grafiken oder Grafikkarten nicht unterstützt auch PCI und PCIe können nicht unterstützt werden.
-
-Aber auch Laufwerke und externe Schnittstellen (USB, etc) könnten nicht unterstützt werden.
+Auch Laufwerke und externe Schnittstellen wie USB könnten unter Umständen nicht unterstützt werden. Es ist daher empfehlenswert, vor dem Kauf der Komponenten die Kompatibilität mit dem Motherboard zu überprüfen, um Kompatibilitätsprobleme zu vermeiden.
 
 #### BIOS-Chip
 
-Dieser Chip ist kein direkter Bestandteil des Chipsatzes, aber is trotzdem einer der wichtigsten. Ohne ihn, könnte der Computer nicht starten.
+Obwohl er kein direkter Bestandteil des Chipsatzes ist, gehört dieser Chip zu den wichtigsten Komponenten eines Computers. Ohne ihn wäre der Startvorgang des Computers nicht möglich.
 
-Der BOIS-Chip enthält die Sequenz und Software um das System zu initialisieren.
+Der BIOS-Chip enthält die Sequenz und Software zur Initialisierung des Systems.
 
-Der Speicher des BIOS-Chips ist ein sogenannter ROM Speicher was für "Read-Only-Memory" steht.
+Der Speicher des BIOS-Chips ist als sogenannter ROM-Speicher ausgeführt, was für "Read-Only-Memory" steht.
 
 ### Steckplätze
 
